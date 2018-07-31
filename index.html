@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8"/>
+<meta name="description" content="Urban Sense Academy" />
+<meta name="keywords" content="urban,sense,parkour,academy,trenink">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="author" content="Matěj Brožek" />  
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0e6cb4">
+<link rel="stylesheet" href="styly.css" type="text/css"/>
+<link rel="icon" href="images/favicon.png" />
+<link rel="icon" sizes="64x64" href="images/favicon.png">
+ <!-- JQUERY -->
+    <script src="https://code.nath.co/src/jQuery.min.js"></script>
+ <!-- FONTY -->
+ <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,400" rel="stylesheet">
+  <!-- SCRIPTS -->
+<script src="javascript/scripty.js"></script>
+<script src="javascript/jquery.interactive_bg.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lettering.js/0.7.0/jquery.lettering.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js"></script>
+<title> US Academy</title>
+</head>
+<body>
+	<div id="upper">
+		<div id="logo"> <img src="images/logo.png" alt="logo" draggable="false"> </div>
+		<section class="container">
+		  <h1>
+			<span class="title">Academy</span>
+		  </h1>
+		  
+		</section>
+	</div>
+	<div id="main">
+		<div id="menu">
+			<div id="left">
+			
+				<ul id="nav-take">
+					<li class=""><a href="#page2"> O NÁS </a></li>
+					<li class=""><a href="#page3"> VÝBĚR KROUŽKŮ </a></li>
+					<li class=""><a href="#page3"> KONTAKT </a></li>
+
+				</ul>		
+			</div>
+			<div id="middle">
+				<div id="logo_menu"> <img src="images/logo.png" alt="logo" draggable="false"> </div>
+			</div>
+			<div id="right">
+				<div id="fb_logo"> <a href=""> <img src="images/fb_logo.png" alt="logo" draggable="false"> </a></div>
+				<div id="ig_logo"> <a href=""><img src="images/ig.png" alt="logo" draggable="false"></a> </div>
+			</div>
+		</div>
+		<div id="nadpis"><h1>URBAN SENSE <br> ACADEMY.</h1></div>
+		<div id="scroll_down"> <img src="images/scroll.png" alt="scroll" draggable="false"> </div>
+	</div>
+	<div id="page2">
+		<div class="about-img" data-ibg-bg="images/bac1.png">
+			<div id="text-img">
+				<h1>O ACADEMY</h1>
+			</div>
+		</div>
+		<div id="cara1">
+			
+		</div>
+		<div id="about-text">
+		
+			<div class="nadpis1">
+				<h1>O ACADEMY</h1>
+			</div>
+			<div class="text1">
+				<p>Parkour a freerun vyžadují kvalitní a bezpečné zázemí a vedení, které vytváříme v našich
+					akademiích zaštítěné mezinárodním parkour týmem Urban Sense. V Academy Vás naučíme
+					základům parkouru a dáme prostor pro Váš rychlý rozvoj v tréninku.
+				</p>
+			</div>
+			<div class="vyhody-seznam">
+				
+					<p>KVALITNÍ ZÁZEMÍ</p>
+					<p>PROFESIONÁLNÍ VEDENÍ</p>
+					
+					<p>PŘÁTELSKÝ KOLEKTIV</p>
+					<p>ZNÁMÉ TVÁŘE</p>
+				
+			</div>
+		</div>
+		<a href="#page3" class="no-decor"><div id="krouzky-button" style="text-decoration: none;">
+			<p>VÝBĚR KROUŽKŮ</p>
+		</div></a>
+			<div id="cara2">
+			
+		</div>
+	</div>
+	<div id="page3">
+		<div class="nadpis1" id="nadpis2">
+			<h1>VÝBĚR KROUŽKŮ</h1>
+		</div>
+		<div id="mapa">  <!-- base mapa - podklad -->
+			<img src="images/cr.png" draggable="false">
+			<a href="#tabulka" class="no-decor"> <div class="point" id="trebic_point">
+				 <!-- bod na mape s mestem, poctem mist atd -->
+				 
+				 <img src="images/pointer.png" onclick="tabulka(trebic)" draggable="false">
+				 <div class="number">
+					 <!--volne mista-->
+					 <p onclick="tabulka(trebic)">2</p>
+				 </div>
+				<a href="#tabulka" class="no-decor"> <div class="point-text"  onclick="tabulka(trebic)">
+					 <!-- nadpis mesta -->
+					 <p><b>TŘEBÍČ</b></p>
+				 </div></a>
+			</div></a>
+		</div>
+		<div id="mesta_mobil">
+			<div class="button_mesta" style="text-decoration: none;" onclick="tabulka(trebic)">
+				<p>TŘEBÍČ</p>
+			</div>
+			<div class="button_mesta" style="text-decoration: none;" onclick="tabulka(jihlava)">
+				<p>JIHLAVA</p>
+			</div>
+		</div>
+		<div id="tabulka" style="overflow-x:auto">
+			<table id="trebic">
+			  <tr> <!-- Tabulka pro trebic, ovladana skriptem podle mista zvoleni. Tabulek muze byt vic, kazda s jinym mestem -->
+				<th>Cena</th>
+				<th>Město</th>
+				<th>Již přihlášených</th>
+				<th>Den</th>
+				<th>Čas konání</th>
+				<th></th>
+			  </tr>
+			  <tr>
+				<td>3600kč</td>
+				<td>Třebíč</td>
+				<td>10/25</td>
+				<td>Pátek</td>
+				<td>18:00 - 19:00</td>
+				<td>
+					<a href="#page3" class="no-decor">
+						<div class="button_prihlasit" style="text-decoration: none;">
+							<p>PŘIHLÁSIT SE</p>
+						</div>
+					</a>
+				</td>
+			  </tr>
+			  
+			</table>
+			
+			
+			<table id="jihlava">
+			<!-- dalsi -->
+			
+			</table>
+		</div>
+		<div id="cara3">
+			
+		</div>
+		
+		<div id="page4">
+		
+			<div id="kontakt-nadpis" class="nadpis1">
+				<h1>KONTAKT</h1>
+			</div>
+			<div id="kontakt-text" class="no-decor">
+				<p class="no-decor">Urban Sense
+				<br>
+				U Dvora 1059/4, 586 01 Jihlava
+				<br>
+				<br>
+				<br>
+				<span><a class="no-decor" style="color: #C01414;" href="mailto:contact@urbansense.cz">contact@urbansense.cz</a>
+				<br>
+				<a class="no-decor" style="color: #C01414;"href="+420 606 067 564">+420 606 067 564</a>
+				</span>
+				<br>
+				<br>
+				<br>
+				IČ: 22754211
+				<br>
+				Sídlo: <br>
+				U Dvora 1059/4, 586 01 Jihlava<br>
+				Spisová značka: <br>
+				L 16314 vedená u Krajského soudu v Brně
+				</p>
+			</div>
+		</div>
+
+	</div>
+	<div id="footer">
+		<div id="footer-text">
+			<div id="copyright">
+				<p>Copyright © Urbansenseacademy 2018</p>
+			</div>
+			<div id="udaje">
+				<p><a href="legal.html" class="no-decor" style="color:#666666">zpracování a ochrana osobních údajů</a></p>
+			</div>
+			<div id="author">
+				<p>Webdesign by</p>
+			</div>
+		</div>
+	</div>
+
+			<script>
+			function _(id){ return document.getElementById(id); } 
+			var logo = _("logo");
+			var upper = _("upper");
+			var main = _("main");
+			var menu = _("menu");
+			var page2 = _("page2");
+			var page3 = _("page3");
+			var page4 = _("page4");
+			var footer = _("footer");
+			var vyska = 1000;
+			var timer;
+			setTimeout(function(){ logo.style.opacity = 1; }, 1000);
+			setTimeout(function(){ 	timer = setInterval(upper_slide, 1); main.style.display ="block"; page2.style.display ="block"; page3.style.display ="block";page4.style.display ="block";footer.style.display ="block"}, 1500);
+			setTimeout(function(){ upper.style.display = "none"; }, 2000);
+			setTimeout(function(){ menu.style.position = "fixed"; }, 1500);
+
+			
+			function upper_slide()
+			{
+				vyska = vyska - 10;
+				 upper.style.height = vyska + "px";
+				 if (vyska == 0)
+				 {
+					 clearInterval(timer)
+				 }
+			}
+			
+			function tabulka(mesto)
+			{
+				var tabulka = _("tabulka");
+				var trebic = _("trebic");
+				var jihlava = _("jihlava");
+				var cara = _("cara3");
+				
+				if (mesto == trebic)
+				{
+					tabulka.style.display = "block";
+					trebic.style.display = "table";
+					cara.style.top = "0" + "px";
+					footer.style.top = "1600" + "px";
+				}
+				
+				// else ...
+				
+			}
+			
+		</script>
+		<script>
+			var $root = $('html, body');
+
+			$('a[href^="#"]').click(function () {
+				$root.animate({
+					scrollTop: $( $.attr(this, 'href') ).offset().top
+				}, 500);
+
+				return false;
+			});
+			
+		$(".about-img").interactive_bg({
+		   strength: 25,
+		   scale: 1.1,
+		   animationSpeed: "100ms",
+		   contain: true,
+		   wrapContent: false
+		 });
+		</script>
+</body>
+</html>
+
+
