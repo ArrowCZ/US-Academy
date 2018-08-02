@@ -47,10 +47,13 @@
                         </li>
                     @else
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('admin_orders') }}">{{ __('Orders') }}</a>
+                            <a class="nav-link" href="{{ route('admin.orders') }}">{{ __('Orders') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('admin_cities') }}">{{ __('Cities') }}</a>
+                            <a class="nav-link" href="{{ route('admin.cities') }}">{{ __('Cities') }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('admin.trainings') }}">{{ __('Trainings') }}</a>
                         </li>
                         <li class="nav-item dropdown">
 
@@ -60,14 +63,16 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('logout') }}"
-                                        onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
+                                <a
+                                    class="dropdown-item"
+                                    href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();"
+                                >
                                     {{ __('Logout') }}
                                 </a>
 
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                        style="display: none;">
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                     @csrf
                                 </form>
                             </div>

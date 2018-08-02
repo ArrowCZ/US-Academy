@@ -47,7 +47,7 @@
 
                     </div>
 
-                    <div class="card-footer">
+                    <div class="card-footer text-right">
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                             {{ __('Add city')  }}
                         </button>

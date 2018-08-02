@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">Orders</div>
+                    <div class="card-header"><h1 class="h2">{{ __('Orders')  }}</h1></div>
 
                     <div class="card-body">
                         @if (session('status'))
@@ -13,6 +13,11 @@
                                 {{ session('status') }}
                             </div>
                         @endif
+
+
+                    </div>
+
+                    <div class="card-footer">
 
                     </div>
                 </div>

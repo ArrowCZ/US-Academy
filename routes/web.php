@@ -11,7 +11,6 @@
 |
 */
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -21,46 +20,22 @@ Route::get('/', function () {
     return view('home')->with('cities', $cities);
 });
 
-Auth::routes();
-
-// Route::get('/home', 'HomeController@index')->name('home');
-
-// Route::get('/admin', 'AdminController@index');
-
-Route::get('/admin', function () {
-    return view('admin.dashboard');
-})->name('admin');
-
-Route::get('/admin/cities', function () {
-    $cities = \App\City::all();
-
-    return view('admin.cities')->with('cities', $cities);
-})->name('admin_cities');
-
-Route::get('/admin/cities/{id}', function ($id) {
-    $city = \App\City::where('id', $id)->firstOrFail();
-
-    return view('admin.city')->with('city', $city);
-});
-
-
-Route::post('/admin/cities', function (Request $request) {
-    $data = $request->validate([
-        'name' => 'required|max:255',
-    ]);
-
-    $city = tap(new App\City($data))->save();
-
-    return redirect('/admin/cities');
-});
-
-Route::delete('/admin/cities/{id}', function (Request $request) {
-
-});
-
 Route::view('/legal', 'legal');
 Route::view('/detail', 'detail');
 
-Route::get('/admin/orders', function () {
-    return view('admin.orders');
-})->name('admin_orders');
+
+Auth::routes();
+
+Route::view('/admin', 'admin.dashboard')->name('admin');
+
+Route::resource('/admin/cities', 'CitiesController')->names([
+    'index' => 'admin.cities',
+]);
+
+Route::resource('/admin/orders', 'OrdersController')->names([
+    'index' => 'admin.orders',
+]);
+
+Route::resource('/admin/trainings', 'TrainingsController')->names([
+    'index' => 'admin.trainings',
+]);

@@ -15,13 +15,13 @@ class CreateTrainingsTable extends Migration
     {
         Schema::create('trainings', function (Blueprint $table) {
             $table->increments('id');
-            $table->timestamps();
+            $table->unsignedInteger('city_id');
+            $table->foreign('city_id')->references('id')->on('cities');
             $table->string('day');
             $table->integer('capacity');
             $table->double('price');
             $table->string('time');
-            $table->unsignedInteger('city_id');
-            $table->foreign('city_id')->references('id')->on('cities');
+            $table->timestamps();
         });
     }
 
