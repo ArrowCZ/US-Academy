@@ -1,35 +1,7 @@
-<!doctype html>
-<html lang="{{ app()->getLocale() }}">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.web')
 
-    <meta name="description" content="Urban Sense Academy">
-    <meta name="keywords" content="urban,sense,parkour,academy,trenink">
+@section('content')
 
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="author" content="Matěj Brožek">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#0e6cb4">
-
-    <title>{{ config('app.name', 'Laravel') }}</title>
-
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}" type="text/css" />
-    <link rel="icon" href="{{ asset('images/favicon.png') }}" />
-    <link rel="icon" sizes="64x64" href="{{ asset('images/favicon.png') }}">
-    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,400" rel="stylesheet">
-
-    <script src="https://code.nath.co/src/jQuery.min.js"></script>
-    <script src="{{ asset('js/app.js') }}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lettering.js/0.7.0/jquery.lettering.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js"></script>
-
-</head>
-
-<body>
     <div id="upper">
         <div id="logo"><img src="{{ asset('images/logo.png') }}" alt="logo" draggable="false"></div>
         <section class="container">
@@ -38,6 +10,7 @@
             </h1>
         </section>
     </div>
+
     <div id="main">
         <div id="menu">
             <div id="left">
@@ -52,16 +25,19 @@
             </div>
             <div id="right">
                 <div id="fb_logo">
-                    <a href="https://facebook.com" target="_blank"><img src="{{ asset('images/fb_logo.png') }}" alt="logo" draggable="false"></a>
+                    <a href="https://facebook.com" target="_blank"><img src="{{ asset('images/fb_logo.png') }}"
+                                alt="logo" draggable="false"></a>
                 </div>
                 <div id="ig_logo">
-                    <a href="https://instagram.com" target="_blank"><img src="{{ asset('images/ig.png') }}" alt="logo" draggable="false"></a>
+                    <a href="https://instagram.com" target="_blank"><img src="{{ asset('images/ig.png') }}" alt="logo"
+                                draggable="false"></a>
                 </div>
             </div>
         </div>
         <div id="nadpis"><h1>URBAN SENSE <br> ACADEMY.</h1></div>
         <div id="scroll_down"><img src="{{ asset('images/scroll.png') }}" alt="scroll" draggable="false"></div>
     </div>
+
     <div id="page2">
         <div class="about-img" data-ibg-bg="{{ asset('images/bac1.png') }}">
             <div id="text-img">
@@ -100,6 +76,7 @@
 
         </div>
     </div>
+
     <div id="page3">
         <div class="nadpis1" id="nadpis2">
             <h1>VÝBĚR KROUŽKŮ</h1>
@@ -111,7 +88,8 @@
                     <div class="point" style="top: {{ $city->y }}%; left: {{ $city->x }}%">
                         <!-- bod na mape s mestem, poctem mist atd -->
 
-                        <img src="{{ asset('images/pointer.png') }}" onclick="tabulka('city_{{ $city->id  }}')" draggable="false">
+                        <img src="{{ asset('images/pointer.png') }}" onclick="tabulka('city_{{ $city->id  }}')"
+                                draggable="false">
 
                         <div class="number">
                             <!--volne mista-->
@@ -137,32 +115,32 @@
         </div>
         <div id="tabulka" style="overflow-x:auto">
             @foreach($cities as $city)
-            <table id="city_{{ $city->id }}">
-                <tr>
-                    <th>Cena</th>
-                    <th>Město</th>
-                    <th>Již přihlášených</th>
-                    <th>Den</th>
-                    <th>Čas konání</th>
-                    <th></th>
-                </tr>
-                @foreach ($city->trainings as $training)
-                <tr>
-                    <td>{{ $training->price }} Kč</td>
-                    <td>{{ $city->name  }}</td>
-                    <td>10/{{ $training->capacity  }}</td>
-                    <td>{{ $city->day  }}</td>
-                    <td>{{ $training->time  }}</td>
-                    <td>
-                        <a href="#page3" class="no-decor">
-                            <div class="button_prihlasit" style="text-decoration: none;">
-                                <p>PŘIHLÁSIT SE</p>
-                            </div>
-                        </a>
-                    </td>
-                </tr>
-                @endforeach
-            </table>
+                <table id="city_{{ $city->id }}">
+                    <tr>
+                        <th>Cena</th>
+                        <th>Město</th>
+                        <th>Již přihlášených</th>
+                        <th>Den</th>
+                        <th>Čas konání</th>
+                        <th></th>
+                    </tr>
+                    @foreach ($city->trainings as $training)
+                        <tr>
+                            <td>{{ $training->price }} Kč</td>
+                            <td>{{ $city->name  }}</td>
+                            <td>10/{{ $training->capacity  }}</td>
+                            <td>{{ $city->day  }}</td>
+                            <td>{{ $training->time  }}</td>
+                            <td>
+                                <a href="#page3" class="no-decor">
+                                    <div class="button_prihlasit" style="text-decoration: none;">
+                                        <p>PŘIHLÁSIT SE</p>
+                                    </div>
+                                </a>
+                            </td>
+                        </tr>
+                    @endforeach
+                </table>
             @endforeach
         </div>
         <div id="cara3">
@@ -197,18 +175,20 @@
                 </p>
             </div>
         </div>
-
     </div>
+
     <div id="footer">
         <div id="footer-text">
             <div id="copyright">
                 <p>Copyright © Urbansenseacademy 2018</p>
             </div>
             <div id="udaje">
-                <p><a href="legal.html" class="no-decor" style="color:#666666">zpracování a ochrana osobních údajů</a></p>
+                <p><a href="legal.html" class="no-decor" style="color:#666666">zpracování a ochrana osobních údajů</a>
+                </p>
             </div>
             <div id="author">
-                <p>Webdesign by <a href="http://www.tomeno.cz" class="no-decor"><img src="{{ asset('images/tomeno.png') }}"></a></p>
+                <p>Webdesign by <a href="http://www.tomeno.cz" class="no-decor"><img
+                                src="{{ asset('images/tomeno.png') }}"></a></p>
             </div>
         </div>
     </div>
@@ -269,6 +249,7 @@
         }
 
     </script>
+
     <script>
         var $root = $('html, body');
 
@@ -288,5 +269,5 @@
             wrapContent: false
         });
     </script>
-</body>
-</html>
+
+@endsection

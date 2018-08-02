@@ -58,6 +58,8 @@ Route::delete('/admin/cities/{id}', function (Request $request) {
 
 });
 
+Route::view('/legal', 'legal');
+Route::view('/detail', 'detail');
 
 Route::get('/admin/orders', function () {
     return view('admin.orders');
