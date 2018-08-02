@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="{{ app()->getLocale() }}">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="Urban Sense Academy">
+    <meta name="keywords" content="urban,sense,parkour,academy,trenink">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="author" content="Matěj Brožek">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0e6cb4">
+
+    <title>{{ config('app.name', 'Laravel') }}</title>
+
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}" type="text/css" />
+    <link rel="icon" href="{{ asset('images/favicon.png') }}" />
+    <link rel="icon" sizes="64x64" href="{{ asset('images/favicon.png') }}">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,400" rel="stylesheet">
+
+    <script src="https://code.nath.co/src/jQuery.min.js"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lettering.js/0.7.0/jquery.lettering.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js"></script>
+
+</head>
+
+<body>
+    <div id="upper">
+        <div id="logo"><img src="{{ asset('images/logo.png') }}" alt="logo" draggable="false"></div>
+        <section class="container">
+            <h1>
+                <span class="title">Academy</span>
+            </h1>
+        </section>
+    </div>
+    <div id="main">
+        <div id="menu">
+            <div id="left">
+                <ul id="nav-take">
+                    <li class=""><a href="#page2"> O NÁS </a></li>
+                    <li class=""><a href="#page3"> VÝBĚR KROUŽKŮ </a></li>
+                    <li class=""><a href="#page3"> KONTAKT </a></li>
+                </ul>
+            </div>
+            <div id="middle">
+                <div id="logo_menu"><img src="{{ asset('images/logo.png') }}" alt="logo" draggable="false"></div>
+            </div>
+            <div id="right">
+                <div id="fb_logo">
+                    <a href="https://facebook.com" target="_blank"><img src="{{ asset('images/fb_logo.png') }}" alt="logo" draggable="false"></a>
+                </div>
+                <div id="ig_logo">
+                    <a href="https://instagram.com" target="_blank"><img src="{{ asset('images/ig.png') }}" alt="logo" draggable="false"></a>
+                </div>
+            </div>
+        </div>
+        <div id="nadpis"><h1>URBAN SENSE <br> ACADEMY.</h1></div>
+        <div id="scroll_down"><img src="{{ asset('images/scroll.png') }}" alt="scroll" draggable="false"></div>
+    </div>
+    <div id="page2">
+        <div class="about-img" data-ibg-bg="{{ asset('images/bac1.png') }}">
+            <div id="text-img">
+                <h1>O ACADEMY</h1>
+            </div>
+        </div>
+        <div id="cara1">
+
+        </div>
+        <div id="about-text">
+            <div class="nadpis1">
+                <h1>O ACADEMY</h1>
+            </div>
+            <div class="text1">
+                <p>Parkour a freerun vyžadují kvalitní a bezpečné zázemí a vedení, které vytváříme v našich
+                    akademiích zaštítěné mezinárodním parkour týmem Urban Sense. V Academy Vás naučíme
+                    základům parkouru a dáme prostor pro Váš rychlý rozvoj v tréninku.
+                </p>
+            </div>
+            <div class="vyhody-seznam">
+
+                <p>KVALITNÍ ZÁZEMÍ</p>
+                <p>PROFESIONÁLNÍ VEDENÍ</p>
+
+                <p>PŘÁTELSKÝ KOLEKTIV</p>
+                <p>ZNÁMÉ TVÁŘE</p>
+
+            </div>
+        </div>
+        <a href="#page3" class="no-decor">
+            <div id="krouzky-button" style="text-decoration: none;">
+                <p>VÝBĚR KROUŽKŮ</p>
+            </div>
+        </a>
+        <div id="cara2">
+
+        </div>
+    </div>
+    <div id="page3">
+        <div class="nadpis1" id="nadpis2">
+            <h1>VÝBĚR KROUŽKŮ</h1>
+        </div>
+        <div id="mapa">  <!-- base mapa - podklad -->
+            <img src="{{ asset('images/cr.png') }}" draggable="false">
+            <a href="#tabulka" class="no-decor">
+                @foreach($cities as $city)
+                    <div class="point" style="top: {{ $city->y }}%; left: {{ $city->x }}%">
+                        <!-- bod na mape s mestem, poctem mist atd -->
+
+                        <img src="{{ asset('images/pointer.png') }}" onclick="tabulka('city_{{ $city->id  }}')" draggable="false">
+
+                        <div class="number">
+                            <!--volne mista-->
+                            <p onclick="tabulka('city_{{ $city->id  }}')">2</p>
+                        </div>
+
+                        <a href="#tabulka" class="no-decor">
+                            <div class="point-text" onclick="tabulka('city_{{ $city->id  }}')">
+                                <!-- nadpis mesta -->
+                                <p><b>{{ $city->name }}</b></p>
+                            </div>
+                        </a>
+                    </div>
+                @endforeach
+            </a>
+        </div>
+        <div id="mesta_mobil">
+            @foreach($cities as $city)
+                <div class="button_mesta" style="text-decoration: none;" onclick="tabulka('city_{{ $city->id  }}')">
+                    <p>{{ $city->name }}</p>
+                </div>
+            @endforeach
+        </div>
+        <div id="tabulka" style="overflow-x:auto">
+            @foreach($cities as $city)
+            <table id="city_{{ $city->id }}">
+                <tr>
+                    <th>Cena</th>
+                    <th>Město</th>
+                    <th>Již přihlášených</th>
+                    <th>Den</th>
+                    <th>Čas konání</th>
+                    <th></th>
+                </tr>
+                @foreach ($city->trainings as $training)
+                <tr>
+                    <td>{{ $training->price }} Kč</td>
+                    <td>{{ $city->name  }}</td>
+                    <td>10/{{ $training->capacity  }}</td>
+                    <td>{{ $city->day  }}</td>
+                    <td>{{ $training->time  }}</td>
+                    <td>
+                        <a href="#page3" class="no-decor">
+                            <div class="button_prihlasit" style="text-decoration: none;">
+                                <p>PŘIHLÁSIT SE</p>
+                            </div>
+                        </a>
+                    </td>
+                </tr>
+                @endforeach
+            </table>
+            @endforeach
+        </div>
+        <div id="cara3">
+
+        </div>
+
+        <div id="page4">
+
+            <div id="kontakt-nadpis" class="nadpis1">
+                <h1>KONTAKT</h1>
+            </div>
+            <div id="kontakt-text" class="no-decor">
+                <p class="no-decor">Urban Sense
+                    <br>
+                    U Dvora 1059/4, 586 01 Jihlava
+                    <br>
+                    <br>
+                    <br>
+                    <span><a class="no-decor" style="color: #C01414;" href="mailto:contact@urbansense.cz">contact@urbansense.cz</a>
+                    <br>
+                    <a class="no-decor" style="color: #C01414;" href="callto:+420 606 067 564">+420 606 067 564</a>
+                    </span>
+                    <br>
+                    <br>
+                    <br>
+                    IČ: 22754211
+                    <br>
+                    Sídlo: <br>
+                    U Dvora 1059/4, 586 01 Jihlava<br>
+                    Spisová značka: <br>
+                    L 16314 vedená u Krajského soudu v Brně
+                </p>
+            </div>
+        </div>
+
+    </div>
+    <div id="footer">
+        <div id="footer-text">
+            <div id="copyright">
+                <p>Copyright © Urbansenseacademy 2018</p>
+            </div>
+            <div id="udaje">
+                <p><a href="legal.html" class="no-decor" style="color:#666666">zpracování a ochrana osobních údajů</a></p>
+            </div>
+            <div id="author">
+                <p>Webdesign by <a href="http://www.tomeno.cz" class="no-decor"><img src="{{ asset('images/tomeno.png') }}"></a></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function _(id) {
+            return document.getElementById(id);
+        }
+
+        var logo = _("logo");
+        var upper = _("upper");
+        var main = _("main");
+        var menu = _("menu");
+        var page2 = _("page2");
+        var page3 = _("page3");
+        var page4 = _("page4");
+        var footer = _("footer");
+        var vyska = 1000;
+        var timer;
+        setTimeout(function () {
+            logo.style.opacity = 1;
+        }, 1000);
+        setTimeout(function () {
+            timer = setInterval(upper_slide, 1);
+            main.style.display = "block";
+            page2.style.display = "block";
+            page3.style.display = "block";
+            page4.style.display = "block";
+            footer.style.display = "block"
+        }, 1500);
+        setTimeout(function () {
+            upper.style.display = "none";
+        }, 2000);
+        setTimeout(function () {
+            menu.style.position = "fixed";
+        }, 1500);
+
+        function upper_slide() {
+            vyska = vyska - 10;
+            upper.style.height = vyska + "px";
+            if (vyska == 0) {
+                clearInterval(timer)
+            }
+        }
+
+        function tabulka(mesto_id) {
+            var tabulka = _("tabulka");
+            var mesto = _(mesto_id);
+            var cara = _("cara3");
+
+            if (mesto) {
+                tabulka.style.display = "block";
+                mesto.style.display = "table";
+                cara.style.top = "0" + "px";
+                footer.style.top = "1600" + "px";
+            }
+
+        }
+
+    </script>
+    <script>
+        var $root = $('html, body');
+
+        $('a[href^="#"]').click(function () {
+            $root.animate({
+                scrollTop: $($.attr(this, 'href')).offset().top
+            }, 500);
+
+            return false;
+        });
+
+        $(".about-img").interactive_bg({
+            strength: 25,
+            scale: 1.1,
+            animationSpeed: "100ms",
+            contain: true,
+            wrapContent: false
+        });
+    </script>
+</body>
+</html>
