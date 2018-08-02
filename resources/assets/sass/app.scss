@@ -353,8 +353,11 @@ li a:hover {
   font-family: 'Josefin Sans', sans-serif;
 }
 
-#mapa {
+ #mapa {
   position: relative; top: 100px;
+  max-width: 778px;
+  width: 100%;
+  margin: auto auto;
 }
 
 #mapa img{
