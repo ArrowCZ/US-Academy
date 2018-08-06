@@ -25,16 +25,16 @@
             </div>
             <div id="right">
                 <div id="fb_logo">
-                    <a href="https://facebook.com" target="_blank"><img src="{{ asset('images/fb_logo.png') }}"
+                    <a href="https://www.facebook.com/Urban-Sense-Academy-1621345168099222/" target="_blank"><img src="{{ asset('images/fb_logo.png') }}"
                                 alt="logo" draggable="false"></a>
                 </div>
                 <div id="ig_logo">
-                    <a href="https://instagram.com" target="_blank"><img src="{{ asset('images/ig.png') }}" alt="logo"
+                    <a href="https://www.instagram.com/urbansenseacademy/" target="_blank"><img src="{{ asset('images/ig.png') }}" alt="logo"
                                 draggable="false"></a>
                 </div>
             </div>
         </div>
-        <div id="nadpis"><h1>URBAN SENSE <br> ACADEMY.</h1></div>
+        <div id="nadpis"><h1>URBAN SENSE <br> ACADEMY</h1></div>
         <div id="scroll_down"><img src="{{ asset('images/scroll.png') }}" alt="scroll" draggable="false"></div>
     </div>
 
@@ -42,6 +42,8 @@
         <div class="about-img" data-ibg-bg="{{ asset('images/bac1.png') }}">
             <div id="text-img">
                 <h1>O ACADEMY</h1>
+				<br>
+				<p>PARKOUR KROUŽKY</p>
             </div>
         </div>
         <div id="cara1">
@@ -183,7 +185,7 @@
                 <p>Copyright © Urbansenseacademy 2018</p>
             </div>
             <div id="udaje">
-                <p><a href="legal.html" class="no-decor" style="color:#666666">zpracování a ochrana osobních údajů</a>
+                <p><a href="/legal" class="no-decor" style="color:#666666">zpracování a ochrana osobních údajů</a>
                 </p>
             </div>
             <div id="author">
