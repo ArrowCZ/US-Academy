@@ -95,7 +95,7 @@
 
                         <div class="number">
                             <!--volne mista-->
-                            <p onclick="tabulka('city_{{ $city->id  }}')">2</p>
+                            <p onclick="tabulka('city_{{ $city->id  }}')">{{ count($city->trainings) }}</p>
                         </div>
 
                         <a href="#tabulka" class="no-decor">
@@ -135,9 +135,9 @@
                             <td>{{ $training->time  }}</td>
                             <td>
                                 <a href="#page3" class="no-decor">
-                                    <div class="button_prihlasit" style="text-decoration: none;">
+                                    <a href="{{ route('detail') }}" class="button_prihlasit" style="text-decoration: none;">
                                         <p>PŘIHLÁSIT SE</p>
-                                    </div>
+                                    </a>
                                 </a>
                             </td>
                         </tr>

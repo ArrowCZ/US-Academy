@@ -20,13 +20,13 @@ Route::get('/', function () {
     return view('home')->with('cities', $cities);
 });
 
-Route::view('/legal', 'legal');
-Route::view('/detail', 'detail');
+Route::view('/legal', 'legal')->name('legal');
 
+Route::view('/detail', 'detail')->name('detail');
 
 Auth::routes();
 
-Route::view('/admin', 'admin.dashboard')->name('admin');
+Route::get('/admin', 'AdminController@index')->name('admin');
 
 Route::resource('/admin/cities', 'CitiesController')->names([
     'index' => 'admin.cities',

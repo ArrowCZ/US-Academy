@@ -29,7 +29,7 @@
                                     <tr>
                                         <th scope="row">{{ $city->id  }}</th>
                                         <td>{{ $city->name  }}</td>
-                                        <td>5</td>
+                                        <td>{{ count($city->trainings)  }}</td>
                                         <td>{{ $city->x  }}: {{ $city->y  }}</td>
                                         <td class="text-right">
                                             <a class="btn btn-primary" href="/admin/cities/{{ $city->id }}" role="button">{{ __('Detail')  }}</a>
