@@ -25,16 +25,16 @@
             </div>
             <div id="right">
                 <div id="fb_logo">
-                    <a href="https://www.facebook.com/Urban-Sense-Academy-1621345168099222/" target="_blank"><img src="{{ asset('images/fb_logo.png') }}"
-                                alt="logo" draggable="false"></a>
+                    <a href="https://www.facebook.com/Urban-Sense-Academy-1621345168099222/" target="_blank"><img src="{{ asset('images/FB-IC.svg') }}"
+                                alt="facebook" draggable="false"></a>
                 </div>
                 <div id="ig_logo">
-                    <a href="https://www.instagram.com/urbansenseacademy/" target="_blank"><img src="{{ asset('images/ig.png') }}" alt="logo"
+                    <a href="https://www.instagram.com/urbansenseacademy/" target="_blank"><img src="{{ asset('images/IG-IC.svg') }}" alt="instagram"
                                 draggable="false"></a>
                 </div>
             </div>
         </div>
-        <div id="nadpis"><h1>URBAN SENSE <br> ACADEMY</h1></div>
+        <div id="nadpis"><h1>URBAN SENSE <br> ACADEMY.</h1></div>
         <div id="scroll_down"><img src="{{ asset('images/scroll.png') }}" alt="scroll" draggable="false"></div>
     </div>
 
@@ -84,13 +84,13 @@
             <h1>VÝBĚR KROUŽKŮ</h1>
         </div>
         <div id="mapa">  <!-- base mapa - podklad -->
-            <img src="{{ asset('images/cr.png') }}" draggable="false">
+            <img src="{{ asset('images/cr.png') }}" draggable="false" alt="republika">
             <a href="#tabulka" class="no-decor">
                 @foreach($cities as $city)
                     <div class="point" style="top: {{ $city->y }}%; left: {{ $city->x }}%">
                         <!-- bod na mape s mestem, poctem mist atd -->
 
-                        <img src="{{ asset('images/pointer.png') }}" onclick="tabulka('city_{{ $city->id  }}')"
+                        <img src="{{ asset('images/pointer.png') }}" onclick="tabulka('city_{{ $city->id  }}')" alt="pointer"
                                 draggable="false">
 
                         <div class="number">
@@ -159,14 +159,14 @@
                     <br>
                     U Dvora 1059/4, 586 01 Jihlava
                     <br>
+                    
                     <br>
+                    <span><a class="no-decor" style="color: #C01414;" href="mailto:contact@urbansense.cz"><b>contact@urbansense.cz</b></a>
                     <br>
-                    <span><a class="no-decor" style="color: #C01414;" href="mailto:contact@urbansense.cz">contact@urbansense.cz</a>
-                    <br>
-                    <a class="no-decor" style="color: #C01414;" href="callto:+420 606 067 564">+420 606 067 564</a>
+                    <a class="no-decor" style="color: #C01414;" href="callto:+420 606 067 564"><b>+420 606 067 564</b></a>
                     </span>
                     <br>
-                    <br>
+                    
                     <br>
                     IČ: 22754211
                     <br>
@@ -176,10 +176,10 @@
                     L 16314 vedená u Krajského soudu v Brně
                 </p>
             </div>
+			
         </div>
-    </div>
-
-    <div id="footer">
+		
+	 <div id="footer">
         <div id="footer-text">
             <div id="copyright">
                 <p>Copyright © Urbansenseacademy 2018</p>
@@ -194,6 +194,10 @@
             </div>
         </div>
     </div>
+		
+    </div>
+
+
 
     <script>
         function _(id) {
@@ -245,7 +249,6 @@
                 tabulka.style.display = "block";
                 mesto.style.display = "table";
                 cara.style.top = "0" + "px";
-                footer.style.top = "1600" + "px";
             }
 
         }

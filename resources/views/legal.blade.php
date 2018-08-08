@@ -6,9 +6,9 @@
         <div id="left">
 
             <ul id="nav-take">
-                <li class=""><a href="index.html"> O NÁS </a></li>
-                <li class=""><a href="index.html"> VÝBĚR KROUŽKŮ </a></li>
-                <li class=""><a href="index.html"> KONTAKT </a></li>
+                <li class=""><a href="/"> O NÁS </a></li>
+                <li class=""><a href="/"> VÝBĚR KROUŽKŮ </a></li>
+                <li class=""><a href="/"> KONTAKT </a></li>
 
             </ul>
         </div>
@@ -16,8 +16,8 @@
             <div id="logo_menu"> <img src="{{ asset('images/logo.png') }}" alt="logo" draggable="false"> </div>
         </div>
         <div id="right">
-            <div id="fb_logo"> <a href=""> <img src="{{ asset('images/fb_logo.png') }}" alt="logo" draggable="false"> </a></div>
-            <div id="ig_logo"> <a href=""><img src="{{ asset('images/ig.png') }}" alt="logo" draggable="false"></a> </div>
+            <div id="fb_logo"> <a href="https://www.facebook.com/Urban-Sense-Academy-1621345168099222/"> <img src="{{ asset('images/FB-IC.svg') }}" alt="logo" draggable="false"> </a></div>
+            <div id="ig_logo"> <a href="https://www.instagram.com/urbansenseacademy/"><img src="{{ asset('images/IG-IC.svg') }}" alt="logo" draggable="false"></a> </div>
         </div>
     </div>
 
