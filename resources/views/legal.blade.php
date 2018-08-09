@@ -9,7 +9,6 @@
                 <li class=""><a href="/"> O NÁS </a></li>
                 <li class=""><a href="/"> VÝBĚR KROUŽKŮ </a></li>
                 <li class=""><a href="/"> KONTAKT </a></li>
-
             </ul>
         </div>
         <div id="middle">

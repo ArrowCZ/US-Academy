@@ -9,7 +9,8 @@ class UsersTableSeeder extends Seeder
      *
      * @return void
      */
-    public function run() {
+    public function run()
+    {
         $user = new \App\User([
             'name'     => 'admin',
             'email'    => 'admin@usacademy.cz',

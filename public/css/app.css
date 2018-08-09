@@ -117,6 +117,8 @@
   top: 0;
   background: white;
   z-index: 99;
+  -webkit-box-shadow: 3px 1px 5px #BDBDBD;
+          box-shadow: 3px 1px 5px #BDBDBD;
 }
 
 #menu ul {
@@ -127,7 +129,7 @@
 
 li {
   list-style-type: none;
-  font-size: 20px;
+  font-size: 16px;
   float: left;
   text-decoration: none;
   color: black;
@@ -293,7 +295,7 @@ li a:hover {
   max-width: 650px;
   width: 100%;
   margin-top: 50px;
-  text-align: justify;
+  text-align: left;
   font-weight: 200;
 }
 
@@ -349,7 +351,7 @@ li a:hover {
 }
 
 #krouzky-button:hover {
-  opacity: 0.5;
+  background: #0B568E;
 }
 
 .no-decor,
@@ -376,11 +378,15 @@ a:visited {
 
 #nadpis2 {
   font-family: 'Josefin Sans', sans-serif;
+  font-weight: 400;
 }
 
 #mapa {
   position: relative;
   top: 100px;
+  max-width: 778px;
+  width: 100%;
+  margin: auto auto;
 }
 
 #mapa img {
@@ -465,7 +471,7 @@ tr:not(:first-child):hover {
 }
 
 .button_prihlasit:hover {
-  opacity: 0.5;
+  background: #0B568E;
 }
 
 .button_prihlasit p {
@@ -522,9 +528,14 @@ tr:not(:first-child):hover {
   margin: auto auto;
 }
 
+#mesta_mobil {
+  height: auto;
+}
+
 #page4 {
   height: 800px;
   background: white;
+  position: relative;
   display: none;
 }
 
@@ -541,6 +552,7 @@ tr:not(:first-child):hover {
   font-size: 20px;
   text-align: center;
   line-height: 30px;
+  font-weight: 200;
 }
 
 #kontakt-text span {
@@ -552,8 +564,6 @@ tr:not(:first-child):hover {
   height: 100px;
   display: none;
   width: 100%;
-  position: relative;
-  top: 620px;
 }
 
 #footer-text {
@@ -561,7 +571,7 @@ tr:not(:first-child):hover {
   font-family: 'Josefin Sans', sans-serif;
   text-align: center;
   position: relative;
-  top: 45px;
+  top: 30px;
 }
 
 #copyright,
@@ -611,6 +621,7 @@ tr:not(:first-child):hover {
   margin: auto auto;
   text-align: justify;
   line-height: 30px;
+  font-weight: 200;
 }
 
 #legal-text span {
@@ -618,6 +629,80 @@ tr:not(:first-child):hover {
   font-size: 20px;
   display: block;
   margin: auto auto;
+}
+
+#detail-page {
+  height: 1000px;
+  background: white;
+}
+
+.detail-nadpis {
+  font-family: 'Josefin Sans', sans-serif;
+  position: relative;
+  top: 50px;
+}
+
+.cena {
+  color: #0e6cb4;
+}
+
+#info-detail {
+  max-width: 925px;
+  width: 100%;
+  margin: auto auto;
+  position: relative;
+  top: 100px;
+}
+
+.blok {
+  display: inline-block;
+  max-width: 32.3%;
+  width: 100%;
+}
+
+.blok-text {
+  text-align: left;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 20px;
+  line-height: 30px;
+  position: absolute;
+}
+
+.blok-text span {
+  color: #0e6cb4;
+}
+
+#mista span {
+  color: #F10049;
+}
+
+#trener,
+#mesto,
+#mista {
+  margin-top: 200px;
+}
+
+#detail-button {
+  max-width: 250px;
+  position: relative;
+  top: 500px;
+}
+
+#detail-button:hover {
+  cursor: pointer;
+}
+
+#mapa_detail {
+  max-width: 100%;
+  width: 100%;
+  height: 500px;
+  position: relative;
+  top: 0px;
+}
+
+#mapa_detail iframe {
+  width: 100%;
+  height: 500px;
 }
 
 @media only screen and (max-width: 980px) {
@@ -636,6 +721,45 @@ tr:not(:first-child):hover {
   }
 }
 
+@media only screen and (max-width: 880px) {
+  .blok {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .blok:not(:first-child) {
+    margin-top: 100px;
+  }
+
+  #detail-page {
+    height: 1800px;
+  }
+
+  #info-detail {
+    max-width: 100%;
+    width: 100%;
+    text-align: center;
+    top: 100px;
+  }
+
+  .blok-text,
+  .blok-text span {
+    text-align: center;
+    position: relative;
+  }
+
+  #trener,
+  #mesto,
+  #mista {
+    margin-top: 0px;
+  }
+
+  #detail-button {
+    position: relative;
+    top: 150px;
+  }
+}
+
 @media only screen and (max-width: 800px) {
   .about-img {
     display: none;
@@ -647,6 +771,10 @@ tr:not(:first-child):hover {
 
   #page2 {
     height: 1000px;
+  }
+
+  #page3 {
+    height: 1200px;
   }
 
   #nadpis2 {
@@ -663,11 +791,6 @@ tr:not(:first-child):hover {
   }
 
   #cara3 {
-    position: relative;
-    top: 200px;
-  }
-
-  #page4 {
     position: relative;
     top: 200px;
   }
@@ -760,11 +883,6 @@ tr:not(:first-child):hover {
   #cara3 {
     display: none;
   }
-
-  #page4 {
-    position: relative;
-    top: 450px;
-  }
 }
 
 @media only screen and (max-width: 480px) {
@@ -778,6 +896,14 @@ tr:not(:first-child):hover {
 
   #legal-page {
     height: 1500px;
+  }
+
+  .detail-nadpis {
+    font-size: 19px;
+  }
+
+  .cena {
+    font-size: 19px;
   }
 }
 
@@ -798,16 +924,6 @@ tr:not(:first-child):hover {
 @media only screen and (max-width: 340px) {
   #nadpis {
     font-size: 25px;
-  }
-
-  #nadpis2 {
-    position: relative;
-    top: 450px;
-  }
-
-  .button_mesta {
-    position: relative;
-    top: 450px;
   }
 
   #tabulka {
