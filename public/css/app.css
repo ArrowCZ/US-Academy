@@ -285,6 +285,7 @@ li a:hover {
 .nadpis1 {
   text-align: center;
   font-size: 23px;
+  text-transform: uppercase;
 }
 
 .text1 {
@@ -634,6 +635,7 @@ tr:not(:first-child):hover {
 #detail-page {
   height: 1000px;
   background: white;
+  text-transform: uppercase;
 }
 
 .detail-nadpis {

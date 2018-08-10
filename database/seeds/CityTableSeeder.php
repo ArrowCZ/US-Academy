@@ -13,12 +13,14 @@ class CityTableSeeder extends Seeder
     {
         factory(\App\City::class, 5)->create()->each(function (\App\City $city) {
             $max = rand(0, 5);
-            for ($i = 0; $i < $max; $i++) {
-                $training = factory(\App\Training::class)->make();
-                $city->trainings()->save($training);
+            if ($max) {
+                for ($i = 0; $i < $max; $i++) {
+                    $training = factory(\App\Training::class)->make();
+                    $city->trainings()->save($training);
 
-                $m2 = rand(0, 5);
-                factory(\App\Order::class, $m2)->create(['training_id' => $training->id]);
+                    $m2 = rand(0, 5);
+                    factory(\App\Order::class, $m2)->create(['training_id' => $training->id]);
+                }
             }
         });
     }

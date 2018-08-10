@@ -50,7 +50,7 @@
                 <p>Copyright © Urbansenseacademy 2018</p>
             </div>
             <div id="udaje">
-                <p><a href="legal.html" class="no-decor" style="color:#666666">zpracování a ochrana osobních údajů</a></p>
+                <p><a href="/legal" class="no-decor" style="color:#666666">zpracování a ochrana osobních údajů</a></p>
             </div>
             <div id="author">
                 <p>Webdesign by <a href="http://www.tomeno.cz" class="no-decor"><img src="{{ asset('images/tomeno.png') }}"></a> </p>

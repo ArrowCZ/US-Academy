@@ -135,8 +135,8 @@
                             <td>{{ $training->time  }}</td>
                             <td>
                                 <a href="#page3" class="no-decor">
-                                    <a href="{{ route('detail') }}" class="button_prihlasit" style="text-decoration: none;">
-                                        <p>PŘIHLÁSIT SE</p>
+                                    <a href="{{ route('detail', ['training' => $training->id]) }}" class="button_prihlasit" style="text-decoration: none;">
+                                        <p>{{ __('DETAIL') }}</p>
                                     </a>
                                 </a>
                             </td>
@@ -244,6 +244,8 @@
             var tabulka = _("tabulka");
             var mesto = _(mesto_id);
             var cara = _("cara3");
+
+            $('#tabulka > table').hide();
 
             if (mesto) {
                 tabulka.style.display = "block";

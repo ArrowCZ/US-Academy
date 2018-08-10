@@ -62,4 +62,8 @@ class Training extends Model
 
         return $count;
     }
+
+    public function free_count() {
+        return $this->capacity - $this->paid_count() - $this->new_count();
+    }
 }

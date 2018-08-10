@@ -11,18 +11,33 @@
 |
 */
 
+use App\Training;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    $cities = \App\City::All();
+    $cities = [];
+
+    foreach (\App\City::All() as $city) {
+        if (count($city->trainings)) {
+            $cities[] = $city;
+        }
+    }
 
     return view('home')->with('cities', $cities);
 });
 
 Route::view('/legal', 'legal')->name('legal');
 
-Route::view('/detail', 'detail')->name('detail');
+
+
+Route::get('/detail/{training}', function ($training_id) {
+    $training = Training::findOrFail($training_id);
+
+    $city = \App\City::findOrFail($training->city_id);
+
+    return view('detail')->with('training', $training)->with('city', $city);
+})->name('detail');
 
 Auth::routes();
 
