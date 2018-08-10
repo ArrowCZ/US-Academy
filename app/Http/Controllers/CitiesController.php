@@ -106,7 +106,10 @@ class CitiesController extends Controller
             return redirect()->route('cities.show', ['city' => $city->id])->withErrors($validator)->withInput();
         }
 
-        return $city;
+        $city->fill($request->all());
+        $city->save();
+
+        return redirect()->route('cities.show', ['city' => $city->id])->with('status', 'Město bylo upraveno.');
     }
 
     /**

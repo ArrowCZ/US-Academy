@@ -26,7 +26,40 @@ class Training extends Model
         'price',
     ];
 
-    public function trainings() {
+    public function orders() {
         return $this->hasMany(Order::class);
+    }
+
+    public function new_count() {
+        $count = 0;
+        foreach ($this->orders as $order) {
+            if ($order->state === 0) {
+                $count ++;
+            }
+        }
+
+        return $count;
+    }
+
+    public function paid_count() {
+        $count = 0;
+        foreach ($this->orders as $order) {
+            if ($order->state === 1) {
+                $count ++;
+            }
+        }
+
+        return $count;
+    }
+
+    public function canceled_count() {
+        $count = 0;
+        foreach ($this->orders as $order) {
+            if ($order->state === 2) {
+                $count ++;
+            }
+        }
+
+        return $count;
     }
 }

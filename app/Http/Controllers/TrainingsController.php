@@ -75,7 +75,9 @@ class TrainingsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id) {
-        //
+        $training = Training::findOrFail($id);
+
+        return view('admin.training')->with('training', $training);
     }
 
     /**
@@ -98,7 +100,30 @@ class TrainingsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id) {
-        //
+        $training = Training::findOrFail($id);
+
+        $validator = \Illuminate\Support\Facades\Validator::make($request->all(), [
+            'day'      => 'required',
+            'time'     => 'required',
+            'season'   => 'required',
+            'trainer'  => 'required',
+            'capacity' => 'required',
+            'price'    => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()
+                ->route('trainings.show', [ 'training' => $id ])
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        $training->fill($request->all());
+        $training->save();
+
+        return redirect()
+            ->route('trainings.show', [ 'training' => $id ])
+            ->with('status', 'Kroužek byl upraven.');
     }
 
     /**

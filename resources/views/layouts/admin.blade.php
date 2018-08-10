@@ -47,13 +47,13 @@
                         </li>--}}
                     @else
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('admin.orders') }}">{{ __('Orders') }}</a>
+                            <a class="nav-link" href="{{ route('admin.orders') }}">{{ __('Objednávky') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('admin.cities') }}">{{ __('Cities') }}</a>
+                            <a class="nav-link" href="{{ route('admin.cities') }}">{{ __('Města') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('admin.trainings') }}">{{ __('Trainings') }}</a>
+                            <a class="nav-link" href="{{ route('admin.trainings') }}">{{ __('Kroužky') }}</a>
                         </li>
                         <li class="nav-item dropdown">
 
