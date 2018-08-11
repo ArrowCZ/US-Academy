@@ -30,6 +30,7 @@ Route::get('/', function () {
 
 Route::view('/legal', 'legal')->name('legal');
 
+Route::view('/form', 'form')->name('form');
 
 
 Route::get('/detail/{training}', function ($training_id) {

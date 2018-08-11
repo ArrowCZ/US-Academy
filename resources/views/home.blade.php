@@ -36,7 +36,7 @@
                 </div>
             </div>
         </div>
-        <div id="nadpis"><h1>URBAN SENSE <br> ACADEMY.</h1></div>
+        <div id="nadpis"><h1>URBAN SENSE <br> ACADEMY</h1></div>
         <div id="scroll_down"><img src="{{ asset('images/scroll.png') }}" alt="scroll" draggable="false"></div>
     </div>
 

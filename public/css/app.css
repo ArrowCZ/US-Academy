@@ -103,7 +103,7 @@
 
 #main {
   height: 100vh;
-  background: url(/images/header.png?5b9e0735e00a2863d23d620623b175d3);
+  background: url(/images/header.png?ed8d3bc117e757631064f4836f0fa373);
   background-size: cover;
   z-index: 999;
   display: none;
@@ -635,7 +635,6 @@ tr:not(:first-child):hover {
 #detail-page {
   height: 1000px;
   background: white;
-  text-transform: uppercase;
 }
 
 .detail-nadpis {
@@ -707,6 +706,104 @@ tr:not(:first-child):hover {
   height: 500px;
 }
 
+#form-page {
+  height: 1000px;
+}
+
+#form-nadpis {
+  font-family: 'Josefin Sans', sans-serif;
+  position: relative;
+  top: 100px;
+}
+
+#formular {
+  position: relative;
+  top: 180px;
+  max-width: 800px;
+  width: 100%;
+  margin: auto auto;
+}
+
+.pole {
+  height: 40px;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 20px;
+  font-weight: 200;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.next {
+  display: inline-block;
+}
+
+#formular p {
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+#forma {
+  max-width: 800px;
+  width: 100%;
+  margin: auto auto;
+}
+
+#jmeno {
+  padding: 0px 12px;
+  width: 96%;
+}
+
+#email {
+  padding: 0px 12px;
+  width: 45%;
+}
+
+#tel {
+  margin-left: 44%;
+}
+
+#telefon {
+  margin-left: 2%;
+  width: 45%;
+  padding: 0px 12px;
+}
+
+#message {
+  height: 150px;
+  padding: 12px 12px;
+  resize: none;
+  width: 96%;
+}
+
+#gdpr {
+  display: inline-block;
+}
+
+#gdpr a {
+  text-decoration: underline;
+  color: black;
+}
+
+#button-form {
+  max-width: 200px;
+  width: 100%;
+  height: 60px;
+  display: block;
+  margin: auto auto;
+  background: #0D6CB4;
+  font-family: 'Josefin Sans', sans-serif;
+  cursor: pointer;
+  border: none;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  color: white;
+  position: relative;
+  top: 50px;
+}
+
+#button-form:hover {
+  background: #0B568E;
+}
+
 @media only screen and (max-width: 980px) {
   #left {
     display: none;
@@ -759,6 +856,55 @@ tr:not(:first-child):hover {
   #detail-button {
     position: relative;
     top: 150px;
+  }
+
+  #email {
+    width: 80%;
+    margin: auto auto;
+    display: block;
+  }
+
+  #telefon {
+    width: 80%;
+    margin-left: 0%;
+    display: block;
+    margin: auto auto;
+    margin-top: 50px;
+  }
+
+  #message {
+    width: 80%;
+    display: block;
+    margin: auto auto;
+  }
+
+  #jmeno {
+    width: 80%;
+    display: block;
+    margin: auto auto;
+  }
+
+  #mail_text {
+    margin-left: 8%;
+  }
+
+  #last_first_name {
+    margin-left: 8%;
+    position: relative;
+  }
+
+  #tel {
+    margin-left: -8%;
+    position: relative;
+    top: 100px;
+  }
+
+  #your_text {
+    margin-left: 8%;
+  }
+
+  #gdpr:not(p) {
+    margin-left: 8%;
   }
 }
 
@@ -906,6 +1052,10 @@ tr:not(:first-child):hover {
 
   .cena {
     font-size: 19px;
+  }
+
+  #form-page {
+    height: 1200px;
   }
 }
 
