@@ -72,7 +72,7 @@
         </div>
         <div class="button_prihlasit" id="detail-button"><p>PŘIHLÁSIT SE NA KROUŽEK</p></div>
 
-        @include('form')
+        {{--@include('forms.form')--}}
 
     </div>
     <div id="mapa_detail">
