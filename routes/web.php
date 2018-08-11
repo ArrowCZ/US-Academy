@@ -12,9 +12,11 @@
 */
 
 use App\Training;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Validator;
 
 Route::get('/', function () {
     $cities = [];
@@ -31,7 +33,6 @@ Route::get('/', function () {
 Route::view('/legal', 'legal')->name('legal');
 
 
-
 Route::get('/detail/{training}', function ($training_id) {
     $training = Training::findOrFail($training_id);
 
@@ -39,6 +40,38 @@ Route::get('/detail/{training}', function ($training_id) {
 
     return view('detail')->with('training', $training)->with('city', $city);
 })->name('detail');
+
+
+Route::post('/detail/{training}', function (Request $request, $training) {
+
+    $data = $request->all();
+    unset($data['_token']);
+
+    $validator = Validator::make($data, [
+        'name'  => 'required',
+        'email' => 'required',
+        //'gdpr'  => 'required',
+    ]);
+
+
+    if ($validator->fails()) {
+        return redirect()->route('detail', ['training' => $training])->withErrors($validator)->withInput();
+    }
+
+    $data['training_id'] = (int)$training;
+
+    $order = new \App\Order($data);
+
+    $order->training_id = (int)$training;
+    $order->count = 1;
+
+    $order->save();
+
+    // \Illuminate\Support\Facades\Mail::to($order->email)->send(new \App\Mail\OrderCreated($order));
+
+    return redirect()->route('detail', ['training' => $training])->with('status', 'Byl jste zapsan. Ocekavejte instrukce emailem.');
+});
+
 
 Auth::routes();
 
