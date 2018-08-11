@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * @property-read int     $id
+ * @property-read string  $address
  * @property-read string  $day
  * @property-read string  $season
  * @property-read string  $trainer
@@ -34,7 +35,7 @@ class Training extends Model
         $count = 0;
         foreach ($this->orders as $order) {
             if ($order->state === 0) {
-                $count ++;
+                $count++;
             }
         }
 
@@ -45,7 +46,7 @@ class Training extends Model
         $count = 0;
         foreach ($this->orders as $order) {
             if ($order->state === 1) {
-                $count ++;
+                $count++;
             }
         }
 
@@ -56,7 +57,7 @@ class Training extends Model
         $count = 0;
         foreach ($this->orders as $order) {
             if ($order->state === 2) {
-                $count ++;
+                $count++;
             }
         }
 

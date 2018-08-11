@@ -17,7 +17,7 @@
                 <ul id="nav-take">
                     <li class=""><a href="#page2"> O NÁS </a></li>
                     <li class=""><a href="#page3"> VÝBĚR KROUŽKŮ </a></li>
-                    <li class=""><a href="#page3"> KONTAKT </a></li>
+                    <li class=""><a href="#page4"> KONTAKT </a></li>
                 </ul>
             </div>
             <div id="middle">
@@ -25,12 +25,14 @@
             </div>
             <div id="right">
                 <div id="fb_logo">
-                    <a href="https://www.facebook.com/Urban-Sense-Academy-1621345168099222/" target="_blank"><img src="{{ asset('images/FB-IC.svg') }}"
-                                alt="facebook" draggable="false"></a>
+                    <a href="https://www.facebook.com/Urban-Sense-Academy-1621345168099222/" target="_blank"><img
+                            src="{{ asset('images/FB-IC.svg') }}"
+                            alt="facebook" draggable="false"></a>
                 </div>
                 <div id="ig_logo">
-                    <a href="https://www.instagram.com/urbansenseacademy/" target="_blank"><img src="{{ asset('images/IG-IC.svg') }}" alt="instagram"
-                                draggable="false"></a>
+                    <a href="https://www.instagram.com/urbansenseacademy/" target="_blank"><img
+                            src="{{ asset('images/IG-IC.svg') }}" alt="instagram"
+                            draggable="false"></a>
                 </div>
             </div>
         </div>
@@ -42,8 +44,8 @@
         <div class="about-img" data-ibg-bg="{{ asset('images/bac1.png') }}">
             <div id="text-img">
                 <h1>O ACADEMY</h1>
-				<br>
-				<p>PARKOUR KROUŽKY</p>
+                <br>
+                <p>PARKOUR KROUŽKY</p>
             </div>
         </div>
         <div id="cara1">
@@ -90,8 +92,9 @@
                     <div class="point" style="top: {{ $city->y }}%; left: {{ $city->x }}%">
                         <!-- bod na mape s mestem, poctem mist atd -->
 
-                        <img src="{{ asset('images/pointer.png') }}" onclick="tabulka('city_{{ $city->id  }}')" alt="pointer"
-                                draggable="false">
+                        <img src="{{ asset('images/pointer.png') }}" onclick="tabulka('city_{{ $city->id  }}')"
+                            alt="pointer"
+                            draggable="false">
 
                         <div class="number">
                             <!--volne mista-->
@@ -135,7 +138,8 @@
                             <td>{{ $training->time  }}</td>
                             <td>
                                 <a href="#page3" class="no-decor">
-                                    <a href="{{ route('detail', ['training' => $training->id]) }}" class="button_prihlasit" style="text-decoration: none;">
+                                    <a href="{{ route('detail', ['training' => $training->id]) }}"
+                                        class="button_prihlasit" style="text-decoration: none;">
                                         <p>{{ __('DETAIL') }}</p>
                                     </a>
                                 </a>
@@ -159,14 +163,15 @@
                     <br>
                     U Dvora 1059/4, 586 01 Jihlava
                     <br>
-                    
+
                     <br>
                     <span><a class="no-decor" style="color: #C01414;" href="mailto:contact@urbansense.cz"><b>contact@urbansense.cz</b></a>
                     <br>
-                    <a class="no-decor" style="color: #C01414;" href="callto:+420 606 067 564"><b>+420 606 067 564</b></a>
+                    <a class="no-decor" style="color: #C01414;"
+                        href="callto:+420 606 067 564"><b>+420 606 067 564</b></a>
                     </span>
                     <br>
-                    
+
                     <br>
                     IČ: 22754211
                     <br>
@@ -176,25 +181,25 @@
                     L 16314 vedená u Krajského soudu v Brně
                 </p>
             </div>
-			
+
         </div>
-		
-	 <div id="footer">
-        <div id="footer-text">
-            <div id="copyright">
-                <p>Copyright © Urbansenseacademy 2018</p>
-            </div>
-            <div id="udaje">
-                <p><a href="/legal" class="no-decor" style="color:#666666">zpracování a ochrana osobních údajů</a>
-                </p>
-            </div>
-            <div id="author">
-                <p>Webdesign by <a href="http://www.tomeno.cz" class="no-decor"><img
+
+        <div id="footer">
+            <div id="footer-text">
+                <div id="copyright">
+                    <p>Copyright © Urbansenseacademy 2018</p>
+                </div>
+                <div id="udaje">
+                    <p><a href="/legal" class="no-decor" style="color:#666666">zpracování a ochrana osobních údajů</a>
+                    </p>
+                </div>
+                <div id="author">
+                    <p>Webdesign by <a href="http://www.tomeno.cz" class="no-decor"><img
                                 src="{{ asset('images/tomeno.png') }}"></a></p>
+                </div>
             </div>
         </div>
-    </div>
-		
+
     </div>
 
 
@@ -246,6 +251,7 @@
             var cara = _("cara3");
 
             $('#tabulka > table').hide();
+
 
             if (mesto) {
                 tabulka.style.display = "block";

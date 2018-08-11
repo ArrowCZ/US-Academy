@@ -55,8 +55,13 @@
             </div>
             <div class="blok">
                 <div class="blok-text" id="mesto">
-                    <p><b>MĚSTO</b><br><span>{{ $city->name }}</span><br>ZŠ a MŠ Kukleny, Pražská třída<br>198/40, Hradec
-                        Králové</p>
+                    <p>
+                        <b>MĚSTO</b>
+                        <br>
+                        <span>{{ $city->name }}</span>
+                        <br>
+                        {{ $training->address  }}
+                    </p>
                 </div>
             </div>
             <div class="blok">

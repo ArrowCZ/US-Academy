@@ -12,6 +12,7 @@
 */
 
 use App\Training;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -54,3 +55,8 @@ Route::resource('/admin/orders', 'OrdersController')->names([
 Route::resource('/admin/trainings', 'TrainingsController')->names([
     'index' => 'admin.trainings',
 ]);
+
+
+Route::get('/console/migrate', function () {
+    return Artisan::call('migrate');
+});

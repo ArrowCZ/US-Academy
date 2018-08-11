@@ -194,7 +194,23 @@
 
                         {!! csrf_field() !!}
 
-                            <input type="hidden" name="city_id" value="{{ $city->id }}">
+                        <input type="hidden" name="city_id" value="{{ $city->id }}">
+
+                        <div class="form-group{{ $errors->has('address') ? ' has-error' : '' }}">
+                            <label for="day">{{ __('Adresa') }}</label>
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="address"
+                                name="address"
+                                placeholder=""
+                                required
+                                value="{{ old('address') }}"
+                            >
+                            @if($errors->has('address'))
+                                <span class="help-block">{{ $errors->first('address') }}</span>
+                            @endif
+                        </div>
 
                         <div class="form-group{{ $errors->has('day') ? ' has-error' : '' }}">
                             <label for="day">{{ __('Den') }}</label>
@@ -204,6 +220,7 @@
                                 id="day"
                                 name="day"
                                 placeholder=""
+                                required
                                 value="{{ old('day') }}"
                             >
                             @if($errors->has('day'))
@@ -219,6 +236,7 @@
                                 id="season"
                                 name="season"
                                 placeholder=""
+                                required
                                 value="{{ old('season') }}"
                             >
                             @if($errors->has('season'))
@@ -234,6 +252,7 @@
                                 id="trainer"
                                 name="trainer"
                                 placeholder=""
+                                required
                                 value="{{ old('trainer') }}"
                             >
                             @if($errors->has('trainer'))
@@ -250,6 +269,7 @@
                                     name="capacity"
                                     placeholder=""
                                     min="0"
+                                    required
                                     value="{{ old('capacity') }}"
                                 >
                                 @if($errors->has('capacity'))
@@ -258,14 +278,14 @@
                             </div>
 
                             <div class="form-group{{ $errors->has('time') ? ' has-error' : '' }}">
-                                <label for="time">{{ __('čas') }}</label>
+                                <label for="time">{{ __('Čas') }}</label>
                                 <input
                                     type="text"
                                     class="form-control"
                                     id="time"
                                     name="time"
                                     placeholder=""
-                                    min="0"
+                                    required
                                     value="{{ old('time') }}"
                                 >
                                 @if($errors->has('time'))
@@ -281,7 +301,7 @@
                                     id="price"
                                     name="price"
                                     placeholder=""
-                                    min="0"
+                                    required
                                     value="{{ old('price') }}"
                                 >
                                 @if($errors->has('price'))

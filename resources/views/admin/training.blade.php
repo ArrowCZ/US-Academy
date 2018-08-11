@@ -17,6 +17,9 @@
                         <div class="row">
                             <div class="col">
                                 <dl class="row">
+                                    <dt class="col-sm-3">{{ __('Adresa') }}</dt>
+                                    <dd class="col-sm-9">{{ $training->address }}</dd>
+
                                     <dt class="col-sm-3">{{ __('Den') }}</dt>
                                     <dd class="col-sm-9">{{ $training->day }}</dd>
 
@@ -225,6 +228,21 @@
                         @endif
 
                         {!! csrf_field() !!}
+
+                        <div class="form-group{{ $errors->has('address') ? ' has-error' : '' }}">
+                            <label for="day">{{ __('Adresa') }}</label>
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="address"
+                                name="address"
+                                placeholder=""
+                                value="{{ old('address', $training->address) }}"
+                            >
+                            @if($errors->has('address'))
+                                <span class="help-block">{{ $errors->first('address') }}</span>
+                            @endif
+                        </div>
 
                         <div class="form-group{{ $errors->has('day') ? ' has-error' : '' }}">
                             <label for="day">{{ __('Den') }}</label>
