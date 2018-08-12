@@ -133,7 +133,7 @@
                         <tr>
                             <td>{{ $training->price }} Kč</td>
                             <td>{{ $city->name  }}</td>
-                            <td>10/{{ $training->capacity  }}</td>
+                            <td>{{ $training->paid_count() }}/{{ $training->capacity  }}</td>
                             <td>{{ $city->day  }}</td>
                             <td>{{ $training->time  }}</td>
                             <td>
@@ -161,24 +161,18 @@
             <div id="kontakt-text" class="no-decor">
                 <p class="no-decor">Urban Sense
                     <br>
-                    U Dvora 1059/4, 586 01 Jihlava
-                    <br>
-
-                    <br>
-                    <span><a class="no-decor" style="color: #C01414;" href="mailto:contact@urbansense.cz"><b>contact@urbansense.cz</b></a>
+                    <span><a class="no-decor" style="color: #C01414;" href="mailto:info@usacademy.cz"><b>info@usacademy.cz.cz</b></a>
                     <br>
                     <a class="no-decor" style="color: #C01414;"
-                        href="callto:+420 606 067 564"><b>+420 606 067 564</b></a>
+                        href="callto:+420 773 074 651"><b>+420 773 074 651</b></a>
                     </span>
                     <br>
 
                     <br>
-                    IČ: 22754211
-                    <br>
-                    Sídlo: <br>
+
+                    IČ: 22754211<br>
+                    Sídlo:<br>
                     U Dvora 1059/4, 586 01 Jihlava<br>
-                    Spisová značka: <br>
-                    L 16314 vedená u Krajského soudu v Brně
                 </p>
             </div>
 

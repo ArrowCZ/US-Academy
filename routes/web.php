@@ -28,11 +28,11 @@ Route::get('/', function () {
     }
 
     return view('home')->with('cities', $cities);
-});
+})->name('home');
 
 Route::view('/legal', 'legal')->name('legal');
 
-Route::view('/form', 'form')->name('form');
+//Route::view('/form', 'form')->name('form');
 
 Route::get('/detail/{training}', function ($training_id) {
     $training = Training::findOrFail($training_id);
@@ -42,8 +42,17 @@ Route::get('/detail/{training}', function ($training_id) {
     return view('detail')->with('training', $training)->with('city', $city);
 })->name('detail');
 
+Route::get('/form/{training}', function ($training) {
+    $training = Training::findOrFail($training);
 
-Route::post('/detail/{training}', function (Request $request, $training) {
+    $city = \App\City::findOrFail($training->city_id);
+
+    return view('form')->with('training', $training)->with('city', $city);
+});
+
+Route::post('/form/{training}', function (Request $request, $training) {
+    $training = Training::findOrFail($training);
+    $city = \App\City::findOrFail($training->city_id);
 
     $data = $request->all();
     unset($data['_token']);
@@ -56,21 +65,25 @@ Route::post('/detail/{training}', function (Request $request, $training) {
 
 
     if ($validator->fails()) {
-        return redirect()->route('detail', ['training' => $training])->withErrors($validator)->withInput();
+        return redirect()->route('detail', ['training' => $training->id])->withErrors($validator)->withInput();
     }
-
-    $data['training_id'] = (int)$training;
 
     $order = new \App\Order($data);
 
-    $order->training_id = (int)$training;
+    $order->training_id = $training->id;
     $order->count = 1;
 
     $order->save();
 
-    // \Illuminate\Support\Facades\Mail::to($order->email)->send(new \App\Mail\OrderCreated($order));
+    $mail = new \App\Mail\OrderCreated($order, $city, $training);
 
-    return redirect()->route('detail', ['training' => $training])->with('status', 'Byl jste zapsan. Ocekavejte instrukce emailem.');
+    //try {
+        \Illuminate\Support\Facades\Mail::to($order->email)->send($mail);
+   // } catch (Swift_TransportException $ex) {
+        // return $ex;
+    //}
+
+    return redirect()->route('home');//->with('status', 'Byl jste zapsan. Ocekavejte instrukce emailem.');
 });
 
 

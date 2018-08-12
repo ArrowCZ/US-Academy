@@ -103,7 +103,7 @@
 
 #main {
   height: 100vh;
-  background: url(/images/header.png?ed8d3bc117e757631064f4836f0fa373);
+  background: url(/images/header.png?5b9e0735e00a2863d23d620623b175d3);
   background-size: cover;
   z-index: 999;
   display: none;
@@ -463,25 +463,22 @@ tr:not(:first-child):hover {
 .button_prihlasit {
   max-width: 150px;
   width: 100%;
-  height: 45px;
   display: block;
   margin: auto auto;
   background: #0D6CB4;
   -webkit-transition: 0.3s;
   transition: 0.3s;
-}
-
-.button_prihlasit:hover {
-  background: #0B568E;
-}
-
-.button_prihlasit p {
+  padding: 15px 20px;
   color: white;
   font-family: 'Josefin Sans', sans-serif;
   text-decoration: none;
   text-align: center;
   position: relative;
   top: 15px;
+}
+
+.button_prihlasit:hover {
+  background: #0B568E;
 }
 
 #trebic,
@@ -726,11 +723,14 @@ tr:not(:first-child):hover {
 
 .pole {
   height: 40px;
+  padding: 0 12px;
   font-family: 'Josefin Sans', sans-serif;
   font-size: 20px;
   font-weight: 200;
   -webkit-transition: 0.3s;
   transition: 0.3s;
+  border: 1px solid #898989;
+  width: 100%;
 }
 
 .next {
@@ -802,6 +802,20 @@ tr:not(:first-child):hover {
 
 #button-form:hover {
   background: #0B568E;
+}
+
+.row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0 -30px;
+}
+
+.col {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+  padding: 0 30px;
 }
 
 @media only screen and (max-width: 980px) {

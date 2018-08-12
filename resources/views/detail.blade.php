@@ -70,7 +70,7 @@
                 </div>
             </div>
         </div>
-        <div class="button_prihlasit" id="detail-button"><p>PŘIHLÁSIT SE NA KROUŽEK</p></div>
+        <a href="/form/{{$training->id}}" class="button_prihlasit" id="detail-button">PŘIHLÁSIT SE NA KROUŽEK</a>
 
         {{--@include('forms.form')--}}
 

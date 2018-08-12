@@ -1,25 +1,37 @@
-Dobrý den!<br>
+<p>
+    Dobrý den!<br>
 
-Právě jste se přihlásili do Urban Sense Academy na parkour kroužek ve městě “město”. Objednaný kroužek zahrnuje pravidelné jednohodinové tréninky od 1.září 2018 do 31.ledna 2019.<br>
+    Právě jste se přihlásili do Urban Sense Academy na parkour kroužek ve městě {{ $city->name }}.
+    Objednaný kroužek zahrnuje pravidelné jednohodinové tréninky od 1.září 2018 do 31.ledna 2019.
+</p>
 
-Čas a místo:<br>
+<br>
+Čas a místo:
+{{ $training->day }}, {{ $training->time }}<br>
+{{ $training->address }}<br>
 
-“Den”, “čas”<br>
-“Adresa tělocvičny”<br>
+<br>
 
-Pro úplnou registraci do Urban Sense Academy je potřeba provést platbu za kroužek do 5-ti dnů od přijetí tohoto e-mailu.<br>
+<p>
+    Pro úplnou registraci do Urban Sense Academy je potřeba provést platbu za kroužek do 5-ti dnů od přijetí tohoto e-mailu.
+</p>
 
-Instrukce pro provedení platby:<br>
+<p>
+    Instrukce pro provedení platby:<br>
+    <br>
+    Částka: {{ $training->price }},-<br>
+    Číslo účtu: 2001178512/2010<br>
+    IBAN: CZ4120100000002001178512<br>
+    BIC/SWIFT: FIOBCZPPXXX<br>
+    Variabilní symbol: {{ $order->id }}<br>
+</p>
 
-Částka: “částka”<br>
-Číslo účtu: 2001178512/2010<br>
-IBAN: CZ4120100000002001178512<br>
-BIC/SWIFT: FIOBCZPPXXX<br>
-Variabilní symbol: “číslo registace”<br>
+<p>
+    V momentě přijetí Vaší platby Vám zašleme potvrzovací e-mail.<br>
+    Pro jakékoliv dotazy nás neváhejte kontaktovat na: 773 074 651
+</p>
 
-V momentě přijetí Vaší platby Vám zašleme potvrzovací e-mail.<br>
-
-Pro jakékoliv dotazy nás neváhejte kontaktovat na: 773 074 651<br>
-
-S přátelským pozdravem,<br>
-Urban Sense Academy<br>
+<p>
+    S přátelským pozdravem,<br>
+    Urban Sense Academy
+</p>
