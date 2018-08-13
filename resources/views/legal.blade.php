@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <div id="menu">
+    <div id="menu" style="display: block;">
         <div id="left">
 
             <ul id="nav-take">

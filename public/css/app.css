@@ -9,7 +9,7 @@
   height: 1000px;
   background: white;
   width: 100%;
-  z-index: 1;
+  z-index: -99;
 }
 
 @-webkit-keyframes logo_fade {
@@ -36,7 +36,7 @@
   display: block;
   margin: auto auto;
   position: relative;
-  top: 100px;
+  top: 150px;
   opacity: 0;
   -webkit-animation-name: logo_fade;
   /* Safari 4.0 - 8.0 */
@@ -68,13 +68,19 @@
 .container {
   display: block;
   position: relative;
-  top: 200px;
+  top: 250px;
   margin: auto auto;
   max-width: 430px;
   width: 100%;
   z-index: 1;
   -webkit-transition: 0.3s;
   transition: 0.3s;
+}
+
+.ibg-bg {
+  position: absolute;
+  width: 105% !important;
+  height: 105% !important;
 }
 
 .title {
@@ -105,8 +111,9 @@
   height: 100vh;
   background: url(/images/header.png?ed8d3bc117e757631064f4836f0fa373);
   background-size: cover;
-  z-index: 999;
   display: none;
+  width: 100%;
+  z-index: 9;
   position: relative;
 }
 
@@ -116,7 +123,8 @@
   position: relative;
   top: 0;
   background: white;
-  z-index: 99;
+  display: none;
+  z-index: 9999;
   -webkit-box-shadow: 3px 1px 5px #BDBDBD;
           box-shadow: 3px 1px 5px #BDBDBD;
 }
@@ -151,7 +159,7 @@ li a {
   width: 70px;
   display: block;
   margin: auto auto;
-  margin-top: -60px;
+  margin-top: -55px;
 }
 
 #logo_menu img {
@@ -160,6 +168,29 @@ li a {
   display: block;
   z-index: 99;
   margin: auto auto;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+#logo_menu_main {
+  width: 70px;
+  display: block;
+  margin: auto auto;
+  margin-top: -55px;
+}
+
+#logo_menu_main img {
+  width: 70px;
+  position: relative;
+  display: block;
+  z-index: 99;
+  margin: auto auto;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+#logo_menu_main img:hover {
+  opacity: 0.5;
 }
 
 li a:hover {
@@ -171,7 +202,7 @@ li a:hover {
   float: right;
   text-align: center;
   margin-right: 50px;
-  margin-top: -50px;
+  margin-top: -55px;
   z-index: 99;
 }
 
@@ -215,27 +246,31 @@ li a:hover {
   font-size: 60px;
   text-align: center;
   position: relative;
-  top: 400px;
+  top: 350px;
   max-width: 1000px;
   display: block;
   margin: auto auto;
 }
 
+#nadpis p {
+  font-size: 50px;
+}
+
 #scroll_down {
   display: block;
-  margin: auto auto;
   position: relative;
-  top: 580px;
+  top: -20vh;
 }
 
 #scroll_down img {
   display: block;
-  margin: auto auto;
   position: relative;
+  margin: auto auto;
+  z-index: 999;
 }
 
 #page2 {
-  height: 1900px;
+  height: 1200px;
   background: white;
   display: none;
 }
@@ -279,7 +314,6 @@ li a:hover {
   font-family: 'Josefin Sans', sans-serif;
   color: black;
   position: relative;
-  top: 250px;
 }
 
 .nadpis1 {
@@ -289,7 +323,7 @@ li a:hover {
 }
 
 .text1 {
-  font-size: 20px;
+  font-size: 22px;
   display: block;
   margin: auto auto;
   line-height: 30px;
@@ -334,7 +368,7 @@ li a:hover {
   width: 100%;
   height: 50px;
   position: relative;
-  top: 350px;
+  top: 200px;
   display: block;
   margin: auto auto;
   background: #0D6CB4;
@@ -363,7 +397,7 @@ a:visited {
 
 #cara2 {
   position: relative;
-  top: 380px;
+  top: 300px;
   width: 3px;
   height: 150px;
   background: #F10049;
@@ -809,7 +843,8 @@ tr:not(:first-child):hover {
     display: none;
   }
 
-  #logo_menu {
+  #logo_menu,
+  #logo_menu_main {
     margin-top: 10px;
   }
 }
@@ -817,6 +852,10 @@ tr:not(:first-child):hover {
 @media only screen and (max-width: 950px) {
   #nadpis {
     font-size: 40px;
+  }
+
+  #nadpis p {
+    font-size: 30px;
   }
 }
 
@@ -906,6 +945,10 @@ tr:not(:first-child):hover {
   #gdpr:not(p) {
     margin-left: 8%;
   }
+
+  #cara2 {
+    display: none;
+  }
 }
 
 @media only screen and (max-width: 800px) {
@@ -958,6 +1001,7 @@ tr:not(:first-child):hover {
 @media only screen and (max-width: 705px) {
   .text1 {
     text-align: center;
+    max-width: 80%;
   }
 }
 
@@ -1097,10 +1141,30 @@ tr:not(:first-child):hover {
   #main {
     height: 900px;
   }
+}
+
+@media screen and (max-height: 885px) {
+  #nadpis {
+    position: relative;
+    top: 350px;
+  }
+}
+
+@media screen and (max-height: 840px) {
+  #nadpis {
+    position: relative;
+    top: 300px;
+  }
 
   #scroll_down {
+    top: -30vh;
+  }
+}
+
+@media screen and (max-height: 790px) {
+  #nadpis {
     position: relative;
-    top: 550px;
+    top: 200px;
   }
 }
 

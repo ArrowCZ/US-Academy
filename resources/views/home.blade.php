@@ -10,9 +10,7 @@
             </h1>
         </section>
     </div>
-
-    <div id="main">
-        <div id="menu">
+	<div id="menu">
             <div id="left">
                 <ul id="nav-take">
                     <li class=""><a href="#page2"> O NÁS </a></li>
@@ -21,7 +19,7 @@
                 </ul>
             </div>
             <div id="middle">
-                <div id="logo_menu"><img src="{{ asset('images/logo.png') }}" alt="logo" draggable="false"></div>
+                <div id="logo_menu_main"><a href="#main"><img src="{{ asset('images/logo.png') }}" alt="logo" draggable="false"></img></div>
             </div>
             <div id="right">
                 <div id="fb_logo">
@@ -35,22 +33,19 @@
                             draggable="false"></a>
                 </div>
             </div>
-        </div>
-        <div id="nadpis"><h1>URBAN SENSE <br> ACADEMY</h1></div>
-        <div id="scroll_down"><img src="{{ asset('images/scroll.png') }}" alt="scroll" draggable="false"></div>
+    </div>
+    <div id="main" data-ibg-bg="{{ asset('images/header.png') }}">
+
+        <div id="nadpis">
+			<h1>URBAN SENSE <br> ACADEMY</h1><br>
+			<p>PARKOUR KROUŽKY</p>
+		
+		</div>
+     
     </div>
 
     <div id="page2">
-        <div class="about-img" data-ibg-bg="{{ asset('images/bac1.png') }}">
-            <div id="text-img">
-                <h1>O ACADEMY</h1>
-                <br>
-                <p>PARKOUR KROUŽKY</p>
-            </div>
-        </div>
-        <div id="cara1">
-
-        </div>
+         <div id="scroll_down"><img src="{{ asset('images/scroll.png') }}" alt="scroll" draggable="false"></div>
         <div id="about-text">
             <div class="nadpis1">
                 <h1>O ACADEMY</h1>
@@ -63,7 +58,7 @@
             </div>
             <div class="vyhody-seznam">
 
-                <p>KVALITNÍ ZÁZEMÍ</p>
+                <p>BEZPEČNÉ ZÁZEMÍ</p>
                 <p>PROFESIONÁLNÍ VEDENÍ</p>
 
                 <p>PŘÁTELSKÝ KOLEKTIV</p>
@@ -225,6 +220,7 @@
         setTimeout(function () {
             timer = setInterval(upper_slide, 1);
             main.style.display = "block";
+			menu.style.display = "block";
             page2.style.display = "block";
             page3.style.display = "block";
             page4.style.display = "block";
@@ -274,9 +270,9 @@
             return false;
         });
 
-        $(".about-img").interactive_bg({
+        $("#main").interactive_bg({
             strength: 25,
-            scale: 1.1,
+            scale: 1,
             animationSpeed: "100ms",
             contain: true,
             wrapContent: false
