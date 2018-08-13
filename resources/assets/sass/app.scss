@@ -24,12 +24,7 @@
 #logo {
   display: block;
   margin: auto auto;
-<<<<<<< HEAD
   position: relative; top: 150px;
-=======
-  position: relative;
-  top: 100px;
->>>>>>> fd7e4cb4483044fe007ee26dbf23de0970b3864a
   opacity: 0;
   -webkit-animation-name: logo_fade; /* Safari 4.0 - 8.0 */
   -webkit-animation-duration: 1s; /* Safari 4.0 - 8.0 */
@@ -56,12 +51,7 @@
 .container {
 
   display: block;
-<<<<<<< HEAD
   position: relative; top: 250px;
-=======
-  position: relative;
-  top: 200px;
->>>>>>> fd7e4cb4483044fe007ee26dbf23de0970b3864a
   margin: auto auto;
   max-width: 430px;
   width: 100%;
@@ -77,9 +67,6 @@
 }
 
 .title{
-=======
-.title {
->>>>>>> fd7e4cb4483044fe007ee26dbf23de0970b3864a
   z-index: 1;
   font-family: 'Josefin Sans', sans-serif;
   position: relative;
@@ -113,7 +100,6 @@
 }
 
 #menu {
-<<<<<<< HEAD
 	width: 100%;
 	height: 80px;
 	position: relative; top: 0;
@@ -121,15 +107,6 @@
 	display: none;
 	z-index: 9999;
 	box-shadow: 3px 1px 5px #BDBDBD;
-=======
-  width: 100%;
-  height: 80px;
-  position: relative;
-  top: 0;
-  background: white;
-  z-index: 99;
-  box-shadow: 3px 1px 5px #BDBDBD;
->>>>>>> fd7e4cb4483044fe007ee26dbf23de0970b3864a
 }
 
 #menu ul {
@@ -158,7 +135,6 @@ li a {
 }
 
 #logo_menu {
-<<<<<<< HEAD
 	width: 70px;
 	display: block;
 	margin: auto auto;
@@ -192,7 +168,6 @@ li a {
 
 #logo_menu_main img:hover {
 	opacity: 0.5;
-=======
   width: 70px;
   display: block;
   margin: auto auto;
@@ -205,7 +180,6 @@ li a {
   display: block;
   z-index: 99;
   margin: auto auto;
->>>>>>> fd7e4cb4483044fe007ee26dbf23de0970b3864a
 }
 
 li a:hover {
@@ -214,19 +188,11 @@ li a:hover {
 }
 
 #right {
-<<<<<<< HEAD
 	float: right;
 	text-align: center;
 	margin-right: 50px;
 	margin-top: -55px;
 	z-index: 99;
-=======
-  float: right;
-  text-align: center;
-  margin-right: 50px;
-  margin-top: -50px;
-  z-index: 99;
->>>>>>> fd7e4cb4483044fe007ee26dbf23de0970b3864a
 }
 
 #fb_logo {
@@ -264,12 +230,7 @@ li a:hover {
   font-family: 'Josefin Sans', sans-serif;
   font-size: 60px;
   text-align: center;
-<<<<<<< HEAD
   position: relative; top: 350px;
-=======
-  position: relative;
-  top: 400px;
->>>>>>> fd7e4cb4483044fe007ee26dbf23de0970b3864a
   max-width: 1000px;
   display: block;
   margin: auto auto;
@@ -281,13 +242,7 @@ li a:hover {
 
 #scroll_down {
   display: block;
-<<<<<<< HEAD
   position: relative; top: -20vh;
-=======
-  margin: auto auto;
-  position: relative;
-  top: 580px;
->>>>>>> fd7e4cb4483044fe007ee26dbf23de0970b3864a
 }
 
 #scroll_down img {
@@ -344,10 +299,6 @@ li a:hover {
   font-family: 'Josefin Sans', sans-serif;
   color: black;
   position: relative;
-<<<<<<< HEAD
-=======
-  top: 250px;
->>>>>>> fd7e4cb4483044fe007ee26dbf23de0970b3864a
 }
 
 .nadpis1 {
@@ -402,12 +353,7 @@ li a:hover {
   max-width: 200px;
   width: 100%;
   height: 50px;
-<<<<<<< HEAD
   position: relative; top: 200px;
-=======
-  position: relative;
-  top: 350px;
->>>>>>> fd7e4cb4483044fe007ee26dbf23de0970b3864a
   display: block;
   margin: auto auto;
   background: #0D6CB4;
@@ -434,10 +380,6 @@ li a:hover {
 #cara2 {
 <<<<<<< HEAD
   position: relative; top: 300px;
-=======
-  position: relative;
-  top: 380px;
->>>>>>> fd7e4cb4483044fe007ee26dbf23de0970b3864a
   width: 3px;
   height: 150px;
   background: #F10049;
@@ -911,8 +853,7 @@ input[type=checkbox] {
 }
 
 @media only screen and (max-width: 880px) {
-<<<<<<< HEAD
-	.blok {
+.blok {
 		max-width: 100%;
 		text-align: center;
 	}
@@ -992,87 +933,6 @@ input[type=checkbox] {
 	#cara2 {
 		display: none;
 	}
-	
-=======
-  .blok {
-    max-width: 100%;
-    text-align: center;
-  }
-  .blok:not(:first-child) {
-    margin-top: 100px;
-  }
-  #detail-page {
-    height: 1800px;
-  }
-  #info-detail {
-    max-width: 100%;
-    width: 100%;
-    text-align: center;
-    top: 100px;
-  }
-  .blok-text, .blok-text span {
-    text-align: center;
-    position: relative;
-  }
-  #trener, #mesto, #mista {
-    margin-top: 0px;
-  }
-  #detail-button {
-    position: relative;
-    top: 150px;
-  }
-
-  #email {
-    width: 80%;
-    margin: auto auto;
-    display: block;
-  }
-
-  #telefon {
-    width: 80%;
-    margin-left: 0%;
-
-    display: block;
-    margin: auto auto;
-    margin-top: 50px;
-  }
-
-  #message {
-    width: 80%;
-    display: block;
-    margin: auto auto;
-  }
-
-  #jmeno {
-    width: 80%;
-    display: block;
-    margin: auto auto;
-  }
-
-  #mail_text {
-    margin-left: 8%;
-  }
-
-  #last_first_name {
-    margin-left: 8%;
-    position: relative;
-  }
-
-  #tel {
-    margin-left: -8%;
-    position: relative;
-    top: 100px;
-  }
-
-  #your_text {
-    margin-left: 8%;
-  }
-
-  #gdpr:not(p) {
-    margin-left: 8%;
-  }
-
->>>>>>> fd7e4cb4483044fe007ee26dbf23de0970b3864a
 }
 
 @media only screen and (max-width: 800px) {
@@ -1270,12 +1130,7 @@ input[type=checkbox] {
       position: relative; top: 300px;
   }
   #scroll_down {
-<<<<<<< HEAD
 	  top: -30vh;
-=======
-    position: relative;
-    top: 550px;
->>>>>>> fd7e4cb4483044fe007ee26dbf23de0970b3864a
   }
 
 }
