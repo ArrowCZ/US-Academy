@@ -46,6 +46,7 @@
                 >
 
                 <br>
+                <br>
 
                 <div class="row">
                     <div class="col">
@@ -79,7 +80,17 @@
                 <br>
                 <br>
 
-                <input type="checkbox" id="gdpr" required> <p id="gdpr">Souhlasím se <a href="/legal">zpracováním osobních údajů.</a></p><br>
+                <label class="checkbox">
+                    <input type="checkbox" id="gdpr" required> Souhlasím se
+                </label>
+                 <a href="{{ route('legal') }}" target="_blank">zpracováním osobních údajů.</a><br>
+                <br>
+
+                <label class="checkbox">
+                    <input type="checkbox" id="terms" required> Souhlasím s
+                </label>
+                <a href="{{ route('terms') }}" target="_blank">podmínkami Urban Sense Academy.</a><br>
+
 
                 <input type="submit" value="ODESLAT" id="button-form">
             </form>

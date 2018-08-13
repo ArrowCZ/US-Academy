@@ -31,6 +31,7 @@ Route::get('/', function () {
 })->name('home');
 
 Route::view('/legal', 'legal')->name('legal');
+Route::view('/terms', 'terms')->name('terms');
 
 //Route::view('/form', 'form')->name('form');
 
