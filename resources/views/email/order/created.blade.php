@@ -19,7 +19,7 @@
 <p>
     Instrukce pro provedení platby:<br>
     <br>
-    Částka: {{ $training->price }},-<br>
+    Částka: {{ $order->price }},-<br>
     Číslo účtu: 2001178512/2010<br>
     IBAN: CZ4120100000002001178512<br>
     BIC/SWIFT: FIOBCZPPXXX<br>

@@ -64,7 +64,6 @@ Route::post('/form/{training}', function (Request $request, $training) {
         //'gdpr'  => 'required',
     ]);
 
-
     if ($validator->fails()) {
         return redirect()->route('detail', ['training' => $training->id])->withErrors($validator)->withInput();
     }
@@ -72,6 +71,7 @@ Route::post('/form/{training}', function (Request $request, $training) {
     $order = new \App\Order($data);
 
     $order->training_id = $training->id;
+    $order->price = $training->price;
     $order->count = 1;
 
     $order->save();

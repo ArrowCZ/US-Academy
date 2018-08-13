@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\City;
 use Illuminate\Http\Request;
-use Illuminate\Validation\Validator;
 
 class CitiesController extends Controller
 {
