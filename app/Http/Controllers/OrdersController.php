@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\City;
+use App\Order;
+use App\Training;
 use Illuminate\Http\Request;
 
 class OrdersController extends Controller
@@ -55,7 +58,14 @@ class OrdersController extends Controller
      */
     public function show($id)
     {
-        //
+        $order = Order::findOrFail($id);
+        $training = Training::findOrFail($order->training_id);
+        $city = City::findOrFail($training->city_id);
+
+        return view('admin.order')
+            ->with('order', $order)
+            ->with('training', $training)
+            ->with('city', $city);
     }
 
     /**

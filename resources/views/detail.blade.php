@@ -66,11 +66,17 @@
             </div>
             <div class="blok">
                 <div class="blok-text" id="mista">
-                    <p><b>VOLNÁ MÍSTA</b><br><span>{{ $training->free_count()  }} VOLNÝCH MÍST</span></p>
+                    <p><b>VOLNÁ MÍSTA</b><br><span>{{ $training->free_count() }} VOLNÝCH MÍST</span></p>
                 </div>
             </div>
+
+            {{--<div class="blok">--}}
+                {{--<div class="blok-text">--}}
+                    {{--<p><b>OBDOBÍ</b><br><span>{{ $training->season }}</span></p>--}}
+                {{--</div>--}}
+            {{--</div>--}}
         </div>
-        <div class="button_prihlasit" id="detail-button"><p>PŘIHLÁSIT SE NA KROUŽEK</p></div>
+        <a href="/form/{{$training->id}}" class="button_prihlasit" id="detail-button">PŘIHLÁSIT SE NA KROUŽEK</a>
 
         {{--@include('forms.form')--}}
 

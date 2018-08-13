@@ -30,17 +30,82 @@
 		
 		</div>
 		<div id="formular">
-			<form id="forma">
-			<p id="last_first_name">JMÉNO A PŘIJMENÍ</p><br>
-			<input type="text" id="jmeno" class="pole" required><br><br><br>
-			<p class="next" id="mail_text">E-MAIL</p><p class="next" id="tel"> TELEFON</p><br><br>
-			<input type="text" id="email" class="pole" type="email" required>
-			<input type="text" id="telefon" class="pole" required><br><br>
-			<p id="your_text">VÁŠ TEXT</p><br>
-			<textarea id="message" class="pole" rows="10" ></textarea> <br><br>
-			<input type="checkbox" id="gdpr" required> <p id="gdpr">Souhlasím se <a href="/legal">zpracováním osobních údajů.</a></p><br>
-			<input type="submit" value="ODESLAT" id="button-form">
-			</form>
+            <form action="/form/{{$training->id}}" id="forma" method="POST">
+                @csrf
+                @method('POST')
+
+                <p id="last_first_name">JMÉNO A PŘIJMENÍ</p><br>
+
+                <input
+                    type="text"
+                    class="pole"
+                    id="name"
+                    name="name"
+                    value="{{ old('name') }}"
+                    required
+                >
+
+                <br>
+                <br>
+
+                <div class="row">
+                    <div class="col">
+                        <p class="next" id="mail_text">E-MAIL</p>
+                        <input
+                            type="email"
+                            class="pole"
+                            name="email"
+                            value="{{ old('email') }}"
+                            required
+                        >
+                    </div>
+                    <div class="col">
+                        <p class="next">TELEFON</p>
+                        <input
+                            type="tel"
+                            class="pole"
+                            name="phone"
+                            value="{{ old('phone') }}"
+                            required
+                        >
+                    </div>
+                </div>
+
+                <br>
+
+                <p id="your_text">VÁŠ TEXT</p><br>
+
+                <textarea id="message" class="pole" rows="10" name="text" >{{ old('text') }}</textarea>
+
+                <br>
+                <br>
+
+                <label class="checkbox">
+                    <input type="checkbox" id="gdpr" required> Souhlasím se
+                </label>
+                 <a href="{{ route('legal') }}" target="_blank">zpracováním osobních údajů.</a><br>
+                <br>
+
+                <label class="checkbox">
+                    <input type="checkbox" id="terms" required> Souhlasím s
+                </label>
+                <a href="{{ route('terms') }}" target="_blank">podmínkami Urban Sense Academy.</a><br>
+
+
+                <input type="submit" value="ODESLAT" id="button-form">
+            </form>
+
+			{{--<form id="forma">--}}
+			{{--<p id="last_first_name">JMÉNO A PŘIJMENÍ</p><br>--}}
+			{{--<input type="text" id="jmeno" class="pole" required><br><br><br>--}}
+			{{--<p class="next" id="mail_text">E-MAIL</p><p class="next" id="tel"> TELEFON</p><br><br>--}}
+			{{--<input type="text" id="email" class="pole" type="email" required>--}}
+			{{--<input type="text" id="telefon" class="pole" required><br><br>--}}
+			{{--<p id="your_text">VÁŠ TEXT</p><br>--}}
+			{{--<textarea id="message" class="pole" rows="10" ></textarea> <br><br>--}}
+			{{--<input type="checkbox" id="gdpr" required> <p id="gdpr">Souhlasím se <a href="/legal">zpracováním osobních údajů.</a></p><br>--}}
+			{{--<input type="submit" value="ODESLAT" id="button-form">--}}
+			{{--</form>--}}
 		</div>
 	</div>
 	
