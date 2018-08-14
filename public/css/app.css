@@ -737,7 +737,6 @@ tr:not(:first-child):hover {
   font-size: 30px;
   line-height: 100px;
   text-align: center;
-  margin: auto;
   display: block;
 }
 
@@ -950,6 +949,12 @@ input[type=checkbox] {
   }
 }
 
+@media only screen and (max-width: 916px) {
+  .blok {
+    margin: auto;
+  }
+}
+
 @media only screen and (max-width: 880px) {
   #detail-page {
     height: 1600px;
@@ -1061,6 +1066,17 @@ input[type=checkbox] {
   #cara3 {
     position: relative;
     top: 200px;
+  }
+}
+
+@media only screen and (max-width: 616px) {
+  .blok {
+    height: auto;
+    padding-bottom: 30px;
+  }
+
+  #info_blok {
+    height: auto;
   }
 }
 
