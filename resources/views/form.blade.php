@@ -1,7 +1,7 @@
 @extends('layouts.web')
 
 @section('content')
-    <div id="menu" style="display: block opacity: 1;">
+    <div id="menu" style="display: block; opacity: 1;">
         <div id="left">
 
             <ul id="nav-take">
@@ -34,7 +34,7 @@
                 @csrf
                 @method('POST')
 
-                <p id="last_first_name">JMÉNO A PŘIJMENÍ</p><br>
+                <p>JMÉNO A PŘIJMENÍ</p><br>
 
                 <input
                     type="text"
@@ -44,13 +44,27 @@
                     value="{{ old('name') }}"
                     required
                 >
+				
+				<br>
+                <br>
+				
+				 <p>JMÉNO A PŘIJMENÍ ZÁKONNÉHO ZÁSTUPCE</p><br>
+				
+				
+				
+                <input
+                    type="text"
+                    class="pole"
+                    name="name"
+                    value="{{ old('name') }}"
+                >
 
                 <br>
                 <br>
 
                 <div class="row">
                     <div class="col">
-                        <p class="next" id="mail_text">E-MAIL</p>
+                        <p class="next">E-MAIL</p><br><br>
                         <input
                             type="email"
                             class="pole"
@@ -60,7 +74,7 @@
                         >
                     </div>
                     <div class="col">
-                        <p class="next">TELEFON</p>
+                        <p class="next">TELEFON</p><br><br>
                         <input
                             type="tel"
                             class="pole"
@@ -73,7 +87,7 @@
 
                 <br>
 
-                <p id="your_text">VÁŠ TEXT</p><br>
+                <p>VÁŠ TEXT</p><br>
 
                 <textarea id="message" class="pole" rows="10" name="text" placeholder="Odkud jste se dozvěděli o Urban Sense Academy? Co očekáváte od tréninku? Jaké jsou Vaše zkušenosti s parkourem?" >{{ old('text') }}</textarea>
 
@@ -81,15 +95,15 @@
                 <br>
 
                 <label class="checkbox">
-                    <input type="checkbox" id="gdpr" required> Souhlasím se
+                    <input type="checkbox" class="gdpr" required> Souhlasím se
                 </label>
-                 <a href="{{ route('legal') }}" target="_blank">zpracováním osobních údajů.</a><br>
+                 <a href="{{ route('legal') }}" target="_blank" class="gdpr">zpracováním osobních údajů.</a><br>
                 <br>
 
                 <label class="checkbox">
-                    <input type="checkbox" id="terms" required> Souhlasím s
+                    <input type="checkbox" class="gdpr" id="terms" required> Souhlasím s
                 </label>
-                <a href="{{ route('terms') }}" target="_blank">podmínkami Urban Sense Academy.</a><br>
+                <a href="{{ route('terms') }}" target="_blank" class="gdpr">podmínkami Urban Sense Academy.</a><br>
 
 
                 <input type="submit" value="ODESLAT" id="button-form">

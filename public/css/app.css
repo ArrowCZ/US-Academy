@@ -737,7 +737,8 @@ tr:not(:first-child):hover {
   font-size: 30px;
   line-height: 100px;
   text-align: center;
-  margin: 10px;
+  margin: auto;
+  display: block;
 }
 
 #info_blok {
@@ -762,8 +763,9 @@ tr:not(:first-child):hover {
 
 #detail-button {
   max-width: 250px;
+  width: 80%;
   position: relative;
-  top: 500px;
+  top: 150px;
 }
 
 #detail-button:hover {
@@ -860,15 +862,15 @@ input[type=checkbox] {
   height: 150px;
   padding: 12px 12px;
   resize: none;
-  width: 96%;
+  width: 100%;
 }
 
-#gdpr {
+.gdpr {
   display: inline-block;
 }
 
-#gdpr a {
-  text-decoration: underline;
+.gdpr {
+  text-decoration: underline !important;
   color: black;
 }
 
@@ -949,24 +951,12 @@ input[type=checkbox] {
 }
 
 @media only screen and (max-width: 880px) {
-  .blok {
-    max-width: 100%;
-    text-align: center;
-  }
-
-  .blok:not(:first-child) {
-    margin-top: 100px;
-  }
-
   #detail-page {
-    height: 1800px;
+    height: 1600px;
   }
 
   #info-detail {
-    max-width: 100%;
-    width: 100%;
-    text-align: center;
-    top: 100px;
+    margin: auto;
   }
 
   .blok-text,
@@ -1000,10 +990,23 @@ input[type=checkbox] {
     margin-top: 50px;
   }
 
-  #message {
-    width: 80%;
+  .pole {
+    max-width: 80% !important;
+    width: 100%;
     display: block;
     margin: auto auto;
+  }
+
+  .row {
+    display: block;
+    margin: auto;
+  }
+
+  .col {
+    -webkit-box-flex: 0;
+        -ms-flex: none;
+            flex: none;
+    padding: 0;
   }
 
   #jmeno {
@@ -1012,22 +1015,7 @@ input[type=checkbox] {
     margin: auto auto;
   }
 
-  #mail_text {
-    margin-left: 8%;
-  }
-
-  #last_first_name {
-    margin-left: 8%;
-    position: relative;
-  }
-
-  #tel {
-    margin-left: -8%;
-    position: relative;
-    top: 100px;
-  }
-
-  #your_text {
+  #formular p {
     margin-left: 8%;
   }
 
