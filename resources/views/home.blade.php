@@ -19,7 +19,7 @@
                 </ul>
             </div>
             <div id="middle">
-                <div id="logo_menu_main"><a href="#main"><img src="{{ asset('images/logo.png') }}" alt="logo" draggable="false"></img></div>
+                <div id="logo_menu"><img src="{{ asset('images/logo.png') }}" alt="logo" draggable="false"></div>
             </div>
             <div id="right">
                 <div id="fb_logo">
@@ -159,7 +159,7 @@
                     U Dvora 1059/4, 586 01 Jihlava<br>
 			        IČ: 22754211<br><br>
 					
-				    <span><a class="no-decor" style="color: #C01414;" href="mailto:contact@urbansense.cz"><b>contact@urbansense.cz</b></a>
+				    <span><a class="no-decor" style="color: #C01414;" href="mailto:info@usacademy.cz"><b>info@usacademy.cz</b></a>
                     <br>
                     <a class="no-decor" style="color: #C01414;"
                         href="callto:+420 773 074 651"><b>+420 773 074 651</b></a>

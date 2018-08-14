@@ -110,7 +110,6 @@
 
 #main {
   height: 100vh;
-  background: url(/images/header.png?f6161933880a798cea404ee3d9db88b2);
   background-size: cover;
   display: none;
   opacity: 0;
