@@ -1,7 +1,7 @@
 @extends('layouts.web')
 
 @section('content')
-    <div id="menu" style="display: block">
+    <div id="menu" style="display: block; opacity: 1;">
         <div id="left">
 
             <ul id="nav-take">
@@ -31,6 +31,7 @@
             </div>
         </div>
         <div id="info-detail">
+		
             <div class="blok">
                 <div class="blok-text" id="cas">
                     <p><b>ČAS</b><br><span>{{ $training->time }}</span></p>
@@ -41,7 +42,7 @@
                     <p><b>DEN KROUŽKU</b><br><span>{{ $training->day }}</span></p>
                 </div>
             </div>
-            <div class="blok">
+            <div class="blok" id="info_blok">
                 <div class="blok-text" id="info">
                     <p><b>DOPLŇUJÍCÍ INFORMACE</b><br>Věk: 8 - 13 let<br>Náročnost pro začátečníky i pokročilé<br>Lekce:
                         1x týdně(55 minut)<br>Počet lekcí v prvním pololetí: 18</p>
@@ -92,8 +93,9 @@
                 <p>Copyright © Urbansenseacademy 2018</p>
             </div>
             <div id="udaje">
-                <p><a href="/legal" class="no-decor" style="color:#666666">zpracování a ochrana osobních údajů</a>
-                </p>
+                    <p><a href="/legal" class="no-decor" style="color:#666666">zpracování a ochrana osobních údajů</a><br>
+					  <a href="{{ route('terms') }}" class="no-decor" style="color:#666666">podmínky Urban Sense Academy</a>
+                    </p>
             </div>
             <div id="author">
                 <p>Webdesign by <a href="http://www.tomeno.cz" class="no-decor"><img

@@ -45,7 +45,7 @@
     </div>
 
     <div id="page2">
-         <div id="scroll_down"><img src="{{ asset('images/scroll.png') }}" alt="scroll" draggable="false"></div>
+         <div id="scroll_down"><a href="#page2"><img src="{{ asset('images/scroll.png') }}" alt="scroll" draggable="false"></a></div>
         <div id="about-text">
             <div class="nadpis1">
                 <h1>O ACADEMY</h1>
@@ -126,9 +126,9 @@
                     </tr>
                     @foreach ($city->trainings as $training)
                         <tr>
-                            <td>{{ $training->price }} Kč</td>
-                            <td>{{ $city->name  }}</td>
-                            <td>{{ $training->paid_count() }}/{{ $training->capacity  }}</td>
+                            <td><b>{{ $training->price }} Kč</b></td>
+                            <td><b>{{ $city->name  }}</b></td>
+                            <td><b>{{ $training->paid_count() }}/{{ $training->capacity  }}</b></td>
                             <td>{{ $city->day  }}</td>
                             <td>{{ $training->time  }}</td>
                             <td>
@@ -156,18 +156,14 @@
             <div id="kontakt-text" class="no-decor">
                 <p class="no-decor">Urban Sense
                     <br>
-                    <span><a class="no-decor" style="color: #C01414;" href="mailto:info@usacademy.cz"><b>info@usacademy.cz.cz</b></a>
+                    U Dvora 1059/4, 586 01 Jihlava<br>
+			        IČ: 22754211<br><br>
+					
+				    <span><a class="no-decor" style="color: #C01414;" href="mailto:contact@urbansense.cz"><b>contact@urbansense.cz</b></a>
                     <br>
                     <a class="no-decor" style="color: #C01414;"
                         href="callto:+420 773 074 651"><b>+420 773 074 651</b></a>
                     </span>
-                    <br>
-
-                    <br>
-
-                    IČ: 22754211<br>
-                    Sídlo:<br>
-                    U Dvora 1059/4, 586 01 Jihlava<br>
                 </p>
             </div>
 
@@ -179,7 +175,8 @@
                     <p>Copyright © Urbansenseacademy 2018</p>
                 </div>
                 <div id="udaje">
-                    <p><a href="/legal" class="no-decor" style="color:#666666">zpracování a ochrana osobních údajů</a>
+                    <p><a href="/legal" class="no-decor" style="color:#666666">zpracování a ochrana osobních údajů</a><br>
+					  <a href="{{ route('terms') }}" class="no-decor" style="color:#666666">podmínky Urban Sense Academy</a>
                     </p>
                 </div>
                 <div id="author">
@@ -206,34 +203,52 @@
         var page3 = _("page3");
         var page4 = _("page4");
         var footer = _("footer");
-        var vyska = 1000;
-        var timer;
+        var vyska = 1;
+		var opacity = 0;
+        var timer_anim;
+		menu.style.position = "fixed";
+		 var timer_2;
         setTimeout(function () {
             logo.style.opacity = 1;
+			timer_anim = setInterval(upper_slide, 1);
+		   main.style.display = "block";
         }, 1000);
+		 setTimeout(function () {
+		timer_2 = setInterval(opacity_show, 1);
+		clearInterval(timer_anim);
+		upper.style.opacity = 0;
+        }, 1500);
         setTimeout(function () {
-            timer = setInterval(upper_slide, 1);
-            main.style.display = "block";
 			menu.style.display = "block";
             page2.style.display = "block";
             page3.style.display = "block";
             page4.style.display = "block";
             footer.style.display = "block"
-        }, 1500);
-        setTimeout(function () {
-            upper.style.display = "none";
         }, 2000);
         setTimeout(function () {
-            menu.style.position = "fixed";
+            upper.style.display = "none";
+        }, 1500);
+        setTimeout(function () {
+            
         }, 1500);
 
         function upper_slide() {
-            vyska = vyska - 10;
-            upper.style.height = vyska + "px";
-            if (vyska == 0) {
-                clearInterval(timer)
-            }
+            vyska = vyska - 0.01;
+            upper.style.opacity = vyska;
+			
+			
+				
+			
         }
+		function opacity_show()
+		{
+			opacity = opacity + 0.01;
+			main.style.opacity = opacity;
+			menu.style.opacity = opacity;
+			 if (opacity >= 1) {
+                clearInterval(timer_2)
+            }
+		}
 
         function tabulka(mesto_id) {
             var tabulka = _("tabulka");

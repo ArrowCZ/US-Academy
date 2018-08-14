@@ -1,7 +1,7 @@
 @extends('layouts.web')
 
 @section('content')
-    <div id="menu" style="display: block">
+    <div id="menu" style="display: block opacity: 1;">
         <div id="left">
 
             <ul id="nav-take">
@@ -75,7 +75,7 @@
 
                 <p id="your_text">VÁŠ TEXT</p><br>
 
-                <textarea id="message" class="pole" rows="10" name="text" >{{ old('text') }}</textarea>
+                <textarea id="message" class="pole" rows="10" name="text" placeholder="Odkud jste se dozvěděli o Urban Sense Academy? Co očekáváte od tréninku? Jaké jsou Vaše zkušenosti s parkourem?" >{{ old('text') }}</textarea>
 
                 <br>
                 <br>
@@ -115,8 +115,9 @@
                 <p>Copyright © Urbansenseacademy 2018</p>
             </div>
             <div id="udaje">
-                <p><a href="/legal" class="no-decor" style="color:#666666">zpracování a ochrana osobních údajů</a>
-                </p>
+                    <p><a href="/legal" class="no-decor" style="color:#666666">zpracování a ochrana osobních údajů</a><br>
+					  <a href="{{ route('terms') }}" class="no-decor" style="color:#666666">podmínky Urban Sense Academy</a>
+                    </p>
             </div>
             <div id="author">
                 <p>Webdesign by <a href="http://www.tomeno.cz" class="no-decor"><img

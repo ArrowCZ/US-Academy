@@ -7,6 +7,7 @@
 
 #upper {
   height: 1000px;
+  opacity: 1;
   background: white;
   width: 100%;
   z-index: -99;
@@ -109,9 +110,10 @@
 
 #main {
   height: 100vh;
-  background: url(/images/header.png?5b9e0735e00a2863d23d620623b175d3);
+  background: url(/images/header.png?f6161933880a798cea404ee3d9db88b2);
   background-size: cover;
   display: none;
+  opacity: 0;
   width: 100%;
   z-index: 9;
   position: relative;
@@ -123,7 +125,8 @@
   position: relative;
   top: 0;
   background: white;
-  display: none;
+  display: block;
+  opacity: 0;
   z-index: 9999;
   -webkit-box-shadow: 3px 1px 5px #BDBDBD;
           box-shadow: 3px 1px 5px #BDBDBD;
@@ -193,6 +196,14 @@ li a {
   opacity: 0.5;
 }
 
+#logo_menu img {
+  width: 70px;
+  position: relative;
+  display: block;
+  z-index: 99;
+  margin: auto auto;
+}
+
 li a:hover {
   color: #0e6cb4;
   background: white;
@@ -202,7 +213,7 @@ li a:hover {
   float: right;
   text-align: center;
   margin-right: 50px;
-  margin-top: -55px;
+  margin-top: -60px;
   z-index: 99;
 }
 
@@ -245,21 +256,25 @@ li a:hover {
   font-family: 'Josefin Sans', sans-serif;
   font-size: 60px;
   text-align: center;
-  position: relative;
-  top: 350px;
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
   max-width: 1000px;
+  width: 100%;
   display: block;
   margin: auto auto;
 }
 
 #nadpis p {
-  font-size: 50px;
+  font-size: 40px;
 }
 
 #scroll_down {
   display: block;
   position: relative;
-  top: -20vh;
+  top: -12vh;
 }
 
 #scroll_down img {
@@ -267,6 +282,12 @@ li a:hover {
   position: relative;
   margin: auto auto;
   z-index: 999;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+#scroll_down img:hover {
+  opacity: 0.5;
 }
 
 #page2 {
@@ -335,7 +356,7 @@ li a:hover {
 }
 
 .vyhody-seznam {
-  max-width: 650px;
+  max-width: 680px;
   width: 100%;
   display: block;
   margin: auto auto;
@@ -346,11 +367,11 @@ li a:hover {
 }
 
 .vyhody-seznam p:nth-child(2) {
-  margin-left: 130px;
+  margin-left: 132px;
 }
 
 .vyhody-seznam p:nth-child(4) {
-  margin-left: 88px;
+  margin-left: 105px;
 }
 
 .vyhody-seznam p:before {
@@ -361,6 +382,12 @@ li a:hover {
 
 .vyhody-seznam p {
   display: inline-block;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.vyhody-seznam p:hover {
+  font-size: 22px;
 }
 
 #krouzky-button {
@@ -467,14 +494,15 @@ a:visited {
 
 #tabulka {
   width: 100%;
-  height: 700px;
+  height: auto;
   background: #E6E6E6;
   margin-top: 250px;
+  padding-bottom: 50px;
 }
 
 table {
   border-collapse: collapse;
-  max-width: 900px;
+  max-width: 1200px;
   width: 100%;
   font-family: 'Josefin Sans', sans-serif;
   margin: auto auto;
@@ -486,6 +514,7 @@ td {
   text-align: left;
   height: 80px;
   border-bottom: 1px solid #ddd;
+  font-weight: 400;
 }
 
 tr:not(:first-child):hover {
@@ -495,7 +524,7 @@ tr:not(:first-child):hover {
 }
 
 .button_prihlasit {
-  max-width: 150px;
+  max-width: 80px;
   width: 100%;
   display: block;
   margin: auto auto;
@@ -508,7 +537,7 @@ tr:not(:first-child):hover {
   text-decoration: none;
   text-align: center;
   position: relative;
-  top: 15px;
+  top: 0px;
 }
 
 .button_prihlasit:hover {
@@ -565,7 +594,7 @@ tr:not(:first-child):hover {
 }
 
 #page4 {
-  height: 800px;
+  height: 650px;
   background: white;
   position: relative;
   display: none;
@@ -611,6 +640,10 @@ tr:not(:first-child):hover {
 #author {
   display: inline-block;
   width: 32%;
+}
+
+#udaje {
+  margin-top: 10px;
 }
 
 #author img {
@@ -679,17 +712,36 @@ tr:not(:first-child):hover {
 }
 
 #info-detail {
-  max-width: 925px;
+  max-width: 1000px;
   width: 100%;
   margin: auto auto;
   position: relative;
   top: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -ms-flex-line-pack: justify;
+      align-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .blok {
-  display: inline-block;
-  max-width: 32.3%;
-  width: 100%;
+  width: 300px;
+  height: 100px;
+  font-size: 30px;
+  line-height: 100px;
+  text-align: center;
+  margin: 10px;
+}
+
+#info_blok {
+  height: 300px;
 }
 
 .blok-text {
@@ -706,12 +758,6 @@ tr:not(:first-child):hover {
 
 #mista span {
   color: #F10049;
-}
-
-#trener,
-#mesto,
-#mista {
-  margin-top: 200px;
 }
 
 #detail-button {
@@ -861,6 +907,26 @@ input[type=checkbox] {
   padding: 0 30px;
 }
 
+@media (max-height: 600px) and (max-width: 2000px) {
+  #main {
+    height: 700px;
+  }
+
+  #scroll_down {
+    top: -20vh;
+  }
+}
+
+@media (max-height: 740px) and (max-width: 1500px) {
+  #main {
+    height: 700px;
+  }
+
+  #scroll_down {
+    top: -20vh;
+  }
+}
+
 @media only screen and (max-width: 980px) {
   #left {
     display: none;
@@ -878,7 +944,7 @@ input[type=checkbox] {
   }
 
   #nadpis p {
-    font-size: 30px;
+    font-size: 20px;
   }
 }
 
@@ -1010,14 +1076,31 @@ input[type=checkbox] {
   }
 }
 
+@media only screen and (max-width: 600px) {
+  .nadpis1 {
+    font-size: 18px;
+  }
+}
+
 @media only screen and (max-width: 750px) {
-  .vyhody-seznam p:nth-child(2),
+  .vyhody-seznam p:nth-child(2) {
+    margin-left: 75px;
+  }
+
   .vyhody-seznam p:nth-child(4) {
     margin-left: 50px;
   }
 
+  .vyhody-seznam p {
+    font-size: 18px;
+  }
+
+  .vyhody-seznam p:hover {
+    font-size: 20px;
+  }
+
   .vyhody-seznam {
-    max-width: 600px;
+    max-width: 570px;
   }
 }
 
@@ -1039,18 +1122,22 @@ input[type=checkbox] {
   }
 }
 
-@media only screen and (max-width: 585px) {
+@media only screen and (max-width: 620px) {
   .vyhody-seznam p:nth-child(2),
   .vyhody-seznam p:nth-child(4) {
     margin-left: 0px;
   }
 
+  .vyhody-seznam p {
+    width: 100%;
+  }
+
   .vyhody-seznam {
-    max-width: 550px;
+    max-width: 330px;
   }
 }
 
-@media only screen and (max-width: 525px) {
+@media only screen and (max-width: 785px) {
   #copyright,
   #udaje,
   #author {
@@ -1075,11 +1162,17 @@ input[type=checkbox] {
   }
 }
 
-@media only screen and (max-width: 487px) {
-  .vyhody-seznam {
-    max-width: 300px;
+@media (max-height: 700px) and (max-width: 600px) {
+  #main {
+    height: 650px;
   }
 
+  #scroll_down {
+    top: -20vh;
+  }
+}
+
+@media only screen and (max-width: 487px) {
   #nadpis2 {
     position: relative;
     top: 300px;
@@ -1157,37 +1250,6 @@ input[type=checkbox] {
   #cara3 {
     position: relative;
     top: 480px;
-  }
-}
-
-@media screen and (max-height: 920px) {
-  #main {
-    height: 900px;
-  }
-}
-
-@media screen and (max-height: 885px) {
-  #nadpis {
-    position: relative;
-    top: 350px;
-  }
-}
-
-@media screen and (max-height: 840px) {
-  #nadpis {
-    position: relative;
-    top: 300px;
-  }
-
-  #scroll_down {
-    top: -30vh;
-  }
-}
-
-@media screen and (max-height: 790px) {
-  #nadpis {
-    position: relative;
-    top: 200px;
   }
 }
 
