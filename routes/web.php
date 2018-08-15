@@ -78,11 +78,11 @@ Route::post('/form/{training}', function (Request $request, $training) {
 
     $mail = new \App\Mail\OrderCreated($order, $city, $training);
 
-    //try {
+    try {
         \Illuminate\Support\Facades\Mail::to($order->email)->send($mail);
-   // } catch (Swift_TransportException $ex) {
+    } catch (Swift_TransportException $ex) {
         // return $ex;
-    //}
+    }
 
     return redirect()->route('home');//->with('status', 'Byl jste zapsan. Ocekavejte instrukce emailem.');
 });

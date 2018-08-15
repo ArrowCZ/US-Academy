@@ -44,8 +44,12 @@
             </div>
             <div class="blok" id="info_blok">
                 <div class="blok-text" id="info">
-                    <p><b>DOPLŇUJÍCÍ INFORMACE</b><br>Věk: 8 - 13 let<br>Náročnost pro začátečníky i pokročilé<br>Lekce:
-                        1x týdně(55 minut)<br>Počet lekcí v prvním pololetí: 18</p>
+                    <p>
+                        <b>DOPLŇUJÍCÍ INFORMACE</b><br>
+                        Věk: od 8 let, případně podle šikovnosti<br>
+                        Náročnost pro začátečníky i pokročilé<br>
+                        Tréninky 1x týdně (60 minut)
+                    </p>
                 </div>
             </div>
 

@@ -25,6 +25,7 @@ class Training extends Model
         'trainer',
         'capacity',
         'price',
+        'address',
     ];
 
     public function orders() {

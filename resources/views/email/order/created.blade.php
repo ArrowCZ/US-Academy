@@ -6,7 +6,7 @@
 </p>
 
 <br>
-Čas a místo:
+Čas a místo: <br>
 {{ $training->day }}, {{ $training->time }}<br>
 {{ $training->address }}<br>
 
@@ -30,7 +30,7 @@
     V momentě přijetí Vaší platby Vám zašleme potvrzovací e-mail.<br>
     Pro jakékoliv dotazy nás neváhejte kontaktovat na: 773 074 651
 </p>
-
+<br>
 <p>
     S přátelským pozdravem,<br>
     Urban Sense Academy
