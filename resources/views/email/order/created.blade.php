@@ -2,7 +2,7 @@
     Dobrý den!<br>
 
     Právě jste se přihlásili do Urban Sense Academy na parkour kroužek ve městě {{ $city->name }}.
-    Objednaný kroužek zahrnuje pravidelné jednohodinové tréninky od 1.září 2018 do 31.ledna 2019.
+    Objednaný kroužek zahrnuje pravidelné jednohodinové tréninky od {{ $training->season }}.
 </p>
 
 <br>

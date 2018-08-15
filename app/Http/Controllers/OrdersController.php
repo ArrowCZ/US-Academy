@@ -7,6 +7,7 @@ use App\Mail\OrderPaid;
 use App\Order;
 use App\Training;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Swift_TransportException;
 
 class OrdersController extends Controller
@@ -84,6 +85,7 @@ class OrdersController extends Controller
      * @param  \Illuminate\Http\Request $request
      * @param  int                      $id
      *
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function update(Request $request, $id) {
         $order = Order::findOrFail($id);
@@ -92,21 +94,13 @@ class OrdersController extends Controller
 
         $state = $request->state;
 
-
-
         if ($order->state != 1 && $state == 1) {
+            $sent = ' Email byl odeslán.';
             try {
                 $mail = new OrderPaid($order, $city, $training);
 
-                $sent = ' Email byl odeslán.';
-
-                return $mail->render();
-
-                //\Illuminate\Support\Facades\Mail::to($order->email)->send($mail);
-            } catch (Swift_TransportException $ex) {
-
-            }
-
+                Mail::to($order->email)->send($mail);
+            } catch (Swift_TransportException $ex) { }
         } else {
             $sent = '';
         }
@@ -114,10 +108,8 @@ class OrdersController extends Controller
         $order->state = $state;
         $order->save();
 
-        return view('admin.order')
-            ->with('order', $order)
-            ->with('training', $training)
-            ->with('city', $city)
+        return redirect()
+            ->route('orders.show', ['order' => $order->id])
             ->with('status', 'Stav objednávky změněn.' . $sent);
     }
 

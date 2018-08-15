@@ -114,19 +114,19 @@
                             <div class="row">
                                 <div class="col-sm-10">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="state" id="state_0" value="0" checked>
+                                        <input class="form-check-input" type="radio" name="state" id="state_0" value="0" {{ $order->state == 0 ? 'checked' : ''}}>
                                         <label class="form-check-label" for="state_0">
                                             {{ __('Nový (nezaplaceno)') }}
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="state" id="state_1" value="1">
+                                        <input class="form-check-input" type="radio" name="state" id="state_1" value="1" {{ $order->state == 1 ? 'checked' : ''}}>
                                         <label class="form-check-label" for="state_1">
                                             {{ __('Aktuální (zaplaceno)') }}
                                         </label>
                                     </div>
                                     <div class="form-check disabled">
-                                        <input class="form-check-input" type="radio" name="state" id="state_2" value="2">
+                                        <input class="form-check-input" type="radio" name="state" id="state_2" value="2" {{ $order->state == 2 ? 'checked' : ''}}>
                                         <label class="form-check-label" for="state_2">
                                             {{ __('Zrušeno') }}
                                         </label>

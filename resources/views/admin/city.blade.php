@@ -59,7 +59,7 @@
                                     <td>{{ $training->season }}</td>
                                     <td>{{ $training->time }}</td>
                                     <td>{{ $training->trainer }}</td>
-                                    <td>{{ count($training->orders) }} / {{ $training->capacity }}</td>
+                                    <td>{{ $training->free_count() }} / {{ $training->capacity }}</td>
                                     <td>{{ $training->price }}</td>
                                     <td class="text-right">
                                         <a class="btn btn-primary" href="/admin/trainings/{{ $training->id }}"
