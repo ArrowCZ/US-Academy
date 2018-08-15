@@ -91,7 +91,6 @@
 
 #main {
   height: 100vh;
- // background: url('../images/header.png');
   background-size: cover;
   display: none;
   opacity: 0;
@@ -245,6 +244,9 @@ li a:hover {
 #scroll_down {
   display: block;
   position: relative; top: -12vh;
+  width: 37px;
+  height: 338px;
+  margin: auto auto;
 }
 
 #scroll_down img {
@@ -255,9 +257,43 @@ li a:hover {
 	 transition: 0.3s;
 }
 
-#scroll_down img:hover {
+@keyframes carka-anim {
+    0%  { top: 40px; }
+	50%  {  top: 50px; }
+	100%  {top: 40px;}
+	
+}
+
+#carka_move {
+	width: 3px;
+	height: 20px;
+	background: rgb(241,0,73);
+	z-index: 9;
+	opacity: 1;
+	transition: 0.3s;
+		display: block;
+	margin: auto auto;
+	position: relative; top: 40px;
+	-webkit-animation-name: carka-anim; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 2.5s; /* Safari 4.0 - 8.0 */
+    -webkit-animation-iteration-count: infinite; /* Safari 4.0 - 8.0 */
+    animation-name: carka-anim;
+    animation-duration: 2.5s;
+    animation-iteration-count: infinite;
+}
+
+#scroll_down img:hover{
 opacity: 0.5;
 }
+
+#scroll_down:hover  #carka_move{
+opacity: 0.5;
+}
+
+
+
+
+
 
 #page2 {
   height: 1200px;
@@ -412,13 +448,13 @@ opacity: 0.5;
 #mapa {
   position: relative;
   top: 100px;
-  max-width: 778px;
+  max-width: 1200px;
   width: 100%;
   margin: auto auto;
 }
 
 #mapa img {
-  max-width: 900px;
+  max-width: 1200px;
   width: 100%;
   display: block;
   margin: auto auto;
@@ -431,16 +467,28 @@ opacity: 0.5;
   transition: 0.3s;
 }
 
-.point:hover {
-  opacity: 0.5;
+
+
+.point .point-text {
+visibility: hidden;
+    width: 120px;
+    background-color: white;
+    color: black;
+    text-align: center;
+    padding: 5px 0;
+    
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+	 font-family: 'Josefin Sans', sans-serif;
+    bottom: 100%;
+    left: 50%;
+	 box-shadow: 1px 0px 8px 0px #5555;
+    margin-left: -60px;
 }
 
-.point-text {
-  font-family: 'Josefin Sans', sans-serif;
-  position: absolute;
-  top: -20px;
-  left: -5px;
-  color: black;
+.point:hover .point-text {
+    visibility: visible;
 }
 
 .number {
@@ -551,7 +599,8 @@ tr:not(:first-child):hover {
 }
 
 #mesta_mobil {
-  height: auto;
+  height: 800px;
+  display: none;
 }
 
 #page4 {
@@ -997,9 +1046,12 @@ input[type=checkbox] {
     display: none;
   }
 
+  #mesta_mobil {
+    display: block;
+  }
+  
   .button_mesta {
     display: block;
-
   }
   #cara3 {
     position: relative;
@@ -1029,6 +1081,15 @@ input[type=checkbox] {
 
 }
 
+@media only screen and (max-width: 780px) {
+	th {
+		display: none;
+	}
+	td {
+		height: 150px;
+	}
+
+}
 
 
 @media only screen and (max-width: 750px) {
@@ -1127,10 +1188,7 @@ input[type=checkbox] {
     position: relative;
     top: 300px;
   }
-  #tabulka {
-    position: relative;
-    top: 200px;
-  }
+
   #cara3 {
     display: none;
   }
@@ -1179,11 +1237,9 @@ input[type=checkbox] {
   #nadpis {
     font-size: 25px;
   }
-
-  #tabulka {
-    position: relative;
-    top: 300px;
-  }
+	.move {
+    width: 100%;
+	}
   #right {
     margin-right: 0px;
   }

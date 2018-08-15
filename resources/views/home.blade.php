@@ -19,7 +19,7 @@
                 </ul>
             </div>
             <div id="middle">
-                <div id="logo_menu"><img src="{{ asset('images/logo.png') }}" alt="logo" draggable="false"></div>
+                <div id="logo_menu_main"><a href="#main"><img src="{{ asset('images/logo.png') }}" alt="logo" draggable="false"></a></div>
             </div>
             <div id="right">
                 <div id="fb_logo">
@@ -45,7 +45,12 @@
     </div>
 
     <div id="page2">
-         <div id="scroll_down"><a href="#page2"><img src="{{ asset('images/scroll.png') }}" alt="scroll" draggable="false"></a></div>
+         <div id="scroll_down">		
+			<div id="carka_move">
+			</div>		 
+			<a href="#page2"><img src="{{ asset('images/scroll.png') }}" alt="scroll" draggable="false"></a>
+			
+		</div>
         <div id="about-text">
             <div class="nadpis1">
                 <h1>O ACADEMY</h1>
@@ -84,7 +89,7 @@
             <img src="{{ asset('images/cr.png') }}" draggable="false" alt="republika">
             <a href="#tabulka" class="no-decor">
                 @foreach($cities as $city)
-                    <div class="point" style="top: {{ $city->y }}%; left: {{ $city->x }}%">
+                    <div class="point" onclick="tabulka('city_{{ $city->id  }}')" style="top: {{ $city->y }}%; left: {{ $city->x }}%">
                         <!-- bod na mape s mestem, poctem mist atd -->
 
                         <img src="{{ asset('images/pointer.png') }}" onclick="tabulka('city_{{ $city->id  }}')"
@@ -97,7 +102,7 @@
                         </div>
 
                         <a href="#tabulka" class="no-decor">
-                            <div class="point-text" onclick="tabulka('city_{{ $city->id  }}')">
+                            <div class="point-text">
                                 <!-- nadpis mesta -->
                                 <p><b>{{ $city->name }}</b></p>
                             </div>
@@ -128,7 +133,7 @@
                         <tr>
                             <td><b>{{ $training->price }} Kč</b></td>
                             <td><b>{{ $city->name  }}</b></td>
-                            <td><b>{{ $training->paid_count() }}/{{ $training->capacity  }}</b></td>
+                            <td class="move"><b>{{ $training->paid_count() }}/{{ $training->capacity  }}</b></td>
                             <td>{{ $city->day  }}</td>
                             <td>{{ $training->time  }}</td>
                             <td>
@@ -281,7 +286,7 @@
 
         $("#main").interactive_bg({
             strength: 25,
-            scale: 1,
+            scale: 1.1,
             animationSpeed: "100ms",
             contain: true,
             wrapContent: false
