@@ -2,7 +2,7 @@
     Dobrý den!<br>
 
     Potvrzujeme přijetí platby za pololetní parkour kroužek ({{ $training->season }}) v Urban Sense Academy!<br>
-    Faktura bude vystavená na místě.
+    Doklad bude vystaven na místě.
 </p>
 
 <br>

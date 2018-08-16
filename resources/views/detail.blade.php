@@ -48,7 +48,8 @@
                         <b>DOPLŇUJÍCÍ INFORMACE</b><br>
                         Věk: od 8 let, případně podle šikovnosti<br>
                         Náročnost pro začátečníky i pokročilé<br>
-                        Tréninky 1x týdně (60 minut)
+                        Tréninky 1x týdně (60 minut)<br>
+                        Září 2018 - Leden 2019
                     </p>
                 </div>
             </div>
@@ -61,11 +62,10 @@
             <div class="blok">
                 <div class="blok-text" id="mesto">
                     <p>
-                        <b>MĚSTO</b>
+                        <b>ADRESA</b>
                         <br>
-                        <span>{{ $city->name }}</span>
+                        <span>{{ $city->name }},  {{ $training->address }}</span>
                         <br>
-                        {{ $training->address  }}
                     </p>
                 </div>
             </div>
