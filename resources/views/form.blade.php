@@ -55,8 +55,8 @@
                 <input
                     type="text"
                     class="pole"
-                    name="name"
-                    value="{{ old('name') }}"
+                    name="parent"
+                    value="{{ old('parent') }}"
                 >
 
                 <br>

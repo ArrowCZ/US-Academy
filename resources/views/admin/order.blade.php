@@ -39,6 +39,9 @@
                                         <dt class="col-sm-3">{{ __('Jméno') }}</dt>
                                         <dd class="col-sm-9">{{ $order->name }}</dd>
 
+                                        <dt class="col-sm-3">{{ __('Rodiče') }}</dt>
+                                        <dd class="col-sm-9">{{ $order->parent }}</dd>
+
                                         <dt class="col-sm-3">{{ __('Email') }}</dt>
                                         <dd class="col-sm-9">{{ $order->email }}</dd>
 
