@@ -9,6 +9,8 @@
 namespace App\Http\Controllers;
 
 
+use App\Order;
+
 class AdminController extends Controller
 {
     /**
@@ -16,9 +18,8 @@ class AdminController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-       $this->middleware('auth');
+    public function __construct() {
+        $this->middleware('auth');
     }
 
     /**
@@ -26,8 +27,11 @@ class AdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        return view('admin.dashboard');
+    public function index() {
+        $orders = Order::all()->where('state', '=', '0');
+
+        return view('admin.dashboard')->with([
+            'orders' => $orders
+        ]);
     }
 }

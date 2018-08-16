@@ -34,7 +34,7 @@
                 </div>
             </div>
     </div>
-    <div id="main" data-ibg-bg="{{ asset('images/header.png') }}">
+    <div id="main" data-ibg-bg="{{ asset('images/header.jpg') }}">
 
         <div id="nadpis">
 			<h1>URBAN SENSE <br> ACADEMY</h1><br>

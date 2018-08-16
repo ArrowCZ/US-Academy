@@ -14,6 +14,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property-read float   $price
  * @property-read string  $time
  * @property-read Order[] $orders
+ * @property-read int     $city_id
  */
 class Training extends Model
 {
@@ -25,7 +26,6 @@ class Training extends Model
         'trainer',
         'capacity',
         'price',
-        'address',
     ];
 
     public function orders() {
@@ -67,5 +67,9 @@ class Training extends Model
 
     public function free_count() {
         return $this->capacity - $this->paid_count();
+    }
+
+    public function state($state) {
+        return $this->orders()->where('state','=', $state)->getModels();
     }
 }
