@@ -40,6 +40,10 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
+    public function index() {
+        return redirect()->route('home');
+    }
+
     /**
      * Get a validator for an incoming registration request.
      *
@@ -63,10 +67,11 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        /*return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-        ]);
+        ]);*/
+        return null;
     }
 }
