@@ -14,14 +14,12 @@
                             <status-messages>{{ session('status') }}</status-messages>
                         @endif
 
-                        <example-component shit="shiast"></example-component>
-
                         <div class="row">
                             <div class="col-md">
                                 <a class="card" href="{{ route('admin.cities') }}">
                                     <div class="card-body">
                                         <h5 class="card-title">{{ __('Města') }}</h5>
-                                        <p class="card-text">{{ __('prehled')  }}</p>
+                                        <p class="card-text">{{ __('přehled')  }}</p>
                                     </div>
                                 </a>
                             </div>
@@ -29,7 +27,7 @@
 
                         <br><br><br>
 
-                        <h2>{{ __('Nove objednavky') }}</h2>
+                        <h2>{{ __('Nové objednávky') }}</h2>
 
                         @if($orders)
                             <div class="row">
@@ -65,7 +63,7 @@
                             </div>
                             @else
                             <div class="alert alert-info">
-                                {{ __('Zadne') }}
+                                {{ __('Žádné') }}
                             </div>
                         @endif
                     </div>

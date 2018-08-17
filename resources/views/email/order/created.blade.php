@@ -20,9 +20,17 @@
     Instrukce pro provedení platby:<br>
     <br>
     Částka: {{ $order->price }},-<br>
-    Číslo účtu: 2001178512/2010<br>
-    IBAN: CZ4120100000002001178512<br>
-    BIC/SWIFT: FIOBCZPPXXX<br>
+
+    @if ($city->name === 'Jihlava')
+        Číslo účtu: 2001483613 <br>
+        IBAN: CZ3920100000002001483613 <br>
+        BIC/SWIFT: FIOBCZPPXXX <br>
+    @else
+        Číslo účtu: 2901483600/2010 <br>
+        IBAN: CZ1020100000002901483600 <br>
+        BIC/SWIFT: FIOBCZPPXXX <br>
+    @endif
+
     Variabilní symbol: {{ $order->id }}<br>
 </p>
 
