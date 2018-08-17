@@ -22,7 +22,7 @@
     Částka: {{ $order->price }},-<br>
 
     @if ($city->name === 'Jihlava')
-        Číslo účtu: 2001483613 <br>
+        Číslo účtu: 2001483613/2010 <br>
         IBAN: CZ3920100000002001483613 <br>
         BIC/SWIFT: FIOBCZPPXXX <br>
     @else
