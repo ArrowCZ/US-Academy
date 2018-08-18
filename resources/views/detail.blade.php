@@ -64,7 +64,7 @@
                     <p>
                         <b>ADRESA</b>
                         <br>
-                        <span>{{ $city->name }},  {{ $training->address }}</span>
+                        <span>{{ $training->address }}</span>
                         <br>
                     </p>
                 </div>
