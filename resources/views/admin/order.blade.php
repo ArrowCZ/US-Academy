@@ -46,6 +46,9 @@
                         <div class="row">
                             <div class="col">
                                 <dl class="row">
+                                	<dt class="col-sm-6">{{ __('Variabilní symbol') }}</dt>
+                                    <dd class="col-sm-6">{{ $order->id }}</dd>
+
                                     <dt class="col-sm-6">{{ __('Jméno') }}</dt>
                                     <dd class="col-sm-6">{{ $order->name }}</dd>
 
@@ -54,6 +57,9 @@
 
                                     <dt class="col-sm-6">{{ __('Email') }}</dt>
                                     <dd class="col-sm-6">{{ $order->email }}</dd>
+
+                                    <dt class="col-sm-6">{{ __('Telefon') }}</dt>
+                                    <dd class="col-sm-6">{{ $order->phone }}</dd>
 
                                     <dt class="col-sm-6">{{ __('Datum přihlášení') }}</dt>
                                     <dd class="col-sm-6">{{ $order->created_at }}</dd>
