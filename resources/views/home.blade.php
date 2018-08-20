@@ -134,7 +134,7 @@
                             <td><b>{{ $training->price }} Kč</b></td>
                             <td><b>{{ $city->name  }}</b></td>
                             <td class="move"><b>{{ $training->paid_count() }}/{{ $training->capacity  }}</b></td>
-                            <td>{{ $city->day  }}</td>
+                            <td>{{ $training->day  }}</td>
                             <td>{{ $training->time  }}</td>
                             <td>
                                 <a href="#page3" class="no-decor">
