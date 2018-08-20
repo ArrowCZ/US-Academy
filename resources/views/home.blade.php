@@ -87,7 +87,7 @@
         </div>
         <div id="mapa">  <!-- base mapa - podklad -->
             <img src="{{ asset('images/cr.png') }}" draggable="false" alt="republika">
-            <a href="#tabulka" class="no-decor">
+            <div href="#tabulka" class="no-decor">
                 @foreach($cities as $city)
                     <div class="point" onclick="tabulka('city_{{ $city->id  }}')" style="top: {{ $city->y }}%; left: {{ $city->x }}%">
                         <!-- bod na mape s mestem, poctem mist atd -->
@@ -109,7 +109,7 @@
                         </a>
                     </div>
                 @endforeach
-            </a>
+            </div>
         </div>
         <div id="mesta_mobil">
             @foreach($cities as $city)
@@ -255,6 +255,8 @@
             }
 		}
 
+        $('#tabulka > table').hide();
+
         function tabulka(mesto_id) {
             var tabulka = _("tabulka");
             var mesto = _(mesto_id);
@@ -267,6 +269,10 @@
                 tabulka.style.display = "block";
                 mesto.style.display = "table";
                 cara.style.top = "0" + "px";
+
+                $('html, body').animate({
+                    scrollTop: $('#tabulka').offset().top - 80 // magic constants ftw
+                }, 500);
             }
 
         }
