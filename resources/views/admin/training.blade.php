@@ -67,6 +67,7 @@
                             <tr>
                                 <th scope="col">{{ __('Jméno') }}</th>
                                 <th scope="col">{{ __('Email') }}</th>
+                                <th scope="col">{{ __('Telefon') }}</th>
                                 <th scope="col">{{ __('Stav') }}</th>
                                 <th scope="col">{{ __('Datum') }}</th>
                                 <th scope="col"></th>
@@ -75,8 +76,12 @@
                             <tbody>
                             @foreach ($training->state(0) as $order)
                                 <tr class="table-warning">
-                                    <th>{{ $order->name }}</th>
+                                    <th>
+                                        {{ $order->name }}<br>
+                                        <small>{{ $order->parent }}</small>
+                                    </th>
                                     <td>{{ $order->email }}</td>
+                                    <td>{{ $order->phone }}</td>
                                     <td>{{ $order->_state() }}</td>
                                     <td>{{ $order->created_at }}</td>
                                     <td>
@@ -90,8 +95,12 @@
 
                             @foreach ($training->state(1) as $order)
                                 <tr class="table-success">
-                                    <th>{{ $order->name }}</th>
+                                    <th>
+                                        {{ $order->name }}<br>
+                                        <small>{{ $order->parent }}</small>
+                                    </th>
                                     <td>{{ $order->email }}</td>
+                                    <td>{{ $order->phone }}</td>
                                     <td>{{ $order->_state() }}</td>
                                     <td>{{ $order->created_at }}</td>
                                     <td>
@@ -105,8 +114,12 @@
 
                             @foreach ($training->state(2) as $order)
                                 <tr class="table-danger">
-                                    <th>{{ $order->name }}</th>
+                                    <th>
+                                        {{ $order->name }}<br>
+                                        <small>{{ $order->parent }}</small>
+                                    </th>
                                     <td>{{ $order->email }}</td>
+                                    <td>{{ $order->phone }}</td>
                                     <td>{{ $order->_state() }}</td>
                                     <td>{{ $order->created_at }}</td>
                                     <td>

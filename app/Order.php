@@ -18,13 +18,13 @@ class Order extends Model
     public function _state() {
         switch ($this->state) {
             case 0:
-                return 'Novy';
+                return 'Nový';
             case 1:
                 return 'Zaplaceno';
             case 2:
-                return 'Zruseno';
+                return 'Zrušeno';
             default:
-                return 'Neznamy';
+                return 'Neznamý';
 
         }
     }

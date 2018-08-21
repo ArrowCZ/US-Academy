@@ -38,6 +38,7 @@
                                             <th scope="col">{{ __('Variabilní symbol') }}</th>
                                             <th scope="col">{{ __('Jméno') }}</th>
                                             <th scope="col">{{ __('Email') }}</th>
+                                            <th scope="col">{{ __('Telefon') }}</th>
                                             <th scope="col">{{ __('Stav') }}</th>
                                             <th scope="col">{{ __('Datum') }}</th>
                                             <th scope="col"></th>
@@ -47,8 +48,12 @@
                                         @foreach ($orders as $order)
                                             <tr class="table-warning">
                                                 <th>{{ $order->id }}</th>
-                                                <td>{{ $order->name }}</td>
+                                                <td>
+                                                    {{ $order->name }}<br>
+                                                    <small>{{ $order->parent }}</small>
+                                                </td>
                                                 <td>{{ $order->email }}</td>
+                                                <td>{{ $order->phone }}</td>
                                                 <td>{{ $order->_state() }}</td>
                                                 <td>{{ $order->created_at }}</td>
                                                 <td>
