@@ -32,6 +32,7 @@ Route::get('/', function () {
 
 Route::view('/legal', 'legal')->name('legal');
 Route::view('/terms', 'terms')->name('terms');
+Route::view('/succes', 'succes')->name('succes');
 
 //Route::view('/form', 'form')->name('form');
 

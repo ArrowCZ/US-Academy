@@ -6,7 +6,7 @@
         <div id="left">
 
             <ul id="nav-take">
-                 <li class=""><a href="/#page2"> O NÁS </a></li>
+                <li class=""><a href="/#page2"> O NÁS </a></li>
                 <li class=""><a href="/#page3"> VÝBĚR KROUŽKŮ </a></li>
                 <li class=""><a href="/#page4"> KONTAKT </a></li>
             </ul>
@@ -22,12 +22,10 @@
 
     <div id="legal-page">
         <div id="cara4"></div>
-        <div class="nadpis1" id="legal-nadpis"><h1>Podmínky Urban Sense Academy</h1></div>
+        <div class="nadpis1" id="legal-nadpis"><h1>Přihláška úspěšně odeslána.</h1></div>
         <div id="legal-text">
             <p>
-                Každý cvičenec parkour kroužku v Urban Sense Academy mladší 18-ti let podléhá řádu Urban Sense Academy a naslouchá pokynům trenérů. Nedodržení řádu může být v krajním případě potrestáno i vyloučením. Pokud cvičenec takto opustí Urban Sense Academy, ztratí nárok na vrácení poplatku. Pokud cvičenec nenastoupí do parkour kroužku, ztratí nárok na vrácení poplatku. Za svou bezpečnost, osobní věci a cennosti si během celé účasti na parkour kroužku každý cvičenec zodpovídá sám, nebo za jeho bezpečnost odpovídají zákonní zástupci. Účastník se zříká jakékoliv náhrady za zranění, ublížení na zdraví či poškození věci. Doporučujeme zajistit si úrazové pojištění vhodné pro aktivity se zvýšeným rizikem úrazu.
-                Potvrzuji pravdivost uvedených osobních údajů a jsem seznámen a plně souhlasím
-                s tímto prohlášením a to stvrzuji svým přihlášením do Urban Sense Academy.
+				Právě jsme na Vámi uvedený email zaslali potvrzení o přihlášení do kroužku s bližšími informacemi a pokyny k platbě.
             </p>
         </div>
     </div>
@@ -39,7 +37,7 @@
                 <p>Copyright © Urbansenseacademy 2018</p>
             </div>
             <div id="udaje">
-                    <p><a href="/legal" class="no-decor" style="color:#666666">zpracování a ochrana osobních údajů</a><br>
+                      <p><a href="/legal" class="no-decor" style="color:#666666">zpracování a ochrana osobních údajů</a><br>
 					  <a href="{{ route('terms') }}" class="no-decor" style="color:#666666">podmínky Urban Sense Academy</a>
                     </p>
             </div>

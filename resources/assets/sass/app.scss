@@ -167,7 +167,7 @@ li a {
 	transition: 0.3s;
 }
 
-#logo_menu_main img:hover {
+#logo_menu_main img:hover, #logo_menu img:hover {
 	opacity: 0.5;
 }
 
@@ -363,7 +363,7 @@ opacity: 0.5;
 }
 
 .vyhody-seznam {
-  max-width: 680px;
+  max-width: 650px;
   width: 100%;
   display: block;
   margin: auto auto;
@@ -373,13 +373,7 @@ opacity: 0.5;
   line-height: 50px;
 }
 
-.vyhody-seznam p:nth-child(2) {
-  margin-left: 132px;
-}
 
-.vyhody-seznam p:nth-child(4) {
-  margin-left: 105px;
-}
 
 .vyhody-seznam p:before {
 
@@ -388,9 +382,12 @@ opacity: 0.5;
   margin-right: 20px;
 }
 
+
+
 .vyhody-seznam p {
   display: inline-block;
   transition: 0.3s;
+  width: 320px;
 }
 
 .vyhody-seznam p:hover {
@@ -491,14 +488,25 @@ visibility: hidden;
     visibility: visible;
 }
 
+.point:hover {
+	width: 42px;
+}
+
+
 .number {
   color: white;
   font-family: 'Josefin Sans', sans-serif;
   position: absolute;
+  transition: 0.3s;
   top: 12px;
   left: 14px;
   cursor: pointer;
 
+}
+
+.point:hover .number {
+	  top: 15px;
+  left: 17px;
 }
 
 #trebic_point {
@@ -1093,12 +1101,6 @@ input[type=checkbox] {
 
 
 @media only screen and (max-width: 750px) {
-  .vyhody-seznam p:nth-child(2) {
-    margin-left: 75px;
-  }
-  .vyhody-seznam p:nth-child(4) {
-	  margin-left: 50px;
-  }
   .vyhody-seznam p {
 	  font-size: 18px;
   }
@@ -1106,9 +1108,6 @@ input[type=checkbox] {
 	  font-size: 20px;
   }
   
-  .vyhody-seznam {
-    max-width: 570px;
-  }
 
 }
 
@@ -1129,6 +1128,9 @@ input[type=checkbox] {
 
   #legal-page {
     height: 1200px;
+  }
+    .vyhody-seznam {
+    max-width: 500px;
   }
 
 }

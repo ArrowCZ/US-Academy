@@ -211,39 +211,52 @@
         var vyska = 1;
 		var opacity = 0;
         var timer_anim;
+		var timer_2;
 		menu.style.position = "fixed";
-		 var timer_2;
-        setTimeout(function () {
-            logo.style.opacity = 1;
-			timer_anim = setInterval(upper_slide, 1);
-		   main.style.display = "block";
-        }, 1000);
-		 setTimeout(function () {
-		timer_2 = setInterval(opacity_show, 1);
-		clearInterval(timer_anim);
-		upper.style.opacity = 0;
-        }, 1500);
-        setTimeout(function () {
+		
+		//ANIMATION
+		
+		if(!window.location.hash) {
+			  setTimeout(function () {
+				timer_anim = setInterval(upper_slide, 1);
+			   main.style.display = "block";
+			}, 1000);
+			 setTimeout(function () {
+			timer_2 = setInterval(opacity_show, 1);
+			clearInterval(timer_anim);
+			upper.style.opacity = 0;
+			}, 1500);
+			setTimeout(function () {
+				menu.style.display = "block";
+				page2.style.display = "block";
+				page3.style.display = "block";
+				page4.style.display = "block";
+				footer.style.display = "block"
+			}, 2000);
+			setTimeout(function () {
+				upper.style.display = "none";
+			}, 1500);
+			setTimeout(function () {
+				logo.style.opacity = 1;
+			}, 500);
+		} else { //disable the animation if there's a location hash
+			
+			upper.style.display = "none";
 			menu.style.display = "block";
-            page2.style.display = "block";
-            page3.style.display = "block";
-            page4.style.display = "block";
-            footer.style.display = "block"
-        }, 2000);
-        setTimeout(function () {
-            upper.style.display = "none";
-        }, 1500);
-        setTimeout(function () {
-            
-        }, 1500);
+			page2.style.display = "block";
+			page3.style.display = "block";
+			page4.style.display = "block";
+			  main.style.display = "block";
+			footer.style.display = "block";
+				main.style.opacity = 1;
+				menu.style.opacity = 1;
+		}
+		
+     
 
         function upper_slide() {
             vyska = vyska - 0.01;
-            upper.style.opacity = vyska;
-			
-			
-				
-			
+            upper.style.opacity = vyska;			
         }
 		function opacity_show()
 		{
