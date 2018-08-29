@@ -87,9 +87,14 @@
 
     </div>
     <div id="mapa_detail">
-        <iframe
+        <{{--iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d118468.3835912162!2d14.444662333816865!3d48.99524599773408!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47734fb43a5f629b%3A0x400af0f6614de80!2zxIxlc2vDqSBCdWTEm2pvdmljZQ!5e0!3m2!1scs!2scz!4v1533296011968"
-            frameborder="0" style="border:0" allowfullscreen></iframe>
+            frameborder="0" style="border:0" allowfullscreen
+        ></iframe>--}}
+        <iframe
+            src="https://maps.google.com/maps?q={{$city->name}},{{$training->address}}&t=&z=13&ie=UTF8&iwloc=&output=embed"
+            frameborder="0" style="border:0" allowfullscreen
+        ></iframe>
     </div>
     <div id="footer" style="display:block; top:0;">
         <div id="footer-text">

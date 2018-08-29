@@ -70,7 +70,9 @@
                                     <td>{{ $training->season }}</td>
                                     <td>{{ $training->time }}</td>
                                     <td>{{ $training->trainer }}</td>
-                                    <td>{{ $training->paid_count() }} <small>({{$training->new_count()}})</small> / {{ $training->capacity }}</td>
+                                    <td>{{ $training->paid_count() }}
+                                        <small>({{$training->new_count()}})</small>
+                                        / {{ $training->capacity }}</td>
                                     <td>{{ $training->price }}</td>
                                     <td class="text-right">
                                         <div class="btn-group">
@@ -83,7 +85,8 @@
                                             <button
                                                 type="button"
                                                 class="btn btn-danger"
-                                                data-toggle="modal" data-target="#deleteTrainingModal_{{ $training->id }}"
+                                                data-toggle="modal"
+                                                data-target="#deleteTrainingModal_{{ $training->id }}"
                                             >{{ __('Smazat')  }}
                                             </button>
                                         </div>
@@ -353,7 +356,8 @@
                             @method('DELETE')
                             @csrf
 
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ __('Zavřít') }}</button>
+                            <button type="button" class="btn btn-secondary"
+                                data-dismiss="modal">{{ __('Zavřít') }}</button>
 
                             <button type="submit" class="btn btn-danger">{{ __('Smazat') }}</button>
                         </form>

@@ -120,7 +120,7 @@
                             </tbody>
                         </table>
                     </div>
-                    
+
                     <div class="card-footer">
                         <button
                             class="btn btn-primary"
@@ -153,7 +153,7 @@
                         @endif
 
                         <div class="form-group{{ $errors->has('address') ? ' has-error' : '' }}">
-                            <label for="day">{{ __('Adresa') }}</label>
+                            <label for="address">{{ __('Adresa') }}</label>
                             <input
                                 type="text"
                                 class="form-control"
@@ -255,7 +255,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ __('Zavřít') }}</button>
-                        
+
                         <button type="submit" class="btn btn-primary">{{ __('Upravit') }}</button>
                     </div>
                 </form>
@@ -301,9 +301,9 @@
                                 </div>
                             </div>
                             {{--<div class="col">--}}
-                                {{--<h6>{{ __('Nahled') }}</h6>--}}
+                            {{--<h6>{{ __('Nahled') }}</h6>--}}
 
-                                {{--<div id="preview"></div>--}}
+                            {{--<div id="preview"></div>--}}
                             {{--</div>--}}
                         </div>
 

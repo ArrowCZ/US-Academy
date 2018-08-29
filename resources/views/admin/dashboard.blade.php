@@ -35,6 +35,7 @@
                                     <table class="table">
                                         <thead class="thead-dark">
                                         <tr>
+                                            <th scope="col">{{ __('Variabilní symbol') }}</th>
                                             <th scope="col">{{ __('Jméno') }}</th>
                                             <th scope="col">{{ __('Email') }}</th>
                                             <th scope="col">{{ __('Stav') }}</th>
@@ -45,7 +46,8 @@
                                         <tbody>
                                         @foreach ($orders as $order)
                                             <tr class="table-warning">
-                                                <th>{{ $order->name }}</th>
+                                                <th>{{ $order->id }}</th>
+                                                <td>{{ $order->name }}</td>
                                                 <td>{{ $order->email }}</td>
                                                 <td>{{ $order->_state() }}</td>
                                                 <td>{{ $order->created_at }}</td>
