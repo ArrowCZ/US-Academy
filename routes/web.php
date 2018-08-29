@@ -32,7 +32,7 @@ Route::get('/', function () {
 
 Route::view('/legal', 'legal')->name('legal');
 Route::view('/terms', 'terms')->name('terms');
-Route::view('/succes', 'succes')->name('succes');
+Route::view('/success', 'success')->name('success');
 
 //Route::view('/form', 'form')->name('form');
 
@@ -85,7 +85,7 @@ Route::post('/form/{training}', function (Request $request, $training) {
         // return $ex;
     }
 
-    return redirect()->route('home');//->with('status', 'Byl jste zapsan. Ocekavejte instrukce emailem.');
+    return redirect()->route('success');//->with('status', 'Byl jste zapsan. Ocekavejte instrukce emailem.');
 });
 
 
