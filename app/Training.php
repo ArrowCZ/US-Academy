@@ -20,6 +20,7 @@ class Training extends Model
 {
     protected $fillable = [
         'city_id',
+        'address',
         'day',
         'time',
         'season',
@@ -69,7 +70,7 @@ class Training extends Model
     }
 
     public function free_count() {
-        return $this->capacity - $this->paid_count();
+        return max($this->capacity - $this->paid_count(), 0);
     }
 
     public function state($state) {

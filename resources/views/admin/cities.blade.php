@@ -161,7 +161,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">{{ __("Opravdu smazat město {$city->name}?")  }}</h5>
+                    <h5 class="modal-title">{{ __("Opravdu smazat město {$city->name} se všemi kroužky a lidmi?")  }}</h5>
 
                     <button type="button" class="close" data-dismiss="modal">
                         <span aria-hidden="true">&times;</span>

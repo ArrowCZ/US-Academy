@@ -121,6 +121,13 @@ class CitiesController extends Controller
     public function destroy($id) {
         $city = City::findOrFail($id);
 
+        foreach ($city->trainings as $training) {
+            foreach ($training->orders as $order) {
+                $order->delete();
+            }
+            $training->delete();
+        }
+
         $city->delete();
 
         return redirect()->route('admin.cities')->with('status', 'Město bylo smazáno.');

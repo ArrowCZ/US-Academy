@@ -114,6 +114,7 @@ class TrainingsController extends Controller
         $training = Training::findOrFail($id);
 
         $validator = \Illuminate\Support\Facades\Validator::make($request->all(), [
+            'address'  => 'required',
             'day'      => 'required',
             'time'     => 'required',
             'season'   => 'required',
@@ -153,7 +154,9 @@ class TrainingsController extends Controller
 
         $training->delete();
 
-        return redirect()->route('cities.show', ['city' => $training->city_id])->with('status', 'Kroužek byl smazán.');
+        return redirect()
+            ->route('cities.show', [ 'city' => $training->city_id ])
+            ->with('status', 'Kroužek byl smazán.');
     }
 
     public function mail(Request $request, $id) {
