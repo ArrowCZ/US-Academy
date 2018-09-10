@@ -105,6 +105,7 @@ Route::resource('/admin/trainings', 'TrainingsController')->names([
     'index' => 'admin.trainings',
 ]);
 
+Route::post('/admin/trainings/{training}/mail', 'TrainingsController@mail');
 
 Route::get('/console/migrate', function () {
     return Artisan::call('migrate');

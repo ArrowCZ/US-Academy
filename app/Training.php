@@ -28,6 +28,9 @@ class Training extends Model
         'price',
     ];
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany|Order[]
+     */
     public function orders() {
         return $this->hasMany(Order::class);
     }

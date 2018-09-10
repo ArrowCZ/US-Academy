@@ -28,4 +28,8 @@ class Order extends Model
 
         }
     }
+
+    public function isPaid(): bool {
+        return $this->state === 1;
+    }
 }

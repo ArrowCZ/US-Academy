@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\City;
+use App\Mail\MassTraining;
 use App\Training;
 use Illuminate\Http\Request;
+use Illuminate\Mail\Mailable;
 
 class TrainingsController extends Controller
 {
@@ -146,5 +148,38 @@ class TrainingsController extends Controller
         $training = Training::findOrFail($id);
 
         return $training;
+    }
+
+    public function mail(Request $request, $id) {
+        $validator = \Illuminate\Support\Facades\Validator::make($request->all(), [
+            'text' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()
+                ->route('trainings.show', [ 'training' => $id ])
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        /** @var Training $training */
+        $training = Training::findOrFail($id);
+
+        foreach ($training->orders() as $order) {
+            if ($order->isPaid()) {
+                $mail = new MassTraining($request->text);
+                \Illuminate\Support\Facades\Mail::to($order->email)->send($mail);
+            }
+        }
+
+        //try {
+        // \Illuminate\Support\Facades\Mail::to('skeblow@gmail.com')->send($mail);
+        //} catch (Swift_TransportException $ex) {
+        // return $ex;
+        //}
+
+        return redirect()
+            ->route('trainings.show', [ 'training' => $id ])
+            ->with('status', 'Hromadný mail byl poslán.');
     }
 }
