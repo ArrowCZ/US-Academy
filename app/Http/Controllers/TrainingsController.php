@@ -147,7 +147,9 @@ class TrainingsController extends Controller
     public function destroy($id) {
         $training = Training::findOrFail($id);
 
-        return $training;
+        $training->delete();
+
+        return redirect()->route('admin.trainings')->with('status', 'Kroužek byl smazán.');
     }
 
     public function mail(Request $request, $id) {
