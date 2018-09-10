@@ -147,9 +147,13 @@ class TrainingsController extends Controller
     public function destroy($id) {
         $training = Training::findOrFail($id);
 
+        foreach ($training->orders as $order) {
+            $order->delete();
+        }
+
         $training->delete();
 
-        return redirect()->route('admin.trainings')->with('status', 'Kroužek byl smazán.');
+        return redirect()->route('cities.show', ['city' => $training->city_id])->with('status', 'Kroužek byl smazán.');
     }
 
     public function mail(Request $request, $id) {
