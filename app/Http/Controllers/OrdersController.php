@@ -61,12 +61,14 @@ class OrdersController extends Controller
         $order = Order::findOrFail($id);
         $training = Training::findOrFail($order->training_id);
         $city = City::findOrFail($training->city_id);
+        $cities = City::all();
 
         return view('admin.order')
             ->with([
                 'order'    => $order,
                 'training' => $training,
                 'city'     => $city,
+                'cities'   => $cities,
             ]);
     }
 
@@ -94,25 +96,33 @@ class OrdersController extends Controller
         $training = Training::findOrFail($order->training_id);
         $city = City::findOrFail($training->city_id);
 
-        $state = $request->state;
+        $sent = '';
 
-        if ($order->state != 1 && $state == 1) {
-            $sent = ' Email byl odeslán.';
-            try {
-                $mail = new OrderPaid($order, $city, $training);
+        if (isset($request->state)) {
+            $state = $request->state;
 
-                Mail::to($order->email)->send($mail);
-            } catch (Swift_TransportException $ex) { }
-        } else {
-            $sent = '';
+            if ($order->state != 1 && $state == 1) {
+                $sent = ' Email byl odeslán.';
+                try {
+                    $mail = new OrderPaid($order, $city, $training);
+
+                    Mail::to($order->email)->send($mail);
+                } catch (Swift_TransportException $ex) {
+                }
+            }
+
+            $order->state = $state;
         }
 
-        $order->state = $state;
+        if (isset($request->training_id)) {
+            $order->training_id = $request->training_id;
+        }
+
         $order->save();
 
         return redirect()
-            ->route('orders.show', ['order' => $order->id])
-            ->with('status', 'Stav objednávky změněn.' . $sent);
+            ->route('orders.show', [ 'order' => $order->id ])
+            ->with('status', 'Objednávka byla upravena.' . $sent);
     }
 
     /**
