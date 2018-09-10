@@ -297,27 +297,32 @@
                             </div>
                         @endif
 
-                        <div class="row">
-                            <div class="col">
-                                <div class="form-group{{ $errors->has('text') ? ' has-error' : '' }}">
-                                    <label for="text">{{ __('Text') }}</label>
-                                    <textarea
-                                        type="text"
-                                        class="form-control"
-                                        id="text"
-                                        name="text"
-                                        rows="10"
-                                    >{{ old('text') }}</textarea>
-                                    @if($errors->has('text'))
-                                        <span class="help-block">{{ $errors->first('text') }}</span>
-                                    @endif
-                                </div>
-                            </div>
-                            {{--<div class="col">--}}
-                            {{--<h6>{{ __('Nahled') }}</h6>--}}
+                        <div class="form-group{{ $errors->has('subject') ? ' has-error' : '' }}">
+                            <label for="subject">{{ __('Předmet mailu') }}</label>
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="subject"
+                                name="subject"
+                                value="{{ old('subject') }}"
+                            >
+                            @if($errors->has('subject'))
+                                <span class="help-block">{{ $errors->first('subject') }}</span>
+                            @endif
+                        </div>
 
-                            {{--<div id="preview"></div>--}}
-                            {{--</div>--}}
+                        <div class="form-group{{ $errors->has('text') ? ' has-error' : '' }}">
+                            <label for="text">{{ __('Text') }}</label>
+                            <textarea
+                                type="text"
+                                class="form-control"
+                                id="text"
+                                name="text"
+                                rows="10"
+                            >{{ old('text') }}</textarea>
+                            @if($errors->has('text'))
+                                <span class="help-block">{{ $errors->first('text') }}</span>
+                            @endif
                         </div>
 
                     </div>

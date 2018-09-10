@@ -152,7 +152,8 @@ class TrainingsController extends Controller
 
     public function mail(Request $request, $id) {
         $validator = \Illuminate\Support\Facades\Validator::make($request->all(), [
-            'text' => 'required',
+            'text'    => 'required',
+            'subject' => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -165,18 +166,17 @@ class TrainingsController extends Controller
         /** @var Training $training */
         $training = Training::findOrFail($id);
 
-        foreach ($training->orders() as $order) {
+        $orders = [];
+
+        foreach ($training->orders()->getResults() as $order) {
             if ($order->isPaid()) {
                 $mail = new MassTraining($request->text);
+                $mail->subject($request->subject);
                 \Illuminate\Support\Facades\Mail::to($order->email)->send($mail);
-            }
-        }
 
-        //try {
-        // \Illuminate\Support\Facades\Mail::to('skeblow@gmail.com')->send($mail);
-        //} catch (Swift_TransportException $ex) {
-        // return $ex;
-        //}
+            }
+            $orders[] = $order;
+        }
 
         return redirect()
             ->route('trainings.show', [ 'training' => $id ])

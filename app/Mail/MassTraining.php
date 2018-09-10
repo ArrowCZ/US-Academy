@@ -28,6 +28,7 @@ class MassTraining extends Mailable
         return $this
             ->from('info@usacademy.cz')
             ->view('email.training.mass')
+            ->subject($this->subject)
             ->with('text', $this->text);
     }
 }
