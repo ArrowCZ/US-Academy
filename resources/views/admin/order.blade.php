@@ -186,11 +186,7 @@
                                     <option value="{{ $_training->id }}">
                                         {{ $_city->name }} -
                                         {{ $_training->day }} -
-                                        {{ $_training->trainer }} -
-
-                                        {{ $_training->paid_count() }}
-                                        <small>({{$_training->new_count()}})</small>
-                                        / {{ $_training->capacity }}
+                                        {{ $_training->time }}
                                     </option>
                                 @endforeach
                             @endforeach
