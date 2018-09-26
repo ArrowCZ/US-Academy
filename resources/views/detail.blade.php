@@ -46,7 +46,7 @@
                 <div class="blok-text" id="info">
                     <p>
                         <b>DOPLŇUJÍCÍ INFORMACE</b><br>
-                        Září 2018 - Leden 2019 <br>
+                        {{ $training->season }}<br>
                         Věk: od 8 let, případně podle šikovnosti <br>
                         Náročnost pro začátečníky i pokročilé <br>
                         Tréninky 1x týdně (60 minut)
