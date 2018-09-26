@@ -167,7 +167,7 @@
 				    <span><a class="no-decor" style="color: #C01414;" href="mailto:info@usacademy.cz"><b>info@usacademy.cz</b></a>
                     <br>
                     <a class="no-decor" style="color: #C01414;"
-                        href="callto:+420 773 074 651"><b>+420 773 074 651</b></a>
+                        href="callto:+420 725 980 860"><b>+420 725 980 860</b></a>
                     </span>
                 </p>
             </div>

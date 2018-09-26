@@ -13,7 +13,7 @@ Rekapitulace / Čas a místo: <br>
 <br>
 
 <p>
-    Pro jakékoliv dotazy nás neváhejte kontaktovat na: 773 074 651
+    Pro jakékoliv dotazy nás neváhejte kontaktovat na: 725 980 860
 </p>
 
 <p>
