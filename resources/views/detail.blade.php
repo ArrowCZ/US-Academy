@@ -81,7 +81,9 @@
                 {{--</div>--}}
             {{--</div>--}}
         </div>
-        <a href="/form/{{$training->id}}" class="button_prihlasit" id="detail-button">PŘIHLÁSIT SE NA KROUŽEK</a>
+        @if ($training->free_count())
+            <a href="/form/{{$training->id}}" class="button_prihlasit" id="detail-button">PŘIHLÁSIT SE NA KROUŽEK</a>
+        @endif
 
         {{--@include('forms.form')--}}
 

@@ -47,6 +47,10 @@ Route::get('/detail/{training}', function ($training_id) {
 Route::get('/form/{training}', function ($training) {
     $training = Training::findOrFail($training);
 
+    if (!$training->free_count()) {
+        return redirect()->route('detail', ['training' => $training->id]);
+    }
+
     $city = \App\City::findOrFail($training->city_id);
 
     return view('form')->with('training', $training)->with('city', $city);
@@ -55,6 +59,10 @@ Route::get('/form/{training}', function ($training) {
 Route::post('/form/{training}', function (Request $request, $training) {
     $training = Training::findOrFail($training);
     $city = \App\City::findOrFail($training->city_id);
+
+    if (!$training->free_count()) {
+        return redirect()->route('detail', ['training' => $training->id]);
+    }
 
     $data = $request->all();
     unset($data['_token']);
