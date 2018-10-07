@@ -38,7 +38,6 @@ Route::view('/success', 'success')->name('success');
 
 Route::get('/detail/{training}', function ($training_id) {
     $training = Training::findOrFail($training_id);
-
     $city = \App\City::findOrFail($training->city_id);
 
     return view('detail')->with('training', $training)->with('city', $city);
@@ -46,7 +45,6 @@ Route::get('/detail/{training}', function ($training_id) {
 
 Route::get('/form/{training}', function ($training) {
     $training = Training::findOrFail($training);
-
     $city = \App\City::findOrFail($training->city_id);
 
     return view('form')->with('training', $training)->with('city', $city);
@@ -75,9 +73,17 @@ Route::post('/form/{training}', function (Request $request, $training) {
     $order->price = $training->price;
     $order->count = 1;
 
+    if (!$training->free_count()) {
+        $order->state = 3;
+    }
+
     $order->save();
 
-    $mail = new \App\Mail\OrderCreated($order, $city, $training);
+    if ($order->state === 3) {
+        $mail = new \App\Mail\OrderSub($order, $city, $training);
+    } else {
+        $mail = new \App\Mail\OrderCreated($order, $city, $training);
+    }
 
     try {
         \Illuminate\Support\Facades\Mail::to($order->email)->send($mail);

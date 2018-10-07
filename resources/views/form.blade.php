@@ -26,7 +26,11 @@
 	
 		<div class="nadpis1" id="form-nadpis">
 		
-			<h1>PŘIHLÁSIT SE NA KROUŽEK</h1>
+			<h1>
+                PŘIHLÁSIT
+                @if ($training->free_count()) SE @else NÁHRADNÍKA @endif
+
+                NA KROUŽEK</h1>
 		
 		</div>
 		<div id="formular">

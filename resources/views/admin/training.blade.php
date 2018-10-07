@@ -74,8 +74,27 @@
                             </tr>
                             </thead>
                             <tbody>
+                            @foreach ($training->state(3) as $order)
+                                <tr class="{{ $order->tableColor() }}">
+                                    <th>
+                                        {{ $order->name }}<br>
+                                        <small>{{ $order->parent }}</small>
+                                    </th>
+                                    <td>{{ $order->email }}</td>
+                                    <td>{{ $order->phone }}</td>
+                                    <td>{{ $order->_state() }}</td>
+                                    <td>{{ $order->created_at }}</td>
+                                    <td>
+                                        <a
+                                            href="/admin/orders/{{ $order->id }}"
+                                            class="btn btn-primary"
+                                        >{{ __('Detail')  }}</a>
+                                    </td>
+                                </tr>
+                            @endforeach
+
                             @foreach ($training->state(0) as $order)
-                                <tr class="table-warning">
+                                <tr class="{{ $order->tableColor() }}">
                                     <th>
                                         {{ $order->name }}<br>
                                         <small>{{ $order->parent }}</small>
@@ -94,7 +113,7 @@
                             @endforeach
 
                             @foreach ($training->state(1) as $order)
-                                <tr class="table-success">
+                                <tr class="{{ $order->tableColor() }}">
                                     <th>
                                         {{ $order->name }}<br>
                                         <small>{{ $order->parent }}</small>
@@ -113,7 +132,7 @@
                             @endforeach
 
                             @foreach ($training->state(2) as $order)
-                                <tr class="table-danger">
+                                <tr class="{{ $order->tableColor() }}">
                                     <th>
                                         {{ $order->name }}<br>
                                         <small>{{ $order->parent }}</small>

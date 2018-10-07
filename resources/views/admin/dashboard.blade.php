@@ -46,7 +46,7 @@
                                         </thead>
                                         <tbody>
                                         @foreach ($orders as $order)
-                                            <tr class="table-warning">
+                                            <tr class="{{ $order->tableColor() }}">
                                                 <th>{{ $order->id }}</th>
                                                 <td>
                                                     {{ $order->name }}<br>

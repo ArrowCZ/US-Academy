@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\City;
+use App\Mail\OrderCreated;
 use App\Mail\OrderPaid;
 use App\Order;
 use App\Training;
@@ -100,12 +101,21 @@ class OrdersController extends Controller
 
         if (isset($request->state)) {
             $state = $request->state;
+            $old_state = $order->state;
 
-            if ($order->state != 1 && $state == 1) {
+            switch ($state) {
+                case 1:
+                    $mail = new OrderCreated($order, $city, $training, $old_state == 3);
+                    break;
+                case 2:
+                    $mail = new OrderPaid($order, $city, $training);
+                    break;
+
+            }
+
+            if (isset($mail)) {
                 $sent = ' Email byl odeslán.';
                 try {
-                    $mail = new OrderPaid($order, $city, $training);
-
                     Mail::to($order->email)->send($mail);
                 } catch (Swift_TransportException $ex) {
                 }

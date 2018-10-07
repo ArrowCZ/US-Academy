@@ -1,7 +1,13 @@
 <p>
     Dobrý den!<br>
 
-    Právě jste se přihlásili do Urban Sense Academy na parkour kroužek ve městě {{ $city->name }}.
+    @if ($was_sub)
+        Právě se uvolnilo místo na parkour kroužek v Urban Sense Academy
+    @else
+        Právě jste se přihlásili do Urban Sense Academy na parkour kroužek
+    @endif
+
+     ve městě {{ $city->name }}.
     Objednaný kroužek zahrnuje pravidelné jednohodinové tréninky od {{ $training->season }}.
 </p>
 

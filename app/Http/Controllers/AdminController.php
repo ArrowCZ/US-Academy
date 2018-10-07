@@ -28,7 +28,7 @@ class AdminController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        $orders = Order::all()->where('state', '=', '0');
+        $orders = Order::all()->whereIn('state', [0, 3]);
 
         return view('admin.dashboard')->with([
             'orders' => $orders

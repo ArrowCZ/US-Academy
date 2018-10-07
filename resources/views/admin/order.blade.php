@@ -27,20 +27,7 @@
                         @include('admin.layout.status')
 
                         <div class="h4">
-                            Stav:
-                            <strong>
-                                @switch($order->state)
-                                    @case(0)
-                                    {{ __('Nový (nezaplaceno)') }}
-                                    @break
-                                    @case(1)
-                                    {{ __('Aktuální (zaplaceno)') }}
-                                    @break
-                                    @case(2)
-                                    {{ __('Zrušeno') }}
-                                    @break
-                                @endswitch
-                            </strong>
+                            Stav: <strong> {{ $order->_state() }} </strong>
                         </div>
 
                         <div class="row">
@@ -125,6 +112,14 @@
 
                         <div class="row">
                             <div class="col-sm-10">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="state" id="state_3"
+                                        value="3" {{ $order->state == 3 ? 'checked' : ''}}>
+                                    <label class="form-check-label" for="state_3">
+                                        {{ __('Náhradník') }}
+                                    </label>
+                                </div>
+
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="state" id="state_0"
                                         value="0" {{ $order->state == 0 ? 'checked' : ''}}>

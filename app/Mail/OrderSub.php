@@ -9,7 +9,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class OrderCreated extends Mailable
+class OrderSub extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -19,8 +19,6 @@ class OrderCreated extends Mailable
     protected $city;
     /** @var Training */
     protected $training;
-    /** @var bool */
-    protected $was_sub;
 
     /**
      * Create a new message instance.
@@ -28,14 +26,12 @@ class OrderCreated extends Mailable
      * @param Order    $order
      * @param City     $city
      * @param Training $training
-     * @param bool     $was_sub
      */
-    public function __construct(Order $order, City $city, Training $training, $was_sub = false)
+    public function __construct(Order $order, City $city, Training $training)
     {
         $this->order = $order;
         $this->city = $city;
         $this->training = $training;
-        $this->was_sub = $was_sub;
     }
 
     /**
@@ -47,12 +43,11 @@ class OrderCreated extends Mailable
     {
         return $this
             ->from('info@usacademy.cz')
-            ->view('email.order.created')
+            ->view('email.order.sub')
             ->subject('Přihláška na kroužek')
             ->with('training', $this->training)
             ->with('city', $this->city)
             ->with('order', $this->order)
-            ->with('was_sub', $this->was_sub)
-        ;
+            ;
     }
 }
