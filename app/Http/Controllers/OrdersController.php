@@ -9,6 +9,7 @@ use App\Order;
 use App\Training;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use Mpdf\Mpdf;
 use Swift_TransportException;
 
 class OrdersController extends Controller
@@ -144,5 +145,12 @@ class OrdersController extends Controller
      */
     public function destroy($id) {
         //
+    }
+
+    public function inovice(Request $request, $id) {
+        $mpdf = new Mpdf();
+        $mpdf->WriteHTML('<h1>Hello world!</h1>');
+
+        return $mpdf->Output();
     }
 }

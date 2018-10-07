@@ -81,6 +81,10 @@
                                     data-target="#editTrainingModal">
                                     {{ __('Změnit kroužek')  }}
                                 </button>
+                                <br><br>
+                                <a href="{{ route('inovice', $order->id) }}" class="btn btn-success">
+                                    {{ __('Zobrazit fakturu')  }}
+                                </a>
                             </div>
                         </div>
                     </div>
