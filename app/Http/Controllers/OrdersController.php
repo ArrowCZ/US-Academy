@@ -100,14 +100,14 @@ class OrdersController extends Controller
         $sent = '';
 
         if (isset($request->state)) {
-            $state = $request->state;
+            $state = (int)$request->state;
             $old_state = $order->state;
 
             switch ($state) {
-                case 1:
+                case 0:
                     $mail = new OrderCreated($order, $city, $training, $old_state == 3);
                     break;
-                case 2:
+                case 1:
                     $mail = new OrderPaid($order, $city, $training);
                     break;
 
