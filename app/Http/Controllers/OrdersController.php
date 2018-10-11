@@ -155,8 +155,15 @@ class OrdersController extends Controller
 
     public function inovices() {
         $orders = Order::where('state', '=', 1)->get();
+        //$orders = Order::where('id', '=', 493)->get();
+        $count = 0;
 
         foreach ($orders as $order) {
+            $count++;
+
+            echo $order->email;
+            echo "\n";
+
             $filename = base_path() . '/files/' . $order->id;
 
             $training = Training::findOrFail($order->training_id);
@@ -167,15 +174,15 @@ class OrdersController extends Controller
                 echo "generated {$order->id}\n\n";
             }
 
-            $mail = new LateInovice();
-
             try {
-                // Mail::to($order->email)->send($mail);
+                $mail = new LateInovice();
+                $mail->attach($filename, ['as' => 'faktura.pdf']);
+                Mail::to($order->email)->send($mail);
             } catch (Swift_TransportException $ex) {
             }
         }
 
-        return $orders;
+        return $count;
     }
 
     public function inovice(Request $request, $id) {
@@ -386,7 +393,7 @@ class OrdersController extends Controller
           
         ");
 
-        $mpdf->Output(base_path() . '/files/' . $order->id);
+        $mpdf->Output(base_path() . '/files/' . $order->id, 'F');
 
         return $mpdf;
     }
