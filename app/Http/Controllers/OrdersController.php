@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\City;
+use App\Mail\LateInovice;
 use App\Mail\OrderCreated;
 use App\Mail\OrderPaid;
 use App\Order;
 use App\Training;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use Mpdf\Mpdf;
 use Swift_TransportException;
@@ -149,6 +151,31 @@ class OrdersController extends Controller
      */
     public function destroy($id) {
         //
+    }
+
+    public function inovices() {
+        $orders = Order::where('state', '=', 1)->get();
+
+        foreach ($orders as $order) {
+            $filename = base_path() . '/files/' . $order->id;
+
+            $training = Training::findOrFail($order->training_id);
+            $city = City::findOrFail($training->city_id);
+
+            if (!file_exists($filename)) {
+                $this->generatePdf($order, $training, $city);
+                echo "generated {$order->id}\n\n";
+            }
+
+            $mail = new LateInovice();
+
+            try {
+                // Mail::to($order->email)->send($mail);
+            } catch (Swift_TransportException $ex) {
+            }
+        }
+
+        return $orders;
     }
 
     public function inovice(Request $request, $id) {
