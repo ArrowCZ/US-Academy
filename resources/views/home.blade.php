@@ -87,7 +87,7 @@
         </div>
         <div id="mapa">  <!-- base mapa - podklad -->
             <img src="{{ asset('images/cr.png') }}" draggable="false" alt="republika">
-            <div href="#tabulka" class="no-decor">
+            <div href=".tabulka" class="no-decor">
                 @foreach($cities as $city)
                     <div class="point" onclick="tabulka('city_{{ $city->id  }}')" style="top: {{ $city->y }}%; left: {{ $city->x }}%">
                         <!-- bod na mape s mestem, poctem mist atd -->
@@ -101,7 +101,7 @@
                             <p onclick="tabulka('city_{{ $city->id  }}')">{{ count($city->trainings) }}</p>
                         </div>
 
-                        <a href="#tabulka" class="no-decor">
+                        <a href=".tabulka" class="no-decor">
                             <div class="point-text">
                                 <!-- nadpis mesta -->
                                 <p><b>{{ $city->name }}</b></p>
@@ -118,7 +118,8 @@
                 </div>
             @endforeach
         </div>
-        <div id="tabulka" style="overflow-x:auto">
+		<div class="bar" id="bar-first"><div class="bar-nadpis"><p>KROUŽKY</p></div></div>
+        <div class="tabulka" style="overflow-x:auto" id="tabulka-first">
             @foreach($cities as $city)
                 <table id="city_{{ $city->id }}">
                     <tr>
@@ -133,7 +134,7 @@
                         <tr>
                             <td><b>{{ $training->price }} Kč</b></td>
                             <td><b>{{ $city->name  }}</b></td>
-                            <td class="move"><b>{{ min($training->paid_count(), $training->capacity) }}/{{ $training->capacity  }}</b></td>
+                            <td class="move"><b>{{ $training->paid_count() }}/{{ $training->capacity  }}</b></td>
                             <td>{{ $training->day  }}</td>
                             <td>{{ $training->time  }}</td>
                             <td>
@@ -148,6 +149,41 @@
                     @endforeach
                 </table>
             @endforeach
+        </div>
+		<div class="bar"><div class="bar-nadpis"><p>WORKSHOPY</p></div></div>
+        <div class="tabulka" style="overflow-x:auto">
+            
+                <table>
+                    <tr>
+                        <th>Cena</th>
+                        <th>Město</th>
+                        <th>Již přihlášených</th>
+                        <th>Den</th>
+                        <th>Čas konání</th>
+                        <th></th>
+                    </tr>
+                    
+                      
+                 
+                </table>
+            
+        </div>
+		<div class="bar"><div class="bar-nadpis"><p>CAMPY</p></div></div>
+        <div class="tabulka" style="overflow-x:auto">
+            
+                <table>
+                    <tr>
+                        <th>Cena</th>
+                        <th>Město</th>
+                        <th>Již přihlášených</th>
+                        <th>Den</th>
+                        <th>Čas konání</th>
+                        <th></th>
+                    </tr>
+                 
+               
+                </table>
+           
         </div>
         <div id="cara3">
 
@@ -268,23 +304,31 @@
             }
 		}
 
-        $('#tabulka > table').hide();
+        //$('.tabulka > table').hide();
+		 $('#tabulka-first > table').hide();
 
         function tabulka(mesto_id) {
-            var tabulka = _("tabulka");
+            var tabulka = document.getElementsByClassName("tabulka");
+			var bar = document.getElementsByClassName("bar");
             var mesto = _(mesto_id);
             var cara = _("cara3");
 
-            $('#tabulka > table').hide();
-
+           // $('.tabulka > table').hide();
+		       $('#tabulka-first > table').hide();
+			
 
             if (mesto) {
-                tabulka.style.display = "block";
+                tabulka[0].style.display = "block";
+				 tabulka[1].style.display = "block";
+				  tabulka[2].style.display = "block";
+				bar[0].style.display = "block";
+				bar[1].style.display = "block";
+				bar[2].style.display = "block";
                 mesto.style.display = "table";
                 cara.style.top = "0" + "px";
 
                 $('html, body').animate({
-                    scrollTop: $('#tabulka').offset().top - 80 // magic constants ftw
+                    scrollTop: $('.tabulka').offset().top - 80 // magic constants ftw
                 }, 500);
             }
 
