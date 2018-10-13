@@ -45,6 +45,7 @@ Route::get('/detail/{training}', function ($training_id) {
 
 Route::get('/form/{training}', function ($training) {
     $training = Training::findOrFail($training);
+    return redirect()->route('detail', ['training' => $training->id]);
     $city = \App\City::findOrFail($training->city_id);
 
     return view('form')->with('training', $training)->with('city', $city);
@@ -52,6 +53,7 @@ Route::get('/form/{training}', function ($training) {
 
 Route::post('/form/{training}', function (Request $request, $training) {
     $training = Training::findOrFail($training);
+    return redirect()->route('detail', ['training' => $training->id]);
     $city = \App\City::findOrFail($training->city_id);
 
     $data = $request->all();
