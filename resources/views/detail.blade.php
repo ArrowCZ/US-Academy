@@ -45,6 +45,22 @@
                     </div>
                 </div>
 
+                <div class="blok">
+                    <div class="blok-text" id="den">
+                        <p><b>ČAS</b><br><span>{{ $training->time }}</span></p>
+                    </div>
+                </div>
+                <div class="blok" id="info_blok">
+                    <div class="blok-text" id="info">
+                        <p>
+                            <b>DOPLŇUJÍCÍ INFORMACE</b><br>
+                            Věk: od 8 let, případně podle šikovnosti <br>
+                            Náročnost pro začátečníky i pokročilé <br>
+                            Jednodenní intenzivní parkour akce
+                        </p>
+                    </div>
+                </div>
+
             @else
                 <div class="blok">
                     <div class="blok-text" id="cas">
@@ -67,15 +83,14 @@
                         </p>
                     </div>
                 </div>
+
+                <div class="blok">
+                    <div class="blok-text" id="trener">
+                        <p><b>TRENÉR</b><br><span>{{ $training->trainer }}</span></p>
+                    </div>
+                </div>
             @endif
 
-
-
-            <div class="blok">
-                <div class="blok-text" id="trener">
-                    <p><b>TRENÉR</b><br><span>{{ $training->trainer }}</span></p>
-                </div>
-            </div>
             <div class="blok">
                 <div class="blok-text" id="mesto">
                     <p>
