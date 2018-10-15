@@ -47,12 +47,20 @@ Route::get('/form/{training}', function ($training) {
     $training = Training::findOrFail($training);
     $city = \App\City::findOrFail($training->city_id);
 
+    if ($training->type != 0) {
+        return view('detail')->with('training', $training)->with('city', $city);
+    }
+
     return view('form')->with('training', $training)->with('city', $city);
 });
 
 Route::post('/form/{training}', function (Request $request, $training) {
     $training = Training::findOrFail($training);
     $city = \App\City::findOrFail($training->city_id);
+
+    if ($training->type != 0) {
+        return view('detail')->with('training', $training)->with('city', $city);
+    }
 
     $data = $request->all();
     unset($data['_token']);

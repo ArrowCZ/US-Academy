@@ -568,7 +568,7 @@ a:visited {
   height: 80px;
   max-width: 100%;
   background: #0D6CB4;
-  display: none;
+ // display: none;
 }
 
 #bar-first {
@@ -642,7 +642,7 @@ tr:not(:first-child):hover {
 #trebic,
 #jihlava,
 .tabulka {
-  display: none;
+  // display: none;
 }
 
 .button_mesta {

@@ -39,17 +39,17 @@
         <div id="nadpis">
 			<h1>URBAN SENSE <br> ACADEMY</h1><br>
 			<p>PARKOUR KROUŽKY</p>
-		
+
 		</div>
-     
+
     </div>
 
     <div id="page2">
-         <div id="scroll_down">		
+         <div id="scroll_down">
 			<div id="carka_move">
-			</div>		 
+			</div>
 			<a href="#page2"><img src="{{ asset('images/scroll.png') }}" alt="scroll" draggable="false"></a>
-			
+
 		</div>
         <div id="about-text">
             <div class="nadpis1">
@@ -118,76 +118,97 @@
                 </div>
             @endforeach
         </div>
-		<div class="bar" id="bar-first"><div class="bar-nadpis"><p>KROUŽKY</p></div></div>
-        <div class="tabulka" style="overflow-x:auto" id="tabulka-first">
+
+        <div class="cities_table">
             @foreach($cities as $city)
-                <table id="city_{{ $city->id }}">
-                    <tr>
-                        <th>Cena</th>
-                        <th>Město</th>
-                        <th>Již přihlášených</th>
-                        <th>Den</th>
-                        <th>Čas konání</th>
-                        <th></th>
-                    </tr>
-                    @foreach ($city->trainings as $training)
+            <div id="city_{{ $city->id }}">
+                <div class="bar" id="bar-first"><div class="bar-nadpis"><p>KROUŽKY</p></div></div>
+                <div class="tabulka" style="overflow-x:auto" id="tabulka-first">
+                    <table>
+                            <tr>
+                                <th>Cena</th>
+                                <th>Město</th>
+                                <th>Již přihlášených</th>
+                                <th>Den</th>
+                                <th>Čas konání</th>
+                                <th></th>
+                            </tr>
+                            @foreach ($city->getTrainings(0) as $training)
+                                <tr>
+                                    <td><b>{{ $training->price }} Kč</b></td>
+                                    <td><b>{{ $city->name  }}</b></td>
+                                    <td class="move"><b>{{ $training->paid_count() }}/{{ $training->capacity  }}</b></td>
+                                    <td>{{ $training->day  }}</td>
+                                    <td>{{ $training->time  }}</td>
+                                    <td>
+                                        <a href="#page3" class="no-decor">
+                                            <a href="{{ route('detail', ['training' => $training->id]) }}"
+                                                class="button_prihlasit" style="text-decoration: none;">
+                                                <p>{{ __('DETAIL') }}</p>
+                                            </a>
+                                        </a>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </table>
+                </div>
+
+                @if ($city->getTrainings(1)->count())
+                    <div class="bar"><div class="bar-nadpis"><p>WORKSHOPY</p></div></div>
+                    <div class="tabulka" style="overflow-x:auto">
+                        <table>
+                            <tr>
+                                <th>Cena</th>
+                                <th>Město</th>
+                                <th>Již přihlášených</th>
+                                <th>Datum</th>
+                                <th></th>
+                            </tr>
+
+                            @foreach ($city->getTrainings(1) as $training)
+                                <tr>
+                                    <td><b>{{ $training->price }} Kč</b></td>
+                                    <td><b>{{ $city->name  }}</b></td>
+                                    <td class="move"><b>{{ $training->paid_count() }}/{{ $training->capacity  }}</b></td>
+                                    <td>{{ $training->date()->format('j.n. Y')  }}</td>
+                                    <td>
+                                        <a href="#page3" class="no-decor">
+                                            <a href="{{ route('detail', ['training' => $training->id]) }}"
+                                                class="button_prihlasit" style="text-decoration: none;">
+                                                <p>{{ __('DETAIL') }}</p>
+                                            </a>
+                                        </a>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </table>
+                </div>
+                @endif
+                {{--}}
+                <div class="bar"><div class="bar-nadpis"><p>CAMPY</p></div></div>
+                <div class="tabulka" style="overflow-x:auto">
+
+                    <table>
                         <tr>
-                            <td><b>{{ $training->price }} Kč</b></td>
-                            <td><b>{{ $city->name  }}</b></td>
-                            <td class="move"><b>{{ $training->paid_count() }}/{{ $training->capacity  }}</b></td>
-                            <td>{{ $training->day  }}</td>
-                            <td>{{ $training->time  }}</td>
-                            <td>
-                                <a href="#page3" class="no-decor">
-                                    <a href="{{ route('detail', ['training' => $training->id]) }}"
-                                        class="button_prihlasit" style="text-decoration: none;">
-                                        <p>{{ __('DETAIL') }}</p>
-                                    </a>
-                                </a>
-                            </td>
+                            <th>Cena</th>
+                            <th>Město</th>
+                            <th>Již přihlášených</th>
+                            <th>Den</th>
+                            <th>Čas konání</th>
+                            <th></th>
                         </tr>
-                    @endforeach
-                </table>
+
+
+                    </table>
+
+                </div>
+                 --}}
+            </div>
+
             @endforeach
         </div>
-		<div class="bar"><div class="bar-nadpis"><p>WORKSHOPY</p></div></div>
-        <div class="tabulka" style="overflow-x:auto">
-            
-                <table>
-                    <tr>
-                        <th>Cena</th>
-                        <th>Město</th>
-                        <th>Již přihlášených</th>
-                        <th>Den</th>
-                        <th>Čas konání</th>
-                        <th></th>
-                    </tr>
-                    
-                      
-                 
-                </table>
-            
-        </div>
-		<div class="bar"><div class="bar-nadpis"><p>CAMPY</p></div></div>
-        <div class="tabulka" style="overflow-x:auto">
-            
-                <table>
-                    <tr>
-                        <th>Cena</th>
-                        <th>Město</th>
-                        <th>Již přihlášených</th>
-                        <th>Den</th>
-                        <th>Čas konání</th>
-                        <th></th>
-                    </tr>
-                 
-               
-                </table>
-           
-        </div>
-        <div id="cara3">
 
-        </div>
+        <div id="cara3"></div>
 
         <div id="page4">
 
@@ -199,7 +220,7 @@
                     <br>
                     U Dvora 1059/4, 586 01 Jihlava<br>
 			        IČ: 22754211<br><br>
-					
+
 				    <span><a class="no-decor" style="color: #C01414;" href="mailto:info@usacademy.cz"><b>info@usacademy.cz</b></a>
                     <br>
                     <a class="no-decor" style="color: #C01414;"
@@ -249,9 +270,9 @@
         var timer_anim;
 		var timer_2;
 		menu.style.position = "fixed";
-		
+
 		//ANIMATION
-		
+
 		if(!window.location.hash) {
 			  setTimeout(function () {
 				timer_anim = setInterval(upper_slide, 1);
@@ -276,7 +297,7 @@
 				logo.style.opacity = 1;
 			}, 500);
 		} else { //disable the animation if there's a location hash
-			
+
 			upper.style.display = "none";
 			menu.style.display = "block";
 			page2.style.display = "block";
@@ -287,12 +308,12 @@
 				main.style.opacity = 1;
 				menu.style.opacity = 1;
 		}
-		
-     
+
+
 
         function upper_slide() {
             vyska = vyska - 0.01;
-            upper.style.opacity = vyska;			
+            upper.style.opacity = vyska;
         }
 		function opacity_show()
 		{
@@ -304,34 +325,16 @@
             }
 		}
 
-        //$('.tabulka > table').hide();
-		 $('#tabulka-first > table').hide();
+		 $('.cities_table > *').hide();
 
         function tabulka(mesto_id) {
-            var tabulka = document.getElementsByClassName("tabulka");
-			var bar = document.getElementsByClassName("bar");
-            var mesto = _(mesto_id);
-            var cara = _("cara3");
+            $('.cities_table > *').hide();
+            $('#' + mesto_id).show();
 
-           // $('.tabulka > table').hide();
-		       $('#tabulka-first > table').hide();
-			
 
-            if (mesto) {
-                tabulka[0].style.display = "block";
-				 tabulka[1].style.display = "block";
-				  tabulka[2].style.display = "block";
-				bar[0].style.display = "block";
-				bar[1].style.display = "block";
-				bar[2].style.display = "block";
-                mesto.style.display = "table";
-                cara.style.top = "0" + "px";
-
-                $('html, body').animate({
-                    scrollTop: $('.tabulka').offset().top - 80 // magic constants ftw
-                }, 500);
-            }
-
+            $('html, body').animate({
+                scrollTop: $('.cities_table').offset().top + 160 // magic constants ftw
+            }, 500);
         }
 
     </script>
