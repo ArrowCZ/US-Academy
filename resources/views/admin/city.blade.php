@@ -421,10 +421,11 @@
                         <div class="form-group{{ $errors->has('date') ? ' has-error' : '' }}">
                             <label for="date">{{ __('Datum') }}</label>
                             <input
-                                type="date"
+                                type="text"
                                 class="form-control"
                                 id="date"
                                 name="date"
+                                placeholder="dd.mm. rrrr"
                                 required
                                 value="{{ old('date') }}"
                             >
