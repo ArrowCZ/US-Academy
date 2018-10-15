@@ -43,6 +43,9 @@
                                     @if ($training->type == 1)
                                         <dt class="col-sm-6">{{ __('Datum') }}</dt>
                                         <dd class="col-sm-6">{{ $training->date }}</dd>
+
+                                        <dt class="col-sm-6">{{ __('Čas') }}</dt>
+                                        <dd class="col-sm-6">{{ $training->time }}</dd>
                                     @else
                                         <dt class="col-sm-6">{{ __('Den') }}</dt>
                                         <dd class="col-sm-6">{{ $training->day }}</dd>
@@ -232,6 +235,21 @@
                                     >
                                     @if($errors->has('date'))
                                         <span class="help-block">{{ $errors->first('date') }}</span>
+                                    @endif
+                                </div>
+
+                                <div class="form-group{{ $errors->has('time') ? ' has-error' : '' }}">
+                                    <label for="time">{{ __('čas') }}</label>
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        id="time"
+                                        name="time"
+                                        min="0"
+                                        value="{{ old('time', $training->time) }}"
+                                    >
+                                    @if($errors->has('time'))
+                                        <span class="help-block">{{ $errors->first('time') }}</span>
                                     @endif
                                 </div>
                             @else
@@ -437,6 +455,7 @@
                                 </table>
                             </div>
                         </div>
+>>>>>>> ca026eab5f76618d072382ccb1a4e83ddb8c12e1
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ __('Zavřít') }}</button>

@@ -104,6 +104,7 @@
                             <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">{{ __('Datum') }}</th>
+                                <th scope="col">{{ __('Čas') }}</th>
                                 <th scope="col">{{ __('Trenér') }}</th>
                                 <th scope="col">{{ __('Kapacita') }}</th>
                                 <th scope="col">{{ __('Cena') }}</th>
@@ -115,6 +116,7 @@
                                 <tr>
                                     <th>{{ $training->id }}</th>
                                     <td>{{ $training->date }}</td>
+                                    <td>{{ $training->time }}</td>
                                     <td>{{ $training->trainer }}</td>
                                     <td>{{ $training->paid_count() }}
                                         <small>({{$training->new_count()}})</small>
@@ -431,6 +433,21 @@
                             >
                             @if($errors->has('date'))
                                 <span class="help-block">{{ $errors->first('date') }}</span>
+                            @endif
+                        </div>
+
+                        <div class="form-group{{ $errors->has('time') ? ' has-error' : '' }}">
+                            <label for="time">{{ __('Čas') }}</label>
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="time"
+                                name="time"
+                                required
+                                value="{{ old('time') }}"
+                            >
+                            @if($errors->has('time'))
+                                <span class="help-block">{{ $errors->first('time') }}</span>
                             @endif
                         </div>
 

@@ -51,7 +51,7 @@ class TrainingsController extends Controller
         if ($request->type == 1) {
             $validator = \Illuminate\Support\Facades\Validator::make($data, [
                 'city_id'  => 'required',
-                'date'      => 'required',
+                'date'     => 'required',
                 'trainer'  => 'required',
                 'capacity' => 'required',
                 'price'    => 'required',
@@ -134,8 +134,23 @@ class TrainingsController extends Controller
 
         $data = $request->all();
 
-        $validator = \Illuminate\Support\Facades\Validator::make($data, [
-        ]);
+        if ($training->type == 1) {
+            $validator = \Illuminate\Support\Facades\Validator::make($data, [
+                //'date'     => 'required',
+               // 'trainer'  => 'required',
+                'capacity' => 'required',
+                'price'    => 'required',
+            ]);
+        } else {
+            $validator = \Illuminate\Support\Facades\Validator::make($data, [
+                'day'      => 'required',
+                'time'     => 'required',
+                'season'   => 'required',
+                'trainer'  => 'required',
+                'capacity' => 'required',
+                'price'    => 'required',
+            ]);
+        }
 
         if (!empty($data['date'])) {
             $data['date'] = \DateTime::createFromFormat('j.n. Y', $data['date']);

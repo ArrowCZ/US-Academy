@@ -17,13 +17,13 @@
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}" type="text/css" />
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}?v={{ Config::get('app.v') }}" type="text/css" />
     <link rel="icon" href="{{ asset('images/favicon.png') }}" />
     <link rel="icon" sizes="64x64" href="{{ asset('images/favicon.png') }}">
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,400" rel="stylesheet">
 
     <script src="https://code.nath.co/src/jQuery.min.js"></script>
-    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/app.js') }}?v={{ Config::get('app.v') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lettering.js/0.7.0/jquery.lettering.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js"></script>
 </head>
