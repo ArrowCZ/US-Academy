@@ -564,12 +564,35 @@ a:visited {
   left: 52%;
 }
 
-#tabulka {
+.bar {
+  height: 80px;
+  max-width: 100%;
+  background: #0D6CB4;
+  display: none;
+}
+
+#bar-first {
+  position: relative;
+  top: 250px;
+}
+
+.bar-nadpis {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 30px;
+  color: white;
+  text-align: center;
+  line-height: 80px;
+}
+
+.tabulka {
   width: 100%;
   height: auto;
   background: #E6E6E6;
-  margin-top: 250px;
   padding-bottom: 50px;
+}
+
+#tabulka-first {
+  margin-top: 250px;
 }
 
 table {
@@ -618,7 +641,7 @@ tr:not(:first-child):hover {
 
 #trebic,
 #jihlava,
-#tabulka {
+.tabulka {
   display: none;
 }
 

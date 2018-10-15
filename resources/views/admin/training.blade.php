@@ -8,7 +8,13 @@
                     <div class="breadcrumb-item"><a href="{{ route('admin') }}">{{ __('Nástěnka') }}</a></div>
                     <div class="breadcrumb-item"><a href="{{ route('admin.cities') }}">{{ __('Města')  }}</a></div>
                     <div class="breadcrumb-item"><a href="/admin/cities/{{ $city->id }}">{{ $city->name }}</a></div>
-                    <div class="breadcrumb-item">{{ $training->day }}</div>
+                    <div class="breadcrumb-item">
+                        @if ($training->type == 1)
+                            {{ $training->date }}
+                        @else
+                            {{ $training->day }}
+                        @endif
+                    </div>
                 </div>
             </div>
         </div>
@@ -18,7 +24,11 @@
                 <div class="card">
                     <div class="card-header">
                         <h1 class="h2">
-                            <small>{{ __('Kroužek')  }}</small> {{ $training->day }}
+                            @if ($training->type == 1)
+                                <small>{{ __('workshop')  }}</small> {{ $training->date }}
+                            @else
+                                <small>{{ __('Kroužek')  }}</small> {{ $training->day }}
+                            @endif
                         </h1>
                     </div>
 
@@ -30,15 +40,19 @@
                                 <dl class="row">
                                     <dt class="col-sm-6">{{ __('Adresa') }}</dt>
                                     <dd class="col-sm-6">{{ $training->address }}</dd>
+                                    @if ($training->type == 1)
+                                        <dt class="col-sm-6">{{ __('Datum') }}</dt>
+                                        <dd class="col-sm-6">{{ $training->date }}</dd>
+                                    @else
+                                        <dt class="col-sm-6">{{ __('Den') }}</dt>
+                                        <dd class="col-sm-6">{{ $training->day }}</dd>
 
-                                    <dt class="col-sm-6">{{ __('Den') }}</dt>
-                                    <dd class="col-sm-6">{{ $training->day }}</dd>
+                                        <dt class="col-sm-6">{{ __('Období') }}</dt>
+                                        <dd class="col-sm-6">{{ $training->season }}</dd>
 
-                                    <dt class="col-sm-6">{{ __('Období') }}</dt>
-                                    <dd class="col-sm-6">{{ $training->season }}</dd>
-
-                                    <dt class="col-sm-6">{{ __('Čas') }}</dt>
-                                    <dd class="col-sm-6">{{ $training->time }}</dd>
+                                        <dt class="col-sm-6">{{ __('Čas') }}</dt>
+                                        <dd class="col-sm-6">{{ $training->time }}</dd>
+                                    @endif
 
                                     <dt class="col-sm-6">{{ __('Trenér') }}</dt>
                                     <dd class="col-sm-6">{{ $training->trainer }}</dd>
@@ -172,7 +186,13 @@
                     @csrf
 
                     <div class="modal-header">
-                        <h5 class="modal-title">{{ __('Upravit kroužek')  }}</h5>
+                        <h5 class="modal-title">
+                            @if ($training->type == 1)
+                                {{ __('Upravit workshop')  }}
+                            @else
+                                {{ __('Upravit kroužek')  }}
+                            @endif
+                        </h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -198,33 +218,66 @@
                             @endif
                         </div>
 
-                        <div class="form-group{{ $errors->has('day') ? ' has-error' : '' }}">
-                            <label for="day">{{ __('Den') }}</label>
-                            <input
-                                type="text"
-                                class="form-control"
-                                id="day"
-                                name="day"
-                                value="{{ old('day', $training->day) }}"
-                            >
-                            @if($errors->has('day'))
-                                <span class="help-block">{{ $errors->first('day') }}</span>
-                            @endif
-                        </div>
+                            @if ($training->type == 1)
+                                <div class="form-group{{ $errors->has('date') ? ' has-error' : '' }}">
+                                    <label for="date">{{ __('Datum') }}</label>
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        id="date"
+                                        name="date"
+                                        placeholder="dd.mm. rrrr"
+                                        required
+                                        value="{{ old('date', $training->date()->format('j.n. Y')) }}"
+                                    >
+                                    @if($errors->has('date'))
+                                        <span class="help-block">{{ $errors->first('date') }}</span>
+                                    @endif
+                                </div>
+                            @else
+                                <div class="form-group{{ $errors->has('day') ? ' has-error' : '' }}">
+                                    <label for="day">{{ __('Den') }}</label>
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        id="day"
+                                        name="day"
+                                        value="{{ old('day', $training->day) }}"
+                                    >
+                                    @if($errors->has('day'))
+                                        <span class="help-block">{{ $errors->first('day') }}</span>
+                                    @endif
+                                </div>
 
-                        <div class="form-group{{ $errors->has('season') ? ' has-error' : '' }}">
-                            <label for="season">{{ __('Období') }}</label>
-                            <input
-                                type="text"
-                                class="form-control"
-                                id="season"
-                                name="season"
-                                value="{{ old('season', $training->season) }}"
-                            >
-                            @if($errors->has('season'))
-                                <span class="help-block">{{ $errors->first('season') }}</span>
+                                <div class="form-group{{ $errors->has('season') ? ' has-error' : '' }}">
+                                    <label for="season">{{ __('Období') }}</label>
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        id="season"
+                                        name="season"
+                                        value="{{ old('season', $training->season) }}"
+                                    >
+                                    @if($errors->has('season'))
+                                        <span class="help-block">{{ $errors->first('season') }}</span>
+                                    @endif
+                                </div>
+
+                                <div class="form-group{{ $errors->has('time') ? ' has-error' : '' }}">
+                                    <label for="time">{{ __('čas') }}</label>
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        id="time"
+                                        name="time"
+                                        min="0"
+                                        value="{{ old('time', $training->time) }}"
+                                    >
+                                    @if($errors->has('time'))
+                                        <span class="help-block">{{ $errors->first('time') }}</span>
+                                    @endif
+                                </div>
                             @endif
-                        </div>
 
                         <div class="form-group{{ $errors->has('trainer') ? ' has-error' : '' }}">
                             <label for="trainer">{{ __('Trenér') }}</label>
@@ -252,21 +305,6 @@
                             >
                             @if($errors->has('capacity'))
                                 <span class="help-block">{{ $errors->first('capacity') }}</span>
-                            @endif
-                        </div>
-
-                        <div class="form-group{{ $errors->has('time') ? ' has-error' : '' }}">
-                            <label for="time">{{ __('čas') }}</label>
-                            <input
-                                type="text"
-                                class="form-control"
-                                id="time"
-                                name="time"
-                                min="0"
-                                value="{{ old('time', $training->time) }}"
-                            >
-                            @if($errors->has('time'))
-                                <span class="help-block">{{ $errors->first('time') }}</span>
                             @endif
                         </div>
 

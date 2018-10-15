@@ -46,15 +46,27 @@ class TrainingsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request) {
-        $validator = \Illuminate\Support\Facades\Validator::make($request->all(), [
-            'city_id'  => 'required',
-            'day'      => 'required',
-            'time'     => 'required',
-            'season'   => 'required',
-            'trainer'  => 'required',
-            'capacity' => 'required',
-            'price'    => 'required',
-        ]);
+        $data = $request->all();
+
+        if ($request->type == 1) {
+            $validator = \Illuminate\Support\Facades\Validator::make($data, [
+                'city_id'  => 'required',
+                'date'      => 'required',
+                'trainer'  => 'required',
+                'capacity' => 'required',
+                'price'    => 'required',
+            ]);
+        } else {
+            $validator = \Illuminate\Support\Facades\Validator::make($data, [
+                'city_id'  => 'required',
+                'day'      => 'required',
+                'time'     => 'required',
+                'season'   => 'required',
+                'trainer'  => 'required',
+                'capacity' => 'required',
+                'price'    => 'required',
+            ]);
+        }
 
         if ($validator->fails()) {
             return redirect()
@@ -63,7 +75,13 @@ class TrainingsController extends Controller
                 ->withInput();
         }
 
-        $training = new Training($request->all());
+        if (!empty($data['date'])) {
+            $data['date'] = \DateTime::createFromFormat('j.n. Y', $data['date']);
+        } else {
+            unset($data['date']);
+        }
+
+        $training = new Training($data);
         $training->save();
 
         return redirect()
@@ -114,15 +132,16 @@ class TrainingsController extends Controller
     public function update(Request $request, $id) {
         $training = Training::findOrFail($id);
 
-        $validator = \Illuminate\Support\Facades\Validator::make($request->all(), [
-            'address'  => 'required',
-            'day'      => 'required',
-            'time'     => 'required',
-            'season'   => 'required',
-            'trainer'  => 'required',
-            'capacity' => 'required',
-            'price'    => 'required',
+        $data = $request->all();
+
+        $validator = \Illuminate\Support\Facades\Validator::make($data, [
         ]);
+
+        if (!empty($data['date'])) {
+            $data['date'] = \DateTime::createFromFormat('j.n. Y', $data['date']);
+        } else {
+            unset($data['date']);
+        }
 
         if ($validator->fails()) {
             return redirect()
@@ -131,7 +150,7 @@ class TrainingsController extends Controller
                 ->withInput();
         }
 
-        $training->fill($request->all());
+        $training->fill($data);
         $training->save();
 
         return redirect()
