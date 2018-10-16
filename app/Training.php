@@ -15,6 +15,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property-read string  $time
  * @property-read Order[] $orders
  * @property-read int     $city_id
+ * @property-read int     $type        0 = krouzek, 1 = workshop
  */
 class Training extends Model
 {
@@ -27,6 +28,8 @@ class Training extends Model
         'trainer',
         'capacity',
         'price',
+        'type',
+        'date',
     ];
 
     /**
@@ -75,5 +78,9 @@ class Training extends Model
 
     public function state($state) {
         return $this->orders()->where('state','=', $state)->getModels();
+    }
+
+    public function date() {
+        return $this->date ? new \DateTime($this->date) : null;
     }
 }

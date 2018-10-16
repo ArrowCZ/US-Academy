@@ -11,5 +11,6 @@ $factory->define(\App\Training::class, function (Faker $faker) {
         'capacity' => $faker->numberBetween(10, 50),
         'price'    => $faker->numberBetween(1000, 5000),
         'time'     => $faker->time() . ' - ' . $faker->time(),
+        'date'     => $faker->date(),
     ];
 });

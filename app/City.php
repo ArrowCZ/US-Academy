@@ -20,4 +20,8 @@ class City extends Model
     public function trainings() {
         return $this->hasMany(Training::class);
     }
+
+    public function getTrainings(int $type) {
+        return $this->trainings()->where('type', '=', $type)->getResults();
+    }
 }

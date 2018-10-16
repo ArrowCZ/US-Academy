@@ -24,35 +24,52 @@
     <div id="detail-page">
         <div id="cara4"></div>
         <div class="detail-nadpis nadpis1">
-            <h1>PARKOUR KROUŽEK {{ $city->name }}</h1>
+            <h1>
+                @if ($training->type == 1)
+                    WORKSHOP
+                @else
+                    PARKOUR KROUŽEK
+                @endif
+                {{ $city->name }}</h1>
             <br>
             <div class="cena nadpis1">
                 <h1>{{ $training->price }} Kč</h1>
             </div>
         </div>
         <div id="info-detail">
-		
-            <div class="blok">
-                <div class="blok-text" id="cas">
-                    <p><b>ČAS</b><br><span>{{ $training->time }}</span></p>
+
+            @if ($training->type == 1)
+                <div class="blok">
+                    <div class="blok-text" id="cas">
+                        <p><b>DATUM</b><br><span>{{ $training->date()->format('j.n. Y') }}</span></p>
+                    </div>
                 </div>
-            </div>
-            <div class="blok">
-                <div class="blok-text" id="den">
-                    <p><b>DEN KROUŽKU</b><br><span>{{ $training->day }}</span></p>
+
+            @else
+                <div class="blok">
+                    <div class="blok-text" id="cas">
+                        <p><b>ČAS</b><br><span>{{ $training->time }}</span></p>
+                    </div>
                 </div>
-            </div>
-            <div class="blok" id="info_blok">
-                <div class="blok-text" id="info">
-                    <p>
-                        <b>DOPLŇUJÍCÍ INFORMACE</b><br>
-                        Září 2018 - Leden 2019 <br>
-                        Věk: od 8 let, případně podle šikovnosti <br>
-                        Náročnost pro začátečníky i pokročilé <br>
-                        Tréninky 1x týdně (60 minut)
-                    </p>
+                <div class="blok">
+                    <div class="blok-text" id="den">
+                        <p><b>DEN KROUŽKU</b><br><span>{{ $training->day }}</span></p>
+                    </div>
                 </div>
-            </div>
+                <div class="blok" id="info_blok">
+                    <div class="blok-text" id="info">
+                        <p>
+                            <b>DOPLŇUJÍCÍ INFORMACE</b><br>
+                            Září 2018 - Leden 2019 <br>
+                            Věk: od 8 let, případně podle šikovnosti <br>
+                            Náročnost pro začátečníky i pokročilé <br>
+                            Tréninky 1x týdně (60 minut)
+                        </p>
+                    </div>
+                </div>
+            @endif
+
+
 
             <div class="blok">
                 <div class="blok-text" id="trener">
@@ -81,11 +98,15 @@
                 {{--</div>--}}
             {{--</div>--}}
         </div>
-        @if ($training->free_count())
-            <a href="/form/{{$training->id}}" class="button_prihlasit" id="detail-button">PŘIHLÁSIT SE NA KROUŽEK</a>
+        @if ($training->type == 1)
         @else
-            <a href="/form/{{$training->id}}" class="button_prihlasit" id="detail-button">PŘIHLÁSIT NÁHRADNÍKA NA KROUŽEK</a>
+            @if ($training->free_count())
+                <a href="/form/{{$training->id}}" class="button_prihlasit" id="detail-button">PŘIHLÁSIT SE NA KROUŽEK</a>
+            @else
+                <a href="/form/{{$training->id}}" class="button_prihlasit" id="detail-button">PŘIHLÁSIT NÁHRADNÍKA NA KROUŽEK</a>
+            @endif
         @endif
+
         {{--@include('forms.form')--}}
 
     </div>
