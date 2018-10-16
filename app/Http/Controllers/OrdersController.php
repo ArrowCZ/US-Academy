@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\City;
+use App\Mail\LateInovice;
 use App\Mail\OrderCreated;
 use App\Mail\OrderPaid;
 use App\Order;
 use App\Training;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use Mpdf\Mpdf;
 use Swift_TransportException;
@@ -149,6 +151,38 @@ class OrdersController extends Controller
      */
     public function destroy($id) {
         //
+    }
+
+    public function inovices() {
+        $orders = Order::where('state', '=', 1)->get();
+        //$orders = Order::where('id', '=', 493)->get();
+        $count = 0;
+
+        foreach ($orders as $order) {
+            $count++;
+
+            echo $order->email;
+            echo "\n";
+
+            $filename = base_path() . '/files/' . $order->id;
+
+            $training = Training::findOrFail($order->training_id);
+            $city = City::findOrFail($training->city_id);
+
+            if (!file_exists($filename)) {
+                $this->generatePdf($order, $training, $city);
+                echo "generated {$order->id}\n\n";
+            }
+
+            try {
+                $mail = new LateInovice();
+                $mail->attach($filename, ['as' => 'faktura.pdf']);
+                Mail::to($order->email)->send($mail);
+            } catch (Swift_TransportException $ex) {
+            }
+        }
+
+        return $count;
     }
 
     public function inovice(Request $request, $id) {
@@ -359,7 +393,7 @@ class OrdersController extends Controller
           
         ");
 
-        $mpdf->Output(base_path() . '/files/' . $order->id);
+        $mpdf->Output(base_path() . '/files/' . $order->id, 'F');
 
         return $mpdf;
     }

@@ -316,91 +316,90 @@
                             </div>
                         @endif
 
-                            <ul class="nav nav-tabs">
-                                <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#tab_text">{{ __('Text') }}</a></li>
-                                <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#tab_recipients">{{ __('Příjemci') }}</a></li>
-                            </ul>
+                        <ul class="nav nav-tabs">
+                            <li class="nav-item">
+                                <a class="nav-link active" data-toggle="tab" href="#mail_text">{{ __('Zpráva') }}</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="profile-tab" data-toggle="tab"
+                                    href="#mail_recipients">{{ __('Příjemci') }}</a>
+                            </li>
+                        </ul>
 
-                            <br>
+                        <br>
 
-                            <div class="tab-content">
-                                <div id="tab_text" class="tab-pane fade show active">
-                                    <div class="form-group{{ $errors->has('subject') ? ' has-error' : '' }}">
-                                        <label for="subject">{{ __('Předmet mailu') }}</label>
-                                        <input
-                                            type="text"
-                                            class="form-control"
-                                            id="subject"
-                                            name="subject"
-                                            value="{{ old('subject') }}"
-                                        >
-                                        @if($errors->has('subject'))
-                                            <span class="help-block">{{ $errors->first('subject') }}</span>
-                                        @endif
-                                    </div>
-
-                                    <div class="form-group{{ $errors->has('text') ? ' has-error' : '' }}">
-                                        <label for="text">{{ __('Text') }}</label>
-                                        <textarea
-                                            type="text"
-                                            class="form-control"
-                                            id="text"
-                                            name="text"
-                                            rows="10"
-                                        >{{ old('text') }}</textarea>
-                                        @if($errors->has('text'))
-                                            <span class="help-block">{{ $errors->first('text') }}</span>
-                                        @endif
-                                    </div>
+                        <div class="tab-content">
+                            <div class="tab-pane fade show active" id="mail_text">
+                                <div class="form-group{{ $errors->has('subject') ? ' has-error' : '' }}">
+                                    <label for="subject">{{ __('Předmet mailu') }}</label>
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        id="subject"
+                                        name="subject"
+                                        value="{{ old('subject') }}"
+                                    >
+                                    @if($errors->has('subject'))
+                                        <span class="help-block">{{ $errors->first('subject') }}</span>
+                                    @endif
                                 </div>
 
-                                <div id="tab_recipients" class="tab-pane fade">
-                                    <div class="row">
-                                        <div class="col">
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="" id="choose_all">
-                                                <label class="form-check-label" for="choose_all">
-                                                    {{ __('Vybrat všechny') }}
-                                                </label>
-                                            </div>
-                                        </div>
-
-                                        <div class="col">
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="" id="choose_3">
-                                                <label class="form-check-label" for="choose_3">
-                                                    {{ __('Vybrat Náhradníky') }}
-                                                </label>
-                                            </div>
-                                        </div>
-
-                                        <div class="col">
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="" id="choose_0">
-                                                <label class="form-check-label" for="choose_0">
-                                                    {{ __('Vybrat nezaplacené') }}
-                                                </label>
-                                            </div>
-                                        </div>
-
-                                        <div class="col">
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="" id="choose_1">
-                                                <label class="form-check-label" for="choose_1">
-                                                    {{ __('Vybrat zaplacené') }}
-                                                </label>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="choose_2">
-                                            <label class="form-check-label" for="choose_2">
-                                                {{ __('Vybrat zrušené') }}
-                                            </label>
-                                        </div>
-                                    </div>
+                                <div class="form-group{{ $errors->has('text') ? ' has-error' : '' }}">
+                                    <label for="text">{{ __('Text') }}</label>
+                                    <textarea
+                                        type="text"
+                                        class="form-control"
+                                        id="text"
+                                        name="text"
+                                        rows="10"
+                                    >{{ old('text') }}</textarea>
+                                    @if($errors->has('text'))
+                                        <span class="help-block">{{ $errors->first('text') }}</span>
+                                    @endif
                                 </div>
                             </div>
+
+                            <div class="tab-pane fade" id="mail_recipients">
+
+                                {{--}}<button type="button" class="btn btn-info">{{ __('Vybrat náhradníky') }}</button>
+                                <button type="button" class="btn btn-warning">{{ __('Vybrat nové') }}</button>
+                                <button type="button" class="btn btn-success">{{ __('Vybrat zaplacené') }}</button>
+                                <button type="button" class="btn btn-danger">{{ __('Vybrat zrušené') }}</button>--}}
+
+                                <br>
+                                <br>
+
+                                <table class="table">
+                                    <thead class="thead-dark">
+                                    <tr>
+                                        <th scope="col"></th>
+                                        <th scope="col">{{ __('Jméno') }}</th>
+                                        <th scope="col">{{ __('Email') }}</th>
+                                        <th scope="col">{{ __('Telefon') }}</th>
+                                        <th scope="col">{{ __('Stav') }}</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    @foreach ($training->orders as $order)
+                                        <tr class="{{ $order->tableColor() }}">
+                                            <td>
+                                                <div class="form-check form-check-inline">
+                                                    <label class="form-check-label">
+                                                        <input data-state="{{ $order->state }}" name="orders[]" class="form-check-input" type="checkbox" value="{{ $order->id }}">
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td>{{ $order->name }}</td>
+                                            <td>{{ $order->email }}</td>
+                                            <td>{{ $order->phone }}</td>
+                                            <td>{{ $order->_state() }}</td>
+                                        </tr>
+                                    @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+>>>>>>> ca026eab5f76618d072382ccb1a4e83ddb8c12e1
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ __('Zavřít') }}</button>

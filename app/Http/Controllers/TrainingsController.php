@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\City;
 use App\Mail\MassTraining;
+use App\Order;
 use App\Training;
 use Illuminate\Http\Request;
 use Illuminate\Mail\Mailable;
@@ -163,6 +164,7 @@ class TrainingsController extends Controller
         $validator = \Illuminate\Support\Facades\Validator::make($request->all(), [
             'text'    => 'required',
             'subject' => 'required',
+            'orders'  => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -172,23 +174,23 @@ class TrainingsController extends Controller
                 ->withInput();
         }
 
-        /** @var Training $training */
-        $training = Training::findOrFail($id);
+        $orders = Order::find($request->orders);
 
-        $orders = [];
+        $count = 0;
 
-        foreach ($training->orders()->getResults() as $order) {
+        foreach ($orders as $order) {
+            $count++;
             if ($order->isPaid()) {
                 $mail = new MassTraining($request->text);
                 $mail->subject($request->subject);
-                \Illuminate\Support\Facades\Mail::to($order->email)->send($mail);
 
+                \Illuminate\Support\Facades\Mail::to($order->email)->send($mail);
             }
             $orders[] = $order;
         }
 
         return redirect()
             ->route('trainings.show', [ 'training' => $id ])
-            ->with('status', 'Hromadný mail byl poslán.');
+            ->with('status', "Hromadný mail byl poslán {$count} lidem.");
     }
 }
