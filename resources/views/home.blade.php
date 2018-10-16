@@ -136,10 +136,10 @@
                             @foreach ($city->getTrainings(0) as $training)
                                 <tr>
                                     <td><b>{{ $training->price }} Kč</b></td>
-                                    <td><b>{{ $city->name  }}</b></td>
-                                    <td class="move"><b>{{ $training->paid_count() }}/{{ $training->capacity  }}</b></td>
-                                    <td>{{ $training->day  }}</td>
-                                    <td>{{ $training->time  }}</td>
+                                    <td><b>{{ $city->name }}</b></td>
+                                    <td class="move"><b>{{ $training->paid_count() }}/{{ $training->capacity }}</b></td>
+                                    <td>{{ $training->day }}</td>
+                                    <td>{{ $training->time }}</td>
                                     <td>
                                         <a href="#page3" class="no-decor">
                                             <a href="{{ route('detail', ['training' => $training->id]) }}"
@@ -162,15 +162,17 @@
                                 <th>Město</th>
                                 <th>Již přihlášených</th>
                                 <th>Datum</th>
+                                <th>Čas konání</th>
                                 <th></th>
                             </tr>
 
                             @foreach ($city->getTrainings(1) as $training)
                                 <tr>
                                     <td><b>{{ $training->price }} Kč</b></td>
-                                    <td><b>{{ $city->name  }}</b></td>
-                                    <td class="move"><b>{{ $training->paid_count() }}/{{ $training->capacity  }}</b></td>
-                                    <td>{{ $training->date()->format('j.n. Y')  }}</td>
+                                    <td><b>{{ $city->name }}</b></td>
+                                    <td class="move"><b>{{ $training->paid_count() }}/{{ $training->capacity }}</b></td>
+                                    <td>{{ $training->date()->format('j.n. Y') }}</td>
+                                    <td>{{ $training->time }}</td>
                                     <td>
                                         <a href="#page3" class="no-decor">
                                             <a href="{{ route('detail', ['training' => $training->id]) }}"

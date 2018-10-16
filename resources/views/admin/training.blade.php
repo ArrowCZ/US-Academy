@@ -43,6 +43,9 @@
                                     @if ($training->type == 1)
                                         <dt class="col-sm-6">{{ __('Datum') }}</dt>
                                         <dd class="col-sm-6">{{ $training->date }}</dd>
+
+                                        <dt class="col-sm-6">{{ __('Čas') }}</dt>
+                                        <dd class="col-sm-6">{{ $training->time }}</dd>
                                     @else
                                         <dt class="col-sm-6">{{ __('Den') }}</dt>
                                         <dd class="col-sm-6">{{ $training->day }}</dd>
@@ -226,11 +229,25 @@
                                         class="form-control"
                                         id="date"
                                         name="date"
-                                        required
                                         value="{{ old('date', $training->date()->format('m/d/Y')) }}"
                                     >
                                     @if($errors->has('date'))
                                         <span class="help-block">{{ $errors->first('date') }}</span>
+                                    @endif
+                                </div>
+
+                                <div class="form-group{{ $errors->has('time') ? ' has-error' : '' }}">
+                                    <label for="time">{{ __('čas') }}</label>
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        id="time"
+                                        name="time"
+                                        min="0"
+                                        value="{{ old('time', $training->time) }}"
+                                    >
+                                    @if($errors->has('time'))
+                                        <span class="help-block">{{ $errors->first('time') }}</span>
                                     @endif
                                 </div>
                             @else
