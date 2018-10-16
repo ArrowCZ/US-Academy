@@ -194,7 +194,6 @@ class OrdersController extends Controller
     }
 
     private function generatePdf(Order $order, Training $training, City $city): Mpdf {
-        $name = $order->parent ?: $order->name;
         $account = $city->name == 'Jihlava' ? '2001483613/2010' : '2901483600/2010';
 
         $vystaveni = $order->created_at->format('j.n.Y');
@@ -297,7 +296,7 @@ class OrdersController extends Controller
         <td>
             <div class='do-header'>Odběratel:</div>
             <div class='do-text'>
-             {$name} <br>
+             {$order->name} <br>
                 &nbsp;<br>
                 &nbsp;
             </div>
