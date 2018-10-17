@@ -45,24 +45,16 @@ Route::get('/detail/{training}', function ($training_id) {
 
 Route::get('/form/{training}', function ($training) {
     $training = Training::findOrFail($training);
-    return redirect()->route('detail', ['training' => $training->id]);
     $city = \App\City::findOrFail($training->city_id);
-
-    if ($training->type != 0) {
-        return view('detail')->with('training', $training)->with('city', $city);
-    }
 
     return view('form')->with('training', $training)->with('city', $city);
 });
 
 Route::post('/form/{training}', function (Request $request, $training) {
+    /** @var Training $training */
     $training = Training::findOrFail($training);
-    return redirect()->route('detail', ['training' => $training->id]);
+    /** @var \App\City $city */
     $city = \App\City::findOrFail($training->city_id);
-
-    if ($training->type != 0) {
-        return view('detail')->with('training', $training)->with('city', $city);
-    }
 
     $data = $request->all();
     unset($data['_token']);
@@ -83,22 +75,53 @@ Route::post('/form/{training}', function (Request $request, $training) {
     $order->price = $training->price;
     $order->count = 1;
 
-    if (!$training->free_count()) {
-        $order->state = 3;
-    }
+    switch ($training->type) {
+        case 0:
+            if (!$training->free_count()) {
+                $order->state = 3;
+            }
 
-    $order->save();
+            $order->save();
 
-    if ($order->state === 3) {
-        $mail = new \App\Mail\OrderSub($order, $city, $training);
-    } else {
-        $mail = new \App\Mail\OrderCreated($order, $city, $training);
-    }
+            if ($order->state === 3) {
+                $mail = new \App\Mail\OrderSub($order, $city, $training);
+            } else {
+                $mail = new \App\Mail\OrderCreated($order, $city, $training);
+            }
 
-    try {
-        \Illuminate\Support\Facades\Mail::to($order->email)->send($mail);
-    } catch (Swift_TransportException $ex) {
-        // return $ex;
+            try {
+                \Illuminate\Support\Facades\Mail::to($order->email)->send($mail);
+            } catch (Swift_TransportException $ex) {
+                // return $ex;
+            }
+            break;
+
+        case 1:
+            if (!$training->free_count()) {
+                return redirect()->route('detail', ['training' => $training->id])->withErrors($validator)->withInput();
+            }
+
+            $order->save();
+
+            $mail = new \App\Mail\OrderCreated($order, $city, $training);
+
+            $filename2 = base_path() . "/resources/assets/potvrzeni_{$training->id}.docx";
+            if (file_exists($filename2)) {
+                $mail->attach($filename2, ['as' => 'Potvrzeni.docx']);
+            }
+
+            $filename = base_path() . '/resources/assets/informace.docx';
+            if (file_exists($filename)) {
+                $mail->attach($filename, ['as' => 'Informace-a-program.docx']);
+            }
+
+            try {
+                \Illuminate\Support\Facades\Mail::to($order->email)->send($mail);
+            } catch (Swift_TransportException $ex) {
+                // return $ex;
+            }
+
+            break;
     }
 
     return redirect()->route('success');//->with('status', 'Byl jste zapsan. Ocekavejte instrukce emailem.');

@@ -114,13 +114,24 @@
             {{--</div>--}}
         </div>
 
-        @if ($training->type == 1)
+        @if ($training->free_count())
+            <a href="/form/{{$training->id}}" class="button_prihlasit" id="detail-button">
+                PŘIHLÁSIT SE NA
+                 @if ($training->type == 1)
+                    WORKSHOP
+                 @else
+                    KROUŽEK
+                 @endif
+            </a>
         @else
-            @if ($training->free_count())
-                <a href="/form/{{$training->id}}" class="button_prihlasit" id="detail-button">PŘIHLÁSIT SE NA KROUŽEK</a>
-            @else
-                <a href="/form/{{$training->id}}" class="button_prihlasit" id="detail-button">PŘIHLÁSIT NÁHRADNÍKA NA KROUŽEK</a>
-            @endif
+            <a href="/form/{{$training->id}}" class="button_prihlasit" id="detail-button">
+                PŘIHLÁSIT NÁHRADNÍKA NA
+                 @if ($training->type == 1)
+                    WORKSHOP
+                @else
+                    KROUŽEK
+                @endif
+            </a>
         @endif
 
         {{--@include('forms.form')--}}

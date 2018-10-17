@@ -25,14 +25,17 @@
 	<div id="form-page">
 	
 		<div class="nadpis1" id="form-nadpis">
-		
 			<h1>
                 PŘIHLÁSIT
-                @if ($training->free_count()) SE @else NÁHRADNÍKA @endif
 
-                NA KROUŽEK</h1>
-		
+                @if ($training->type == 1)
+                    SE NA WORKSHOP
+                @else
+                    @if ($training->free_count()) SE @else NÁHRADNÍKA @endif NA KROUŽEK
+                @endif
+            </h1>
 		</div>
+
 		<div id="formular">
             <form action="/form/{{$training->id}}" id="forma" method="POST">
                 @csrf
