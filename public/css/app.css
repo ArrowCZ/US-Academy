@@ -271,6 +271,10 @@ li a:hover {
   font-size: 40px;
 }
 
+#nadpis p span {
+  font-size: 30px;
+}
+
 #scroll_down {
   display: block;
   position: relative;
@@ -997,6 +1001,10 @@ input[type=checkbox] {
   padding: 0 30px;
 }
 
+.workshop_button {
+	left: 0px; /*magic constants ftw #2 */
+}
+
 @media (max-height: 600px) and (max-width: 2000px) {
   #main {
     height: 700px;
@@ -1033,9 +1041,6 @@ input[type=checkbox] {
     font-size: 40px;
   }
 
-  #nadpis p {
-    font-size: 20px;
-  }
 }
 
 @media only screen and (max-width: 916px) {
@@ -1285,6 +1290,14 @@ input[type=checkbox] {
   #cara3 {
     display: none;
   }
+  
+  #nadpis p {
+    font-size: 20px;
+  }
+  #nadpis p span {
+    font-size: 15px;
+  }
+  
 }
 
 @media only screen and (max-width: 480px) {

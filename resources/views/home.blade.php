@@ -36,9 +36,12 @@
     </div>
     <div id="main" data-ibg-bg="{{ asset('images/header.jpg') }}">
 
-        <div id="nadpis">
+		<div id="nadpis">
 			<h1>URBAN SENSE <br> ACADEMY</h1><br>
-			<p>PARKOUR KROUŽKY</p>
+			<p>PARKOUR
+			<br><span>KROUŽKY, WORKSHOPY, TÁBORY</span>
+			
+			</p>
 
 		</div>
 
@@ -73,7 +76,7 @@
         </div>
         <a href="#page3" class="no-decor">
             <div id="krouzky-button" style="text-decoration: none;">
-                <p>VÝBĚR KROUŽKŮ</p>
+                <p>VÝBĚR MĚST</p>
             </div>
         </a>
         <div id="cara2">
@@ -83,7 +86,7 @@
 
     <div id="page3">
         <div class="nadpis1" id="nadpis2">
-            <h1>VÝBĚR KROUŽKŮ</h1>
+            <h1>VÝBĚR MĚST</h1>
         </div>
         <div id="mapa">  <!-- base mapa - podklad -->
             <img src="{{ asset('images/cr.png') }}" draggable="false" alt="republika">
@@ -176,7 +179,7 @@
                                     <td>
                                         <a href="#page3" class="no-decor">
                                             <a href="{{ route('detail', ['training' => $training->id]) }}"
-                                                class="button_prihlasit" style="text-decoration: none;">
+                                                class="button_prihlasit workshop_button" style="text-decoration: none;">
                                                 <p>{{ __('DETAIL') }}</p>
                                             </a>
                                         </a>
