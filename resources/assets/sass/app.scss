@@ -845,6 +845,10 @@ tr:not(:first-child):hover {
   position: absolute;
 }
 
+#mesto, #trener {
+	max-width: 33%;
+}
+
 .blok-text span {
   color: #0e6cb4;
 }
@@ -1068,6 +1072,10 @@ input[type=checkbox] {
   #mesto,
   #mista {
     margin-top: 0px;
+  }
+  
+  #mesto,#trener {
+	  max-width: 100%;
   }
 
   #detail-button {
