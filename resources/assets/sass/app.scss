@@ -1,3 +1,4 @@
+@charset "UTF-8";
 
 * {
   margin: 0;
@@ -12,29 +13,44 @@
   z-index: -99;
 }
 
+@-webkit-keyframes logo_fade {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
 @keyframes logo_fade {
   0% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }
-
 }
 
 #logo {
   display: block;
   margin: auto auto;
-  position: relative; top: 150px;
+  position: relative;
+  top: 150px;
   opacity: 0;
-  -webkit-animation-name: logo_fade; /* Safari 4.0 - 8.0 */
-  -webkit-animation-duration: 1s; /* Safari 4.0 - 8.0 */
-  -webkit-animation-iteration-count: 1; /* Safari 4.0 - 8.0 */
+  -webkit-animation-name: logo_fade;
+  /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 1s;
+  /* Safari 4.0 - 8.0 */
+  -webkit-animation-iteration-count: 1;
+  /* Safari 4.0 - 8.0 */
   animation-name: logo_fade;
   animation-duration: 1s;
   animation-iteration-count: 1;
   z-index: 1;
   overflow: hidden;
+  -webkit-transition: 0.3s;
   transition: 0.3s;
 }
 
@@ -46,32 +62,35 @@
   margin: auto auto;
   z-index: 1;
   overflow: hidden;
+  -webkit-transition: 0.3s;
   transition: 0.3s;
 }
 
 .container {
-
   display: block;
-  position: relative; top: 250px;
+  position: relative;
+  top: 250px;
   margin: auto auto;
   max-width: 430px;
   width: 100%;
   z-index: 1;
+  -webkit-transition: 0.3s;
   transition: 0.3s;
 }
 
 .ibg-bg {
-	position: absolute;
-	width: 105% !important;
-	height: 105% !important;
+  position: absolute;
+  width: 105% !important;
+  height: 105% !important;
 }
 
-.title{
+.title {
   z-index: 1;
   font-family: 'Josefin Sans', sans-serif;
   position: relative;
   text-transform: uppercase;
   font-size: 82px;
+  -webkit-transition: 0.3s;
   transition: 0.3s;
   line-height: 47px;
   letter-spacing: 2px;
@@ -100,14 +119,16 @@
 }
 
 #menu {
-	width: 100%;
-	height: 80px;
-	position: relative; top: 0;
-	background: white;
-	display: block;
-	opacity: 0;
-	z-index: 9999;
-	box-shadow: 3px 1px 5px #BDBDBD;
+  width: 100%;
+  height: 80px;
+  position: relative;
+  top: 0;
+  background: white;
+  display: block;
+  opacity: 0;
+  z-index: 9999;
+  -webkit-box-shadow: 3px 1px 5px #BDBDBD;
+          box-shadow: 3px 1px 5px #BDBDBD;
 }
 
 #menu ul {
@@ -132,43 +153,47 @@ li a {
   text-decoration: none;
   list-style-type: none;
   padding: 14px 16px;
+  -webkit-transition: 0.2s;
   transition: 0.2s;
 }
 
 #logo_menu {
-	width: 70px;
-	display: block;
-	margin: auto auto;
-	margin-top: -55px;
+  width: 70px;
+  display: block;
+  margin: auto auto;
+  margin-top: -55px;
 }
 
 #logo_menu img {
-	width: 70px;
-	position: relative;
-	display: block;
-	z-index: 99;
-	margin: auto auto;
-	transition: 0.3s;
+  width: 70px;
+  position: relative;
+  display: block;
+  z-index: 99;
+  margin: auto auto;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
 }
 
 #logo_menu_main {
-	width: 70px;
-	display: block;
-	margin: auto auto;
-	margin-top: -55px;
+  width: 70px;
+  display: block;
+  margin: auto auto;
+  margin-top: -55px;
 }
 
 #logo_menu_main img {
-	width: 70px;
-	position: relative;
-	display: block;
-	z-index: 99;
-	margin: auto auto;
-	transition: 0.3s;
+  width: 70px;
+  position: relative;
+  display: block;
+  z-index: 99;
+  margin: auto auto;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
 }
 
-#logo_menu_main img:hover, #logo_menu img:hover {
-	opacity: 0.5;
+#logo_menu_main img:hover,
+#logo_menu img:hover {
+  opacity: 0.5;
 }
 
 #logo_menu img {
@@ -185,17 +210,18 @@ li a:hover {
 }
 
 #right {
-	float: right;
-	text-align: center;
-	margin-right: 50px;
-	margin-top: -60px;
-	z-index: 99;
+  float: right;
+  text-align: center;
+  margin-right: 50px;
+  margin-top: -60px;
+  z-index: 99;
 }
 
 #fb_logo {
   display: inline-block;
   position: relative;
   padding: 14px 16px;
+  -webkit-transition: 0.3s;
   transition: 0.3s;
   z-index: 99;
 }
@@ -203,23 +229,26 @@ li a:hover {
 #ig_logo {
   display: inline-block;
   position: relative;
+  -webkit-transition: 0.3s;
   transition: 0.3s;
   z-index: 99;
 }
 
 #fb_logo img {
   width: 30px;
+  -webkit-transition: 0.3s;
   transition: 0.3s;
 }
 
 #ig_logo img {
   width: 30px;
+  -webkit-transition: 0.3s;
   transition: 0.3s;
 }
 
-#fb_logo img:hover, #ig_logo img:hover {
+#fb_logo img:hover,
+#ig_logo img:hover {
   opacity: 0.5;
-
 }
 
 #nadpis {
@@ -228,22 +257,28 @@ li a:hover {
   font-size: 60px;
   text-align: center;
   position: absolute;
-    top: 60%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  top: 60%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
   max-width: 1000px;
   width: 100%;
   display: block;
   margin: auto auto;
 }
 
-#nadpis p{
+#nadpis p {
   font-size: 40px;
+}
+
+#nadpis p span {
+  font-size: 30px;
 }
 
 #scroll_down {
   display: block;
-  position: relative; top: -12vh;
+  position: relative;
+  top: -12vh;
   width: 37px;
   height: 338px;
   margin: auto auto;
@@ -251,49 +286,71 @@ li a:hover {
 
 #scroll_down img {
   display: block;
-   position: relative;
-   margin: auto auto;
-     z-index: 999;
-	 transition: 0.3s;
+  position: relative;
+  margin: auto auto;
+  z-index: 999;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+@-webkit-keyframes carka-anim {
+  0% {
+    top: 40px;
+  }
+
+  50% {
+    top: 50px;
+  }
+
+  100% {
+    top: 40px;
+  }
 }
 
 @keyframes carka-anim {
-    0%  { top: 40px; }
-	50%  {  top: 50px; }
-	100%  {top: 40px;}
-	
+  0% {
+    top: 40px;
+  }
+
+  50% {
+    top: 50px;
+  }
+
+  100% {
+    top: 40px;
+  }
 }
 
 #carka_move {
-	width: 3px;
-	height: 20px;
-	background: rgb(241,0,73);
-	z-index: 9;
-	opacity: 1;
-	transition: 0.3s;
-		display: block;
-	margin: auto auto;
-	position: relative; top: 40px;
-	-webkit-animation-name: carka-anim; /* Safari 4.0 - 8.0 */
-    -webkit-animation-duration: 2.5s; /* Safari 4.0 - 8.0 */
-    -webkit-animation-iteration-count: infinite; /* Safari 4.0 - 8.0 */
-    animation-name: carka-anim;
-    animation-duration: 2.5s;
-    animation-iteration-count: infinite;
+  width: 3px;
+  height: 20px;
+  background: #f10049;
+  z-index: 9;
+  opacity: 1;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  display: block;
+  margin: auto auto;
+  position: relative;
+  top: 40px;
+  -webkit-animation-name: carka-anim;
+  /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 2.5s;
+  /* Safari 4.0 - 8.0 */
+  -webkit-animation-iteration-count: infinite;
+  /* Safari 4.0 - 8.0 */
+  animation-name: carka-anim;
+  animation-duration: 2.5s;
+  animation-iteration-count: infinite;
 }
 
-#scroll_down img:hover{
-opacity: 0.5;
+#scroll_down img:hover {
+  opacity: 0.5;
 }
 
-#scroll_down:hover  #carka_move{
-opacity: 0.5;
+#scroll_down:hover #carka_move {
+  opacity: 0.5;
 }
-
-
-
-
-
 
 #page2 {
   height: 1200px;
@@ -302,12 +359,10 @@ opacity: 0.5;
 }
 
 .about-img {
-
   width: 650px;
   height: 650px;
   -webkit-clip-path: polygon(50% 7%, 100% 1%, 92% 76%, 50% 100%, 8% 76%, 0 0);
   clip-path: polygon(50% 7%, 100% 1%, 92% 76%, 50% 100%, 8% 76%, 0 0);
-
   display: block;
   margin: auto auto;
   position: relative;
@@ -373,35 +428,33 @@ opacity: 0.5;
   line-height: 50px;
 }
 
-
-
 .vyhody-seznam p:before {
-
-  content: "•";
+  content: "\2022";
   color: #0e6cb4;
   margin-right: 20px;
 }
 
-
-
 .vyhody-seznam p {
   display: inline-block;
+  -webkit-transition: 0.3s;
   transition: 0.3s;
   width: 320px;
 }
 
 .vyhody-seznam p:hover {
-	font-size: 22px;
+  font-size: 22px;
 }
 
 #krouzky-button {
   max-width: 200px;
   width: 100%;
   height: 50px;
-  position: relative; top: 200px;
+  position: relative;
+  top: 200px;
   display: block;
   margin: auto auto;
   background: #0D6CB4;
+  -webkit-transition: 0.3s;
   transition: 0.3s;
 }
 
@@ -418,12 +471,15 @@ opacity: 0.5;
   background: #0B568E;
 }
 
-.no-decor, a:link, a:visited {
+.no-decor,
+a:link,
+a:visited {
   text-decoration: none;
 }
 
 #cara2 {
-  position: relative; top: 300px;
+  position: relative;
+  top: 300px;
   width: 3px;
   height: 150px;
   background: #F10049;
@@ -461,51 +517,49 @@ opacity: 0.5;
   position: absolute;
   width: 37px;
   cursor: pointer;
+  -webkit-transition: 0.3s;
   transition: 0.3s;
 }
 
-
-
 .point .point-text {
-visibility: hidden;
-    width: 120px;
-    background-color: white;
-    color: black;
-    text-align: center;
-    padding: 5px 0;
-    
-    /* Position the tooltip */
-    position: absolute;
-    z-index: 1;
-	 font-family: 'Josefin Sans', sans-serif;
-    bottom: 100%;
-    left: 50%;
-	 box-shadow: 1px 0px 8px 0px #5555;
-    margin-left: -60px;
+  visibility: hidden;
+  width: 120px;
+  background-color: white;
+  color: black;
+  text-align: center;
+  padding: 5px 0;
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  font-family: 'Josefin Sans', sans-serif;
+  bottom: 100%;
+  left: 50%;
+  -webkit-box-shadow: 1px 0px 8px 0px #5555;
+          box-shadow: 1px 0px 8px 0px #5555;
+  margin-left: -60px;
 }
 
 .point:hover .point-text {
-    visibility: visible;
+  visibility: visible;
 }
 
 .point:hover {
-	width: 42px;
+  width: 42px;
 }
-
 
 .number {
   color: white;
   font-family: 'Josefin Sans', sans-serif;
   position: absolute;
+  -webkit-transition: 0.3s;
   transition: 0.3s;
   top: 12px;
   left: 14px;
   cursor: pointer;
-
 }
 
 .point:hover .number {
-	  top: 15px;
+  top: 15px;
   left: 17px;
 }
 
@@ -515,24 +569,22 @@ visibility: hidden;
 }
 
 .bar {
-	height: 80px;
-	max-width: 100%;
-	background: #0D6CB4;
-
-	// display: none;
+  height: 80px;
+  max-width: 100%;
+  background: #0D6CB4;
 }
 
 #bar-first {
-position: relative;
-top: 250px;
+  position: relative;
+  top: 250px;
 }
 
 .bar-nadpis {
-	 font-family: 'Josefin Sans', sans-serif;
-	 font-size: 30px;
-	 color: white;
-	 text-align: center;
-	 line-height: 80px;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 30px;
+  color: white;
+  text-align: center;
+  line-height: 80px;
 }
 
 .tabulka {
@@ -543,7 +595,6 @@ top: 250px;
 }
 
 #tabulka-first {
-
   margin-top: 250px;
 }
 
@@ -555,7 +606,8 @@ table {
   margin: auto auto;
 }
 
-th, td {
+th,
+td {
   padding: 8px;
   text-align: left;
   height: 80px;
@@ -565,7 +617,8 @@ th, td {
 
 tr:not(:first-child):hover {
   background-color: #f5f5f5;
-  box-shadow: -2px 5px 8px 0px #ccc;
+  -webkit-box-shadow: -2px 5px 8px 0px #ccc;
+          box-shadow: -2px 5px 8px 0px #ccc;
 }
 
 .button_prihlasit {
@@ -574,9 +627,9 @@ tr:not(:first-child):hover {
   display: block;
   margin: auto auto;
   background: #0D6CB4;
+  -webkit-transition: 0.3s;
   transition: 0.3s;
   padding: 15px 20px;
-
   color: white;
   font-family: 'Josefin Sans', sans-serif;
   text-decoration: none;
@@ -589,10 +642,6 @@ tr:not(:first-child):hover {
   background: #0B568E;
 }
 
-#trebic, #jihlava, .tabulka {
-  // display: none;
-}
-
 .button_mesta {
   max-width: 150px;
   width: 100%;
@@ -600,6 +649,7 @@ tr:not(:first-child):hover {
   display: block;
   margin: auto auto;
   background: #0D6CB4;
+  -webkit-transition: 0.3s;
   transition: 0.3s;
   display: none;
   position: relative;
@@ -657,7 +707,6 @@ tr:not(:first-child):hover {
   text-align: center;
   line-height: 30px;
   font-weight: 200;
-
 }
 
 #kontakt-text span {
@@ -679,13 +728,15 @@ tr:not(:first-child):hover {
   top: 30px;
 }
 
-#copyright, #udaje, #author {
+#copyright,
+#udaje,
+#author {
   display: inline-block;
   width: 32%;
 }
 
 #udaje {
-	margin-top: 10px;
+  margin-top: 10px;
 }
 
 #author img {
@@ -732,12 +783,10 @@ tr:not(:first-child):hover {
 }
 
 #legal-text span {
-
   text-align: center;
   font-size: 20px;
   display: block;
   margin: auto auto;
-
 }
 
 #detail-page {
@@ -761,10 +810,18 @@ tr:not(:first-child):hover {
   margin: auto auto;
   position: relative;
   top: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-flow: row wrap;
-  align-content: space-between;
-  justify-content: space-between;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -ms-flex-line-pack: justify;
+      align-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .blok {
@@ -777,7 +834,7 @@ tr:not(:first-child):hover {
 }
 
 #info_blok {
-	height: 300px;
+  height: 300px;
 }
 
 .blok-text {
@@ -795,7 +852,6 @@ tr:not(:first-child):hover {
 #mista span {
   color: #F10049;
 }
-
 
 #detail-button {
   max-width: 250px;
@@ -845,6 +901,7 @@ tr:not(:first-child):hover {
   font-family: 'Josefin Sans', sans-serif;
   font-size: 20px;
   font-weight: 200;
+  -webkit-transition: 0.3s;
   transition: 0.3s;
   border: 1px solid #898989;
   width: 100%;
@@ -874,7 +931,6 @@ input[type=checkbox] {
 }
 
 #jmeno {
-
   padding: 0px 12px;
   width: 96%;
 }
@@ -903,7 +959,6 @@ input[type=checkbox] {
 
 .gdpr {
   display: inline-block;
-
 }
 
 .gdpr {
@@ -921,6 +976,7 @@ input[type=checkbox] {
   font-family: 'Josefin Sans', sans-serif;
   cursor: pointer;
   border: none;
+  -webkit-transition: 0.3s;
   transition: 0.3s;
   color: white;
   position: relative;
@@ -932,39 +988,50 @@ input[type=checkbox] {
 }
 
 .row {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   margin: 0 -30px;
 }
 
 .col {
-  flex: 1 0 auto;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
   padding: 0 30px;
 }
 
-@media (max-height: 600px) and (max-width: 2000px) {
-   #main {
-	   height: 700px;
-   }
-   #scroll_down {
-	   top: -20vh;
-   }
+.workshop_button {
+	left: 0px; /*magic constants ftw #2 */
 }
 
+@media (max-height: 600px) and (max-width: 2000px) {
+  #main {
+    height: 700px;
+  }
+
+  #scroll_down {
+    top: -20vh;
+  }
+}
 
 @media (max-height: 740px) and (max-width: 1500px) {
-   #main {
-	   height: 700px;
-   }
-   #scroll_down {
-	   top: -20vh;
-   }
+  #main {
+    height: 700px;
+  }
+
+  #scroll_down {
+    top: -20vh;
+  }
 }
 
 @media only screen and (max-width: 980px) {
   #left {
     display: none;
   }
-  #logo_menu, #logo_menu_main {
+
+  #logo_menu,
+  #logo_menu_main {
     margin-top: 10px;
   }
 }
@@ -973,94 +1040,98 @@ input[type=checkbox] {
   #nadpis {
     font-size: 40px;
   }
-  #nadpis p{
-    font-size: 20px;
-  }
+
 }
 
 @media only screen and (max-width: 916px) {
   .blok {
-   margin: auto;
+    margin: auto;
   }
-
 }
 
 @media only screen and (max-width: 880px) {
+  #detail-page {
+    height: 1600px;
+  }
 
+  #info-detail {
+    margin: auto;
+  }
 
-	#detail-page {
-		height: 1600px;
-	}
-	#info-detail {
-	margin: auto;
-	}
-	.blok-text, .blok-text span  {
-		text-align: center;
-		position: relative;
-	}
-	#trener,#mesto,#mista {
-	margin-top: 0px;
-	}
-	#detail-button {
-	position: relative; top: 150px;
-	}
-	
-	#email {
-		width: 80%;
-		margin: auto auto;
-		display: block;
-	}
-	
-	#telefon {
-		width: 80%;
-		margin-left: 0%;
-		
-		display: block;
-		margin: auto auto;
-		margin-top: 50px;
-	}
-	
-	.pole  {
-		max-width: 80% !important;
-		width: 100%;
-		display: block;
-		margin: auto auto;
-	}
-	.row {
-	  display: block;
-	  margin: auto;
-	}
+  .blok-text,
+  .blok-text span {
+    text-align: center;
+    position: relative;
+  }
 
-		.col {
-		  flex: none;
-		  padding: 0;
-		}
+  #trener,
+  #mesto,
+  #mista {
+    margin-top: 0px;
+  }
 
-	#jmeno { 
-		width: 80%;
-		display: block;
-		margin: auto auto;
-	}
-		
-	
-	#formular p {
-		margin-left: 8%;
-	}
+  #detail-button {
+    position: relative;
+    top: 150px;
+  }
 
-	
-	#gdpr:not(p) {
-		margin-left: 8%;
-	}
-	
-	#cara2 {
-		display: none;
-	}
+  #email {
+    width: 80%;
+    margin: auto auto;
+    display: block;
+  }
+
+  #telefon {
+    width: 80%;
+    margin-left: 0%;
+    display: block;
+    margin: auto auto;
+    margin-top: 50px;
+  }
+
+  .pole {
+    max-width: 80% !important;
+    width: 100%;
+    display: block;
+    margin: auto auto;
+  }
+
+  .row {
+    display: block;
+    margin: auto;
+  }
+
+  .col {
+    -webkit-box-flex: 0;
+        -ms-flex: none;
+            flex: none;
+    padding: 0;
+  }
+
+  #jmeno {
+    width: 80%;
+    display: block;
+    margin: auto auto;
+  }
+
+  #formular p {
+    margin-left: 8%;
+  }
+
+  #gdpr:not(p) {
+    margin-left: 8%;
+  }
+
+  #cara2 {
+    display: none;
+  }
 }
 
 @media only screen and (max-width: 800px) {
   .about-img {
     display: none;
   }
+
   #cara1 {
     display: none;
   }
@@ -1068,13 +1139,16 @@ input[type=checkbox] {
   #page2 {
     height: 1000px;
   }
+
   #page3 {
     height: 1200px;
   }
+
   #nadpis2 {
     position: relative;
     top: 100px;
   }
+
   #mapa {
     display: none;
   }
@@ -1082,71 +1156,63 @@ input[type=checkbox] {
   #mesta_mobil {
     display: block;
   }
-  
+
   .button_mesta {
     display: block;
   }
+
   #cara3 {
     position: relative;
     top: 200px;
   }
-
 }
 
 @media only screen and (max-width: 616px) {
-	.blok {
-		
-		height: auto;
-		padding-bottom: 30px;
-	}
-	#info_blok {
-		
-		height: auto;
-	}
+  .blok {
+    height: auto;
+    padding-bottom: 30px;
+  }
 
+  #info_blok {
+    height: auto;
+  }
 }
 
 @media only screen and (max-width: 600px) {
-	.nadpis1 {
-		
-		font-size: 18px;
-	}
-
+  .nadpis1 {
+    font-size: 18px;
+  }
 }
 
 @media only screen and (max-width: 780px) {
-	th {
-		display: none;
-	}
-	td {
-		height: 150px;
-	}
+  th {
+    display: none;
+  }
 
+  td {
+    height: 150px;
+  }
 }
-
 
 @media only screen and (max-width: 750px) {
   .vyhody-seznam p {
-	  font-size: 18px;
+    font-size: 18px;
   }
-    .vyhody-seznam p:hover {
-	  font-size: 20px;
-  }
-  
 
+  .vyhody-seznam p:hover {
+    font-size: 20px;
+  }
 }
 
 @media only screen and (max-width: 705px) {
   .text1 {
     text-align: center;
-	max-width: 80%;
+    max-width: 80%;
   }
 }
 
 @media only screen and (max-width: 670px) {
-
   #legal-text {
-
     text-align: center;
     max-width: 100%;
   }
@@ -1154,28 +1220,31 @@ input[type=checkbox] {
   #legal-page {
     height: 1200px;
   }
-    .vyhody-seznam {
+
+  .vyhody-seznam {
     max-width: 500px;
   }
-
 }
 
 @media only screen and (max-width: 620px) {
-  .vyhody-seznam p:nth-child(2), .vyhody-seznam p:nth-child(4) {
+  .vyhody-seznam p:nth-child(2),
+  .vyhody-seznam p:nth-child(4) {
     margin-left: 0px;
   }
+
   .vyhody-seznam p {
-	  width: 100%;
-  }
-    .vyhody-seznam {
-    max-width: 330px;
+    width: 100%;
   }
 
+  .vyhody-seznam {
+    max-width: 330px;
+  }
 }
 
 @media only screen and (max-width: 785px) {
-
-  #copyright, #udaje, #author {
+  #copyright,
+  #udaje,
+  #author {
     display: block;
     margin: auto auto;
     margin-top: 10px;
@@ -1185,25 +1254,26 @@ input[type=checkbox] {
   #footer {
     height: 160px;
   }
-
 }
 
 @media only screen and (max-width: 500px) {
   .title {
     font-size: 65px;
   }
+
   .container {
     max-width: 343px;
   }
 }
 
 @media (max-height: 700px) and (max-width: 600px) {
-   #main {
-	   height: 650px;
-   }
-   #scroll_down {
-	   top: -20vh;
-   }
+  #main {
+    height: 650px;
+  }
+
+  #scroll_down {
+    top: -20vh;
+  }
 }
 
 @media only screen and (max-width: 487px) {
@@ -1211,6 +1281,7 @@ input[type=checkbox] {
     position: relative;
     top: 300px;
   }
+
   .button_mesta {
     position: relative;
     top: 300px;
@@ -1219,7 +1290,14 @@ input[type=checkbox] {
   #cara3 {
     display: none;
   }
-
+  
+  #nadpis p {
+    font-size: 20px;
+  }
+  #nadpis p span {
+    font-size: 15px;
+  }
+  
 }
 
 @media only screen and (max-width: 480px) {
@@ -1228,16 +1306,17 @@ input[type=checkbox] {
   }
 
   #legal-text {
-
     font-size: 16px;
   }
 
   #legal-page {
     height: 1500px;
   }
+
   .detail-nadpis {
     font-size: 19px;
   }
+
   .cena {
     font-size: 19px;
   }
@@ -1245,16 +1324,17 @@ input[type=checkbox] {
   #form-page {
     height: 1200px;
   }
-
 }
 
 @media only screen and (max-width: 370px) {
   .title {
     font-size: 50px;
   }
+
   .container {
     max-width: 267px;
   }
+
   #legal-page {
     height: 1700px;
   }
@@ -1264,21 +1344,18 @@ input[type=checkbox] {
   #nadpis {
     font-size: 25px;
   }
-	.move {
+
+  .move {
     width: 100%;
-	}
+  }
+
   #right {
     margin-right: 0px;
   }
+
   #cara3 {
     position: relative;
     top: 480px;
   }
 }
-
-
-
-
-
-
 
