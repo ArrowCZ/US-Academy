@@ -158,6 +158,8 @@ class OrdersController extends Controller
         //$orders = Order::where('id', '=', 493)->get();
         $count = 0;
 
+        set_time_limit(360);
+
         foreach ($orders as $order) {
             $count++;
 
@@ -171,7 +173,7 @@ class OrdersController extends Controller
 
             if (!file_exists($filename)) {
                 $this->generatePdf($order, $training, $city);
-                echo "generated {$order->id}\n\n";
+                echo "generated {$order->id} <br>";
             }
 
             try {

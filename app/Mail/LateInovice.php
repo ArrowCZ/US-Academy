@@ -16,8 +16,7 @@ class LateInovice extends Mailable
      *
      * @return void
      */
-    public function __construct()
-    {
+    public function __construct() {
         //
     }
 
@@ -26,11 +25,10 @@ class LateInovice extends Mailable
      *
      * @return $this
      */
-    public function build()
-    {
+    public function build() {
         return $this
             ->from('info@usacademy.cz')
             ->view('email.late_inovice')
-            ->subject('Faktura');
+            ->subject('Opravená faktura');
     }
 }

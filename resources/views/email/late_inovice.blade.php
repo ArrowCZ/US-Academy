@@ -1,8 +1,9 @@
 <p>
     Dobrý den!<br>
 
-    Zasíláme Vám v příloze fakturu za zaplacený kroužek parkouru na školní půlrok.
-    Faktura slouží jako doklad k platbě, kterou jste již provedli.
+    V příloze Vám zasíláme pozměněnou fakturu, abyste měli případnou možnost proplacení poplatku za kroužek u své pojišťovny.
+    Faktura je psaná na účastníka kroužku, nikoliv zástupce (rodiče).
+    Je to povinný údaj, aby vám proplacení pojišťovna schválila.
 </p>
 
 <p>
