@@ -201,6 +201,12 @@ class OrdersController extends Controller
         $splatnost->add(new \DateInterval('P7D'));
         $splatnost = $splatnost->format('j.n.Y');
 
+        if ($training->type == 1) {
+            $thing = "Jednodenní parkour workshop ve městě {$city->name} ({$training->date()->format('j.n. Y')})";
+        } else {
+            $thing = "Půlroční poplatek za kroužek parkouru ve městě {$city->name} ({$training->season})";
+        }
+        
         $mpdf = new Mpdf([
             'margin_left'   => 21,
             'margin_right'  => 21,
@@ -357,7 +363,7 @@ class OrdersController extends Controller
               <th>Cena</th>
             </tr>
             <tr>
-              <td>Půlroční poplatek za kroužek parkouru ve městě {$city->name} ({$training->season})</td>
+              <td>{$thing}</td>
               <td>1</td>
               <td>Kč {$order->price}</td>
               <td>Kč {$order->price}</td>

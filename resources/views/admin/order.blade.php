@@ -50,37 +50,66 @@
 
                                     <dt class="col-sm-6">{{ __('Datum přihlášení') }}</dt>
                                     <dd class="col-sm-6">{{ $order->created_at }}</dd>
-
-                                    <dt class="col-sm-6">{{ __('Město') }}</dt>
-                                    <dd class="col-sm-6">{{ $city->name }}</dd>
-
-                                    <dt class="col-sm-6">{{ __('Období') }}</dt>
-                                    <dd class="col-sm-6">{{ $training->season }}</dd>
-
-                                    <dt class="col-sm-6">{{ __('Den, čas') }}</dt>
-                                    <dd class="col-sm-6">{{ $training->day }}, {{ $training->time }}</dd>
-
-                                    <dt class="col-sm-6">{{ __('Trenér') }}</dt>
-                                    <dd class="col-sm-6">{{ $training->trainer }}</dd>
-
-                                    <dt class="col-sm-6">{{ __('Cena') }}</dt>
-                                    <dd class="col-sm-6">{{ $order->price }}</dd>
-
-                                    <dt class="col-sm-6">{{ __('Poznámka') }}</dt>
-                                    <dd class="col-sm-6">{{ $order->text }}</dd>
                                 </dl>
+
+                                @if ($training->type == 1)
+                                    <h2 class="h3">Workshop</h2>
+
+                                    <dl class="row">
+                                        <dt class="col-sm-6">{{ __('Město') }}</dt>
+                                        <dd class="col-sm-6">{{ $city->name }}</dd>
+
+                                        <dt class="col-sm-6">{{ __('Datum') }}</dt>
+                                        <dd class="col-sm-6">{{ $training->date()->format('j.n. Y') }}</dd>
+
+                                        <dt class="col-sm-6">{{ __('Čas') }}</dt>
+                                        <dd class="col-sm-6">{{ $training->time }}</dd>
+
+                                        <dt class="col-sm-6">{{ __('Cena') }}</dt>
+                                        <dd class="col-sm-6">{{ $order->price }}</dd>
+
+                                        <dt class="col-sm-6">{{ __('Poznámka') }}</dt>
+                                        <dd class="col-sm-6">{{ $order->text }}</dd>
+                                    </dl>
+                                @else
+                                    <h2 class="h3">Kroužek</h2>
+
+                                    <dl class="row">
+                                        <dt class="col-sm-6">{{ __('Město') }}</dt>
+                                        <dd class="col-sm-6">{{ $city->name }}</dd>
+
+                                        <dt class="col-sm-6">{{ __('Období') }}</dt>
+                                        <dd class="col-sm-6">{{ $training->season }}</dd>
+
+                                        <dt class="col-sm-6">{{ __('Den, čas') }}</dt>
+                                        <dd class="col-sm-6">{{ $training->day }}, {{ $training->time }}</dd>
+
+                                        <dt class="col-sm-6">{{ __('Trenér') }}</dt>
+                                        <dd class="col-sm-6">{{ $training->trainer }}</dd>
+
+                                        <dt class="col-sm-6">{{ __('Cena') }}</dt>
+                                        <dd class="col-sm-6">{{ $order->price }}</dd>
+
+                                        <dt class="col-sm-6">{{ __('Poznámka') }}</dt>
+                                        <dd class="col-sm-6">{{ $order->text }}</dd>
+                                    </dl>
+                                @endif
                             </div>
                             <div class="col text-right">
                                 <button type="button" class="btn btn-success" data-toggle="modal"
                                     data-target="#editStateModal">
                                     {{ __('Změnit stav')  }}
                                 </button>
-                                <br>
-                                <br>
-                                <button type="button" class="btn btn-success" data-toggle="modal"
-                                    data-target="#editTrainingModal">
-                                    {{ __('Změnit kroužek')  }}
-                                </button>
+
+                                @if ($training->type == 1)
+                                @else
+                                    <br><br>
+                                    <button type="button" class="btn btn-success" data-toggle="modal"
+                                        data-target="#editTrainingModal">
+                                        {{ __('Změnit kroužek')  }}
+                                    </button>
+                                @endif
+
                                 <br><br>
                                 <a href="{{ route('inovice', $order->id) }}" class="btn btn-success">
                                     {{ __('Zobrazit fakturu')  }}
@@ -116,13 +145,16 @@
 
                         <div class="row">
                             <div class="col-sm-10">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="state" id="state_3"
-                                        value="3" {{ $order->state == 3 ? 'checked' : ''}}>
-                                    <label class="form-check-label" for="state_3">
-                                        {{ __('Náhradník') }}
-                                    </label>
-                                </div>
+                                @if ($training->type == 1)
+                                @else
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="state" id="state_3"
+                                            value="3" {{ $order->state == 3 ? 'checked' : ''}}>
+                                        <label class="form-check-label" for="state_3">
+                                            {{ __('Náhradník') }}
+                                        </label>
+                                    </div>
+                                @endif
 
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="state" id="state_0"

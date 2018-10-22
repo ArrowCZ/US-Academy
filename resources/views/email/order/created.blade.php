@@ -45,14 +45,20 @@
     <br>
     Částka: {{ $order->price }},-<br>
 
-    @if ($city->name === 'Jihlava')
-        Číslo účtu: 2001483613/2010 <br>
-        IBAN: CZ3920100000002001483613 <br>
+    @if ($training->type == 1)
+        Číslo účtu: 2501178527/2010 <br>
+        IBAN: CZ5020100000002501178527 <br>
         BIC/SWIFT: FIOBCZPPXXX <br>
     @else
-        Číslo účtu: 2901483600/2010 <br>
-        IBAN: CZ1020100000002901483600 <br>
-        BIC/SWIFT: FIOBCZPPXXX <br>
+        @if ($city->name === 'Jihlava')
+            Číslo účtu: 2001483613/2010 <br>
+            IBAN: CZ3920100000002001483613 <br>
+            BIC/SWIFT: FIOBCZPPXXX <br>
+        @else
+            Číslo účtu: 2901483600/2010 <br>
+            IBAN: CZ1020100000002901483600 <br>
+            BIC/SWIFT: FIOBCZPPXXX <br>
+        @endif
     @endif
 
     Variabilní symbol: {{ $order->id }}<br>
