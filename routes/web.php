@@ -140,7 +140,7 @@ Route::resource('/admin/orders', 'OrdersController')->names([
     'index' => 'admin.orders',
 ]);
 
-Route::get('/admin/inovices', 'OrdersController@inovices');
+// Route::get('/admin/inovices', 'OrdersController@inovices');
 
 Route::get('/admin/orders/{order}/invoice', 'OrdersController@inovice')->name('inovice');
 
