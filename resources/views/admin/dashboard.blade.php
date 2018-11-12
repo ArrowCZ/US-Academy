@@ -35,7 +35,7 @@
                                     <table class="table">
                                         <thead class="thead-dark">
                                         <tr>
-                                            <th scope="col">{{ __('Variabilní symbol') }}</th>
+                                            <th scope="col" title="{{ __('Variabilní symbol') }}">{{ __('VS') }}</th>
                                             <th scope="col">{{ __('Jméno') }}</th>
                                             <th scope="col">{{ __('Email') }}</th>
                                             <th scope="col">{{ __('Telefon') }}</th>
