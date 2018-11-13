@@ -421,11 +421,10 @@
                             </div>
 
                             <div class="tab-pane fade" id="mail_recipients">
-
-                                {{--}}<button type="button" class="btn btn-info">{{ __('Vybrat náhradníky') }}</button>
-                                <button type="button" class="btn btn-warning">{{ __('Vybrat nové') }}</button>
-                                <button type="button" class="btn btn-success">{{ __('Vybrat zaplacené') }}</button>
-                                <button type="button" class="btn btn-danger">{{ __('Vybrat zrušené') }}</button>--}}
+                                <button type="button" data-state="3" class="btn btn-info">{{ __('Vybrat náhradníky') }}</button>
+                                <button type="button" data-state="0" class="btn btn-warning">{{ __('Vybrat nové') }}</button>
+                                <button type="button" data-state="1" class="btn btn-success">{{ __('Vybrat zaplacené') }}</button>
+                                <button type="button" data-state="2" class="btn btn-danger">{{ __('Vybrat zrušené') }}</button>
 
                                 <br>
                                 <br>

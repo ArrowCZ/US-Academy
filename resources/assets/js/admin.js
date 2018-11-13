@@ -20,3 +20,9 @@ Vue.component('example-component', require('./components/ExampleComponent.vue'))
 const app = new Vue({
     el: '#app'
 });
+
+$('#mail_recipients > button').click(function () {
+    var inputs = $('#mail_recipients .form-check-input[data-state="'+$(this).attr('data-state')+'"]');
+
+    inputs.prop('checked', !inputs.prop('checked'));
+});
