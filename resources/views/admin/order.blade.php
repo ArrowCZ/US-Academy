@@ -95,7 +95,15 @@
                                     </dl>
                                 @endif
                             </div>
+
                             <div class="col text-right">
+                                <button type="button" class="btn btn-success" data-toggle="modal"
+                                    data-target="#editOrderModal">
+                                    {{ __('Upravit')  }}
+                                </button>
+
+                                <br><br>
+
                                 <button type="button" class="btn btn-success" data-toggle="modal"
                                     data-target="#editStateModal">
                                     {{ __('Změnit stav')  }}
@@ -118,6 +126,107 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="editOrderModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form action="/admin/orders/{{ $order->id }}" method="POST">
+                    @method('PATCH')
+                    @csrf
+
+                    <div class="modal-header">
+                        <h5 class="modal-title">{{ __('Upravit objednávku')  }}</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+
+                        @if ($errors->any())
+                            <div class="alert alert-danger" role="alert">
+                                Please fix the following errors
+                            </div>
+                        @endif
+
+                            <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                                <label for="name">{{ __('Jméno') }}</label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    id="name"
+                                    name="name"
+                                    value="{{ old('name', $order->name) }}"
+                                >
+                                @if($errors->has('name'))
+                                    <span class="help-block">{{ $errors->first('name') }}</span>
+                                @endif
+                            </div>
+
+                            <div class="form-group{{ $errors->has('parent') ? ' has-error' : '' }}">
+                                <label for="parent">{{ __('Rodič') }}</label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    id="parent"
+                                    name="parent"
+                                    value="{{ old('parent', $order->parent) }}"
+                                >
+                                @if($errors->has('parent'))
+                                    <span class="help-block">{{ $errors->first('parent') }}</span>
+                                @endif
+                            </div>
+
+                            <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                                <label for="email">{{ __('Email') }}</label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    id="email"
+                                    name="email"
+                                    value="{{ old('email', $order->email) }}"
+                                >
+                                @if($errors->has('email'))
+                                    <span class="help-block">{{ $errors->first('email') }}</span>
+                                @endif
+                            </div>
+
+                            <div class="form-group{{ $errors->has('phone') ? ' has-error' : '' }}">
+                                <label for="phone">{{ __('Telefon') }}</label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    id="phone"
+                                    name="phone"
+                                    value="{{ old('phone', $order->phone) }}"
+                                >
+                                @if($errors->has('phone'))
+                                    <span class="help-block">{{ $errors->first('phone') }}</span>
+                                @endif
+                            </div>
+
+                            <div class="form-group{{ $errors->has('price') ? ' has-error' : '' }}">
+                                <label for="price">{{ __('Cena') }}</label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    id="price"
+                                    name="price"
+                                    value="{{ old('price', $order->price) }}"
+                                >
+                                @if($errors->has('price'))
+                                    <span class="help-block">{{ $errors->first('price') }}</span>
+                                @endif
+                            </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ __('Zavřít') }}</button>
+                        <button type="submit" class="btn btn-primary">{{ __('Upravit') }}</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

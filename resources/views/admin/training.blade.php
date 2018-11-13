@@ -460,7 +460,6 @@
                                 </table>
                             </div>
                         </div>
->>>>>>> ca026eab5f76618d072382ccb1a4e83ddb8c12e1
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ __('Zavřít') }}</button>

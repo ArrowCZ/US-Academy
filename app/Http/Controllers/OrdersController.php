@@ -135,6 +135,11 @@ class OrdersController extends Controller
             $order->training_id = $request->training_id;
         }
 
+        $data = $request->all();
+        unset($data['training_id'], $data['state']);
+
+        $order->fill($data);
+
         $order->save();
 
         return redirect()
