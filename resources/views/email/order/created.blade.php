@@ -3,6 +3,8 @@
 
     @if ($training->type == 1)
         právě jste se přihlásili na náš parkourový workshop Urban Sense {{ $training->date()->format('j.n. Y') }} ve městě {{ $city->name }}.
+    @elseif ($training->type == 2)
+        právě jste se přihlásili na náš parkourový kemp Urban Sense {{ $training->date()->format('j.n. Y') }} ve městě {{ $city->name }}.
     @else
         @if ($was_sub)
             Právě se uvolnilo místo na parkour kroužek v Urban Sense Academy
@@ -16,6 +18,7 @@
 </p>
 
 @if ($training->type == 1)
+@elseif($training->type == 2)
 @else
     <p>
         Čas a místo: <br>
@@ -32,6 +35,7 @@
         Pro dokončení registrace na Urban Sense Workshop prosím uhraďte poplatek ve výši {{ $order->price }},- do
         5-ti dnů od přihlášení.
     </p>
+@elseif ($training->type == 2)
 @else
     <p>
         Pro úplnou registraci do Urban Sense Academy je potřeba provést platbu za kroužek do 5-ti dnů od přijetí tohoto e-mailu.
@@ -39,7 +43,7 @@
 @endif
 
 
-
+@if ($training->type != 2)
 <p>
     Instrukce pro provedení platby:<br>
     <br>
@@ -63,6 +67,7 @@
 
     Variabilní symbol: {{ $order->id }}<br>
 </p>
+@endif
 
 @if ($training->type == 1)
     <p>
@@ -75,6 +80,12 @@
     <p>
         Těšíme se na Vás, <br>
         organizační tým Urban Sense Academy
+    </p>
+@elseif ($training->type == 2)
+    <br>
+    <p>
+        S přátelským pozdravem,<br>
+        Urban Sense Academy
     </p>
 @else
     <p>

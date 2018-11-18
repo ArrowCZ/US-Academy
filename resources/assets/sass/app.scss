@@ -882,21 +882,20 @@ tr:not(:first-child):hover {
 }
 
 #form-page {
-  height: 1000px;
+  // height: 1000px;
 }
 
 #form-nadpis {
   font-family: 'Josefin Sans', sans-serif;
-  position: relative;
-  top: 100px;
+  //position: relative;
+  margin-top: 100px;
 }
 
 #formular {
-  position: relative;
-  top: 180px;
+  // position: relative;
   max-width: 800px;
   width: 100%;
-  margin: auto auto;
+  margin: 80px auto auto auto;
 }
 
 .pole {
@@ -975,7 +974,6 @@ input[type=checkbox] {
   width: 100%;
   height: 60px;
   display: block;
-  margin: auto auto;
   background: #0D6CB4;
   font-family: 'Josefin Sans', sans-serif;
   cursor: pointer;
@@ -983,8 +981,8 @@ input[type=checkbox] {
   -webkit-transition: 0.3s;
   transition: 0.3s;
   color: white;
-  position: relative;
-  top: 50px;
+  // position: relative;
+  margin: 50px auto 20px auto;
 }
 
 #button-form:hover {
@@ -1330,7 +1328,7 @@ input[type=checkbox] {
   }
 
   #form-page {
-    height: 1200px;
+   // height: 1200px;
   }
 }
 

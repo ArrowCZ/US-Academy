@@ -26,6 +26,8 @@
                         <h1 class="h2">
                             @if ($training->type == 1)
                                 <small>{{ __('workshop')  }}</small> {{ $training->date }}
+                            @elseif ($training->type == 2)
+                                <small>{{ __('Kemp')  }}</small> {{ $training->date }}
                             @else
                                 <small>{{ __('Kroužek')  }}</small> {{ $training->day }}
                             @endif

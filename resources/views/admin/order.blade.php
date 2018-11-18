@@ -8,7 +8,10 @@
                     <div class="breadcrumb-item"><a href="{{ route('admin') }}">{{ __('Nástěnka') }}</a></div>
                     <div class="breadcrumb-item"><a href="{{ route('admin.cities') }}">{{ __('Města')  }}</a></div>
                     <div class="breadcrumb-item"><a href="/admin/cities/{{ $city->id }}">{{ $city->name }}</a></div>
-                    <div class="breadcrumb-item"><a href="/admin/trainings/{{ $training->id }}">{{ $training->day }}</a>
+                    <div class="breadcrumb-item"><a href="/admin/trainings/{{ $training->id }}">
+                        {{ $training->day }}
+                        {{ $training->date }}
+                    </a>
                     </div>
                     <div class="breadcrumb-item">{{ $order->name }}</div>
                 </div>
@@ -50,6 +53,32 @@
 
                                     <dt class="col-sm-6">{{ __('Datum přihlášení') }}</dt>
                                     <dd class="col-sm-6">{{ $order->created_at }}</dd>
+
+                                    @if ($training->type == 2)
+                                        <dt class="col-sm-6">{{ __('Ulice') }}</dt>
+                                        <dd class="col-sm-6">{{ $order->street }}</dd>
+
+                                        <dt class="col-sm-6">{{ __('Město') }}</dt>
+                                        <dd class="col-sm-6">{{ $order->city }}</dd>
+
+                                        <dt class="col-sm-6">{{ __('PSČ') }}</dt>
+                                        <dd class="col-sm-6">{{ $order->postal_code }}</dd>
+
+                                        <dt class="col-sm-6">{{ __('Firma') }}</dt>
+                                        <dd class="col-sm-6">{{ $order->company }}</dd>
+
+                                        <dt class="col-sm-6">{{ __('IČ') }}</dt>
+                                        <dd class="col-sm-6">{{ $order->tin }}</dd>
+
+                                        <dt class="col-sm-6">{{ __('Pojišťovna') }}</dt>
+                                        <dd class="col-sm-6">{{ $order->insurance }}</dd>
+
+                                        <dt class="col-sm-6">{{ __('Rodné číslo') }}</dt>
+                                        <dd class="col-sm-6">{{ $order->pid_number }}</dd>
+
+                                        <dt class="col-sm-6">{{ __('Zdravotní omezení') }}</dt>
+                                        <dd class="col-sm-6">{{ $order->condition }}</dd>
+                                    @endif
                                 </dl>
 
                                 @if ($training->type == 1)

@@ -15,7 +15,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property-read string  $time
  * @property-read Order[] $orders
  * @property-read int     $city_id
- * @property-read int     $type        0 = krouzek, 1 = workshop
+ * @property-read int     $type        0 = krouzek, 1 = workshop, 2 = kemp
  */
 class Training extends Model
 {

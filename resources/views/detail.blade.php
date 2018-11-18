@@ -27,6 +27,8 @@
             <h1>
                 @if ($training->type == 1)
                     WORKSHOP
+                @elseif ($training->type == 2)
+                    KEMP
                 @else
                     PARKOUR KROUŽEK
                 @endif
@@ -57,6 +59,30 @@
                             Věk: od 8 let, případně podle šikovnosti <br>
                             Náročnost pro začátečníky i pokročilé <br>
                             Jednodenní intenzivní parkour akce
+                        </p>
+                    </div>
+                </div>
+
+            @elseif ($training->type == 2)
+                <div class="blok">
+                    <div class="blok-text" id="cas">
+                        <p><b>DATUM</b><br><span>{{ $training->date()->format('j.n. Y') }}</span></p>
+                    </div>
+                </div>
+
+                <div class="blok">
+                    <div class="blok-text" id="den">
+                        <p><b></b><br><span></span></p>
+                    </div>
+                </div>
+
+                <div class="blok" id="info_blok">
+                    <div class="blok-text" id="info">
+                        <p>
+                            <b>DOPLŇUJÍCÍ INFORMACE</b><br>
+                            Věk: od 8 let, případně podle šikovnosti <br>
+                            Náročnost pro začátečníky i pokročilé <br>
+                            Kemp
                         </p>
                     </div>
                 </div>
@@ -114,25 +140,33 @@
             {{--</div>--}}
         </div>
 
-        @if ($training->free_count())
+        @if ($training->type == 2)
             <a href="/form/{{$training->id}}" class="button_prihlasit" id="detail-button">
-                PŘIHLÁSIT SE NA
-                 @if ($training->type == 1)
-                    WORKSHOP
-                 @else
-                    KROUŽEK
-                 @endif
+                REZERVOVAT SI MÍSTO
             </a>
         @else
-            <a href="/form/{{$training->id}}" class="button_prihlasit" id="detail-button">
-                PŘIHLÁSIT NÁHRADNÍKA NA
-                 @if ($training->type == 1)
-                    WORKSHOP
-                @else
-                    KROUŽEK
-                @endif
-            </a>
+            @if ($training->free_count())
+                <a href="/form/{{$training->id}}" class="button_prihlasit" id="detail-button">
+                    PŘIHLÁSIT SE NA
+                    @if ($training->type == 1)
+                        WORKSHOP
+                    @else
+                        KROUŽEK
+                    @endif
+                </a>
+            @else
+                <a href="/form/{{$training->id}}" class="button_prihlasit" id="detail-button">
+                    PŘIHLÁSIT NÁHRADNÍKA NA
+                    @if ($training->type == 1)
+                        WORKSHOP
+                    @else
+                        KROUŽEK
+                    @endif
+                </a>
+            @endif
         @endif
+
+
 
         {{--@include('forms.form')--}}
 

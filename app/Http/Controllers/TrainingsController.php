@@ -48,24 +48,36 @@ class TrainingsController extends Controller
     public function store(Request $request) {
         $data = $request->all();
 
-        if ($request->type == 1) {
-            $validator = \Illuminate\Support\Facades\Validator::make($data, [
-                'city_id'  => 'required',
-                'date'     => 'required',
-                'trainer'  => 'required',
-                'capacity' => 'required',
-                'price'    => 'required',
-            ]);
-        } else {
-            $validator = \Illuminate\Support\Facades\Validator::make($data, [
-                'city_id'  => 'required',
-                'day'      => 'required',
-                'time'     => 'required',
-                'season'   => 'required',
-                'trainer'  => 'required',
-                'capacity' => 'required',
-                'price'    => 'required',
-            ]);
+        switch ($request->type) {
+            default:
+                $validator = \Illuminate\Support\Facades\Validator::make($data, [
+                    'city_id'  => 'required',
+                    'day'      => 'required',
+                    'time'     => 'required',
+                    'season'   => 'required',
+                    'trainer'  => 'required',
+                    'capacity' => 'required',
+                    'price'    => 'required',
+                ]);
+                break;
+
+            case 1:
+                $validator = \Illuminate\Support\Facades\Validator::make($data, [
+                    'city_id'  => 'required',
+                    'date'     => 'required',
+                    'trainer'  => 'required',
+                    'capacity' => 'required',
+                    'price'    => 'required',
+                ]);
+                break;
+
+            case 2:
+                $validator = \Illuminate\Support\Facades\Validator::make($data, [
+                    'city_id'  => 'required',
+                    'date'     => 'required',
+                    'price'    => 'required',
+                ]);
+                break;
         }
 
         if ($validator->fails()) {

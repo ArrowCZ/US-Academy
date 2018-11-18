@@ -13,7 +13,16 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Order extends Model
 {
-    protected $fillable = [ 'email', 'name', 'parent', 'phone', 'text', 'training_id', 'price' ];
+    protected $fillable = [ 'email', 'name', 'parent', 'phone', 'text', 'training_id', 'price',
+        'street',
+        'city',
+        'postal_code',
+        'company',
+        'tin',
+        'insurance',
+        'pid_number',
+        'condition',
+    ];
 
     public function _state() {
         switch ($this->state) {

@@ -122,6 +122,18 @@ Route::post('/form/{training}', function (Request $request, $training) {
             }
 
             break;
+        case 2:
+            $mail = new \App\Mail\OrderCreated($order, $city, $training);
+
+            $order->save();
+
+            try {
+                \Illuminate\Support\Facades\Mail::to($order->email)->send($mail);
+            } catch (Swift_TransportException $ex) {
+                // return $ex;
+            }
+
+            break;
     }
 
     return redirect()->route('success');//->with('status', 'Byl jste zapsan. Ocekavejte instrukce emailem.');
