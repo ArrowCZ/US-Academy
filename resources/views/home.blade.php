@@ -174,7 +174,7 @@
                                     <td><b>{{ $training->price }} Kč</b></td>
                                     <td><b>{{ $city->name }}</b></td>
                                     <td class="move"><b>{{ min($training->paid_count(), $training->capacity) }}/{{ $training->capacity }}</b></td>
-                                    <td>{{ $training->date()->format('j.n. Y') }}</td>
+                                    <td>{{ $training->date() }}</td>
                                     <td>{{ $training->time }}</td>
                                     <td>
                                         <a href="#page3" class="no-decor">
@@ -191,7 +191,7 @@
                 @endif
 
                 @if ($city->getTrainings(2)->count())
-                    <div class="bar"><div class="bar-nadpis"><p>CAMPY</p></div></div>
+                    <div class="bar"><div class="bar-nadpis"><p>příměstské tábory</p></div></div>
                     <div class="tabulka" style="overflow-x:auto">
                         <table>
                             <tr>
@@ -206,7 +206,7 @@
                                     <td><b>{{ $training->price }} Kč</b></td>
                                     <td><b>{{ $city->name }}</b></td>
                                     <td class="move"><b>{{ min($training->paid_count(), $training->capacity) }}/{{ $training->capacity }}</b></td>
-                                    <td>{{ $training->date()->format('j.n. Y') }}</td>
+                                    <td>{{ $training->date() }}</td>
                                     <td>
                                         <a href="#page3" class="no-decor">
                                             <a href="{{ route('detail', ['training' => $training->id]) }}"

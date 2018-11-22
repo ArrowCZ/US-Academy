@@ -2,6 +2,7 @@
 
 namespace App;
 
+use DateTime;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -30,6 +31,8 @@ class Training extends Model
         'price',
         'type',
         'date',
+        'date_to',
+        'text',
     ];
 
     /**
@@ -80,7 +83,11 @@ class Training extends Model
         return $this->orders()->where('state','=', $state)->getModels();
     }
 
-    public function date() {
-        return $this->date ? new \DateTime($this->date) : null;
+    public function date(): ?string {
+        return $this->date ? (new DateTime($this->date))->format('j.n. Y') : null;
+    }
+
+    public function dateTo(): ?string {
+        return $this->date_to ? (new DateTime($this->date_to))->format('j.n. Y') : null;
     }
 }

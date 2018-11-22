@@ -11,6 +11,8 @@
                     <div class="breadcrumb-item">
                         @if ($training->type == 1)
                             {{ $training->date }}
+                        @elseif ($training->type == 2)
+                            {{ $training->date }} - {{ $training->date_to }}
                         @else
                             {{ $training->day }}
                         @endif
@@ -27,7 +29,7 @@
                             @if ($training->type == 1)
                                 <small>{{ __('workshop')  }}</small> {{ $training->date }}
                             @elseif ($training->type == 2)
-                                <small>{{ __('Kemp')  }}</small> {{ $training->date }}
+                                <small>{{ __('Kemp')  }}</small> {{ $training->date }} - {{ $training->date_to }}
                             @else
                                 <small>{{ __('Kroužek')  }}</small> {{ $training->day }}
                             @endif
@@ -40,15 +42,35 @@
                         <div class="row">
                             <div class="col">
                                 <dl class="row">
-                                    <dt class="col-sm-6">{{ __('Adresa') }}</dt>
-                                    <dd class="col-sm-6">{{ $training->address }}</dd>
+
                                     @if ($training->type == 1)
+                                        <dt class="col-sm-6">{{ __('Adresa') }}</dt>
+                                        <dd class="col-sm-6">{{ $training->address }}</dd>
+
                                         <dt class="col-sm-6">{{ __('Datum') }}</dt>
                                         <dd class="col-sm-6">{{ $training->date }}</dd>
 
                                         <dt class="col-sm-6">{{ __('Čas') }}</dt>
                                         <dd class="col-sm-6">{{ $training->time }}</dd>
+
+                                        <dt class="col-sm-6">{{ __('Trenér') }}</dt>
+                                        <dd class="col-sm-6">{{ $training->trainer }}</dd>
+                                    @elseif ($training->type == 2)
+                                        <dt class="col-sm-6">{{ __('Adresa') }}</dt>
+                                        <dd class="col-sm-6">{{ $training->address }}</dd>
+
+                                        <dt class="col-sm-6">{{ __('Popis') }}</dt>
+                                        <dd class="col-sm-6">{{ $training->text }}</dd>
+
+                                        <dt class="col-sm-6">{{ __('Datum od') }}</dt>
+                                        <dd class="col-sm-6">{{ $training->date }}</dd>
+
+                                        <dt class="col-sm-6">{{ __('Datum do') }}</dt>
+                                        <dd class="col-sm-6">{{ $training->date_to }}</dd>
                                     @else
+                                        <dt class="col-sm-6">{{ __('Adresa') }}</dt>
+                                        <dd class="col-sm-6">{{ $training->address }}</dd>
+
                                         <dt class="col-sm-6">{{ __('Den') }}</dt>
                                         <dd class="col-sm-6">{{ $training->day }}</dd>
 
@@ -57,10 +79,10 @@
 
                                         <dt class="col-sm-6">{{ __('Čas') }}</dt>
                                         <dd class="col-sm-6">{{ $training->time }}</dd>
-                                    @endif
 
-                                    <dt class="col-sm-6">{{ __('Trenér') }}</dt>
-                                    <dd class="col-sm-6">{{ $training->trainer }}</dd>
+                                        <dt class="col-sm-6">{{ __('Trenér') }}</dt>
+                                        <dd class="col-sm-6">{{ $training->trainer }}</dd>
+                                    @endif
 
                                     <dt class="col-sm-6">{{ __('Kapacita') }}</dt>
                                     <dd class="col-sm-6">{{ $training->capacity }}</dd>
@@ -199,6 +221,8 @@
                         <h5 class="modal-title">
                             @if ($training->type == 1)
                                 {{ __('Upravit workshop')  }}
+                            @elseif ($training->type == 2)
+                                {{ __('Upravit kemp')  }}
                             @else
                                 {{ __('Upravit kroužek')  }}
                             @endif
@@ -214,21 +238,21 @@
                             </div>
                         @endif
 
-                        <div class="form-group{{ $errors->has('address') ? ' has-error' : '' }}">
-                            <label for="address">{{ __('Adresa') }}</label>
-                            <input
-                                type="text"
-                                class="form-control"
-                                id="address"
-                                name="address"
-                                value="{{ old('address', $training->address) }}"
-                            >
-                            @if($errors->has('address'))
-                                <span class="help-block">{{ $errors->first('address') }}</span>
-                            @endif
-                        </div>
-
                             @if ($training->type == 1)
+                                <div class="form-group{{ $errors->has('address') ? ' has-error' : '' }}">
+                                    <label for="address">{{ __('Adresa') }}</label>
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        id="address"
+                                        name="address"
+                                        value="{{ old('address', $training->address) }}"
+                                    >
+                                    @if($errors->has('address'))
+                                        <span class="help-block">{{ $errors->first('address') }}</span>
+                                    @endif
+                                </div>
+
                                 <div class="form-group{{ $errors->has('date') ? ' has-error' : '' }}">
                                     <label for="date">{{ __('Datum') }}</label>
                                     <input
@@ -238,7 +262,7 @@
                                         name="date"
                                         placeholder="dd.mm. rrrr"
                                         required
-                                        value="{{ old('date', $training->date()->format('j.n. Y')) }}"
+                                        value="{{ old('date', $training->date()) }}"
                                     >
                                     @if($errors->has('date'))
                                         <span class="help-block">{{ $errors->first('date') }}</span>
@@ -259,7 +283,99 @@
                                         <span class="help-block">{{ $errors->first('time') }}</span>
                                     @endif
                                 </div>
+
+                                <div class="form-group{{ $errors->has('trainer') ? ' has-error' : '' }}">
+                                    <label for="trainer">{{ __('Trenér') }}</label>
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        id="trainer"
+                                        name="trainer"
+                                        value="{{ old('trainer', $training->trainer) }}"
+                                    >
+                                    @if($errors->has('trainer'))
+                                        <span class="help-block">{{ $errors->first('trainer') }}</span>
+                                    @endif
+                                </div>
+
+                            @elseif ($training->type == 2)
+
+                                <div class="form-group{{ $errors->has('address') ? ' has-error' : '' }}">
+                                    <label for="address">{{ __('Adresa') }}</label>
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        id="address"
+                                        name="address"
+                                        value="{{ old('address', $training->address) }}"
+                                    >
+                                    @if($errors->has('address'))
+                                        <span class="help-block">{{ $errors->first('address') }}</span>
+                                    @endif
+                                </div>
+
+                                <div class="form-group{{ $errors->has('text') ? ' has-error' : '' }}">
+                                    <label for="text">{{ __('Popis') }}</label>
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        id="text"
+                                        name="text"
+                                        value="{{ old('text', $training->text) }}"
+                                    >
+                                    @if($errors->has('text'))
+                                        <span class="help-block">{{ $errors->first('text') }}</span>
+                                    @endif
+                                </div>
+
+                                <div class="form-group{{ $errors->has('date') ? ' has-error' : '' }}">
+                                    <label for="date">{{ __('Datum od') }}</label>
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        id="date"
+                                        name="date"
+                                        placeholder="dd.mm. rrrr"
+                                        required
+                                        value="{{ old('date', $training->date()) }}"
+                                    >
+                                    @if($errors->has('date'))
+                                        <span class="help-block">{{ $errors->first('date') }}</span>
+                                    @endif
+                                </div>
+
+                                <div class="form-group{{ $errors->has('date_to') ? ' has-error' : '' }}">
+                                    <label for="date_to">{{ __('Datum do') }}</label>
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        id="date_to"
+                                        name="date_to"
+                                        placeholder="dd.mm. rrrr"
+                                        required
+                                        value="{{ old('date_to', $training->dateTo()) }}"
+                                    >
+                                    @if($errors->has('date_to'))
+                                        <span class="help-block">{{ $errors->first('date_to') }}</span>
+                                    @endif
+                                </div>
+
+
                             @else
+                                <div class="form-group{{ $errors->has('address') ? ' has-error' : '' }}">
+                                    <label for="address">{{ __('Adresa') }}</label>
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        id="address"
+                                        name="address"
+                                        value="{{ old('address', $training->address) }}"
+                                    >
+                                    @if($errors->has('address'))
+                                        <span class="help-block">{{ $errors->first('address') }}</span>
+                                    @endif
+                                </div>
+
                                 <div class="form-group{{ $errors->has('day') ? ' has-error' : '' }}">
                                     <label for="day">{{ __('Den') }}</label>
                                     <input
@@ -289,7 +405,7 @@
                                 </div>
 
                                 <div class="form-group{{ $errors->has('time') ? ' has-error' : '' }}">
-                                    <label for="time">{{ __('čas') }}</label>
+                                    <label for="time">{{ __('Čas') }}</label>
                                     <input
                                         type="text"
                                         class="form-control"
@@ -302,21 +418,23 @@
                                         <span class="help-block">{{ $errors->first('time') }}</span>
                                     @endif
                                 </div>
+
+                                <div class="form-group{{ $errors->has('trainer') ? ' has-error' : '' }}">
+                                    <label for="trainer">{{ __('Trenér') }}</label>
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        id="trainer"
+                                        name="trainer"
+                                        value="{{ old('trainer', $training->trainer) }}"
+                                    >
+                                    @if($errors->has('trainer'))
+                                        <span class="help-block">{{ $errors->first('trainer') }}</span>
+                                    @endif
+                                </div>
                             @endif
 
-                        <div class="form-group{{ $errors->has('trainer') ? ' has-error' : '' }}">
-                            <label for="trainer">{{ __('Trenér') }}</label>
-                            <input
-                                type="text"
-                                class="form-control"
-                                id="trainer"
-                                name="trainer"
-                                value="{{ old('trainer', $training->trainer) }}"
-                            >
-                            @if($errors->has('trainer'))
-                                <span class="help-block">{{ $errors->first('trainer') }}</span>
-                            @endif
-                        </div>
+
 
                         <div class="form-group{{ $errors->has('capacity') ? ' has-error' : '' }}">
                             <label for="capacity">{{ __('Kapacita') }}</label>

@@ -93,6 +93,12 @@ class TrainingsController extends Controller
             unset($data['date']);
         }
 
+        if (!empty($data['date_to'])) {
+            $data['date_to'] = \DateTime::createFromFormat('j.n. Y', $data['date_to']);
+        } else {
+            unset($data['date_to']);
+        }
+
         $training = new Training($data);
         $training->save();
 
@@ -153,6 +159,11 @@ class TrainingsController extends Controller
                 'capacity' => 'required',
                 'price'    => 'required',
             ]);
+        } elseif ($training->type == 2) {
+            $validator = \Illuminate\Support\Facades\Validator::make($data, [
+                'capacity' => 'required',
+                'price'    => 'required',
+            ]);
         } else {
             $validator = \Illuminate\Support\Facades\Validator::make($data, [
                 'day'      => 'required',
@@ -168,6 +179,12 @@ class TrainingsController extends Controller
             $data['date'] = \DateTime::createFromFormat('j.n. Y', $data['date']);
         } else {
             unset($data['date']);
+        }
+
+        if (!empty($data['date_to'])) {
+            $data['date_to'] = \DateTime::createFromFormat('j.n. Y', $data['date_to']);
+        } else {
+            unset($data['date_to']);
         }
 
         if ($validator->fails()) {
