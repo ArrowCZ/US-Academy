@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CampText extends Migration
+class OrderDatePaid extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class CampText extends Migration
      */
     public function up()
     {
-        Schema::table('trainings', function (Blueprint $table) {
-            $table->string('text', 1024)->nullable();
+        Schema::table('orders', function (Blueprint $table) {
+            $table->date('date_paid')->nullable();
         });
     }
 
@@ -25,8 +25,8 @@ class CampText extends Migration
      */
     public function down()
     {
-        Schema::table('trainings', function (Blueprint $table) {
-            $table->dropColumn('text');
+        Schema::table('orders', function (Blueprint $table) {
+            $table->dropColumn('date_paid');
         });
     }
 }

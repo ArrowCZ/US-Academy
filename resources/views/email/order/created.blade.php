@@ -2,9 +2,10 @@
     Dobrý den!<br>
 
     @if ($training->type == 1)
-        právě jste se přihlásili na náš parkourový workshop Urban Sense {{ $training->date()->format('j.n. Y') }} ve městě {{ $city->name }}.
+        právě jste se přihlásili na náš parkourový workshop Urban Sense {{ $training->date() }} ve městě {{ $city->name }}.
     @elseif ($training->type == 2)
-        právě jste se přihlásili na náš parkourový kemp Urban Sense {{ $training->date()->format('j.n. Y') }} ve městě {{ $city->name }}.
+        právě jste si rezervovali místo na příměstksém táboře Urban Sense
+        ve městě {{ $city->name }} v termínu {{ $training->date() }} - {{ $training->dateTo() }}.
     @else
         @if ($was_sub)
             Právě se uvolnilo místo na parkour kroužek v Urban Sense Academy
@@ -36,6 +37,10 @@
         5-ti dnů od přihlášení.
     </p>
 @elseif ($training->type == 2)
+    <p>
+        Brzy Vám zašleme na Vámi uvedený e-mail přesný program tábora a veškeré informace s doplňujícími formuláři
+        nezbytné pro úplnou registraci na příměstský tábor.
+    </p>
 @else
     <p>
         Pro úplnou registraci do Urban Sense Academy je potřeba provést platbu za kroužek do 5-ti dnů od přijetí tohoto e-mailu.
@@ -44,29 +49,35 @@
 
 
 @if ($training->type != 2)
-<p>
-    Instrukce pro provedení platby:<br>
-    <br>
-    Částka: {{ $order->price }},-<br>
+    <p>
+        Instrukce pro provedení platby:<br>
+        <br>
+        Částka: {{ $order->price }},-<br>
 
-    @if ($training->type == 1)
-        Číslo účtu: 2501178527/2010 <br>
-        IBAN: CZ5020100000002501178527 <br>
-        BIC/SWIFT: FIOBCZPPXXX <br>
-    @else
-        @if ($city->name === 'Jihlava')
-            Číslo účtu: 2001483613/2010 <br>
-            IBAN: CZ3920100000002001483613 <br>
+        @if ($training->type == 1)
+            Číslo účtu: 2501178527/2010 <br>
+            IBAN: CZ5020100000002501178527 <br>
             BIC/SWIFT: FIOBCZPPXXX <br>
         @else
-            Číslo účtu: 2901483600/2010 <br>
-            IBAN: CZ1020100000002901483600 <br>
-            BIC/SWIFT: FIOBCZPPXXX <br>
+            @if ($city->name === 'Jihlava')
+                Číslo účtu: 2001483613/2010 <br>
+                IBAN: CZ3920100000002001483613 <br>
+                BIC/SWIFT: FIOBCZPPXXX <br>
+            @else
+                Číslo účtu: 2901483600/2010 <br>
+                IBAN: CZ1020100000002901483600 <br>
+                BIC/SWIFT: FIOBCZPPXXX <br>
+            @endif
         @endif
-    @endif
 
-    Variabilní symbol: {{ $order->id }}<br>
-</p>
+        Variabilní symbol: {{ $order->id }}<br>
+    </p>
+@else
+    <p>
+        Vaše účast na příměstksém táboře je platná od zaslání platby {{ $order->price }},- .
+        <br>
+        Informace k platbě Vám zašleme společně se zbytkem informačních dokumentů.
+    </p>
 @endif
 
 @if ($training->type == 1)

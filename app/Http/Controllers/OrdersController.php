@@ -113,7 +113,7 @@ class OrdersController extends Controller
                     break;
                 case 1:
                     $this->generatePdf($order, $training, $city);
-
+                    $order->date_paid = new \DateTime();
                     $mail = new OrderPaid($order, $city, $training);
 
                     $mail->attach(base_path() . '/files/' . $order->id, ['as' => 'faktura.pdf']);
@@ -203,13 +203,15 @@ class OrdersController extends Controller
     private function generatePdf(Order $order, Training $training, City $city): Mpdf {
         $account = $city->name == 'Jihlava' ? '2001483613/2010' : '2901483600/2010';
 
-        $vystaveni = $order->created_at->format('j.n.Y');
-        $splatnost = clone $order->created_at;
+        $vystaveni = $order->date_paid ? new \DateTime($order->date_paid) : new \DateTime();
+        $splatnost = clone $vystaveni;
+
+        $vystaveni = $vystaveni->format('j.n.Y');
         $splatnost->add(new \DateInterval('P7D'));
         $splatnost = $splatnost->format('j.n.Y');
 
         if ($training->type == 1) {
-            $thing = "Jednodenní parkour workshop ve městě {$city->name} ({$training->date()->format('j.n. Y')})";
+            $thing = "Jednodenní parkour workshop ve městě {$city->name} ({$training->date()})";
         } else {
             $thing = "Půlroční poplatek za kroužek parkouru ve městě {$city->name} ({$training->season})";
         }

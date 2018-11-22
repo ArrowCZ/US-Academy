@@ -89,7 +89,7 @@
                                         <dd class="col-sm-6">{{ $city->name }}</dd>
 
                                         <dt class="col-sm-6">{{ __('Datum') }}</dt>
-                                        <dd class="col-sm-6">{{ $training->date()->format('j.n. Y') }}</dd>
+                                        <dd class="col-sm-6">{{ $training->date() }}</dd>
 
                                         <dt class="col-sm-6">{{ __('Čas') }}</dt>
                                         <dd class="col-sm-6">{{ $training->time }}</dd>

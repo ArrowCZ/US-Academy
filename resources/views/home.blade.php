@@ -198,7 +198,7 @@
                                 <th>Cena</th>
                                 <th>Město</th>
                                 <th>Již přihlášených</th>
-                                <th>Den</th>
+                                <th>Datum</th>
                                 <th></th>
                             </tr>
                             @foreach ($city->getTrainings(2) as $training)
@@ -206,7 +206,7 @@
                                     <td><b>{{ $training->price }} Kč</b></td>
                                     <td><b>{{ $city->name }}</b></td>
                                     <td class="move"><b>{{ min($training->paid_count(), $training->capacity) }}/{{ $training->capacity }}</b></td>
-                                    <td>{{ $training->date() }}</td>
+                                    <td>{{ $training->date() }} - {{ $training->dateTo() }}</td>
                                     <td>
                                         <a href="#page3" class="no-decor">
                                             <a href="{{ route('detail', ['training' => $training->id]) }}"
