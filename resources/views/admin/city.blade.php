@@ -160,7 +160,11 @@
                             @foreach($city->getTrainings(2) as $training)
                                 <tr>
                                     <th>{{ $training->id }}</th>
-                                    <td>{{ $training->date }}</td>
+                                    <td>
+                                        {{ $training->date }}
+                                        -
+                                        {{ $training->date_to }}
+                                    </td>
                                     <td>{{ $training->paid_count() }}
                                         <small>({{$training->new_count()}})</small>
                                         / {{ $training->capacity }}</td>
@@ -558,7 +562,7 @@
                         @endif
 
                         <div class="form-group{{ $errors->has('date') ? ' has-error' : '' }}">
-                            <label for="date">{{ __('Datum') }}</label>
+                            <label for="date">{{ __('Datum od') }}</label>
                             <input
                                 type="text"
                                 class="form-control"
@@ -573,6 +577,22 @@
                             @endif
                         </div>
 
+                            <div class="form-group{{ $errors->has('date_to') ? ' has-error' : '' }}">
+                                <label for="date">{{ __('Datum do') }}</label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    id="date_to"
+                                    name="date_to"
+                                    placeholder="dd.mm. rrrr"
+                                    required
+                                    value="{{ old('date_to') }}"
+                                >
+                                @if($errors->has('date_to'))
+                                    <span class="help-block">{{ $errors->first('date_to') }}</span>
+                                @endif
+                            </div>
+
                         <div class="form-group{{ $errors->has('address') ? ' has-error' : '' }}">
                             <label for="address">{{ __('Adresa') }}</label>
                             <input
@@ -585,6 +605,21 @@
                             >
                             @if($errors->has('address'))
                                 <span class="help-block">{{ $errors->first('address') }}</span>
+                            @endif
+                        </div>
+
+                        <div class="form-group{{ $errors->has('text') ? ' has-error' : '' }}">
+                            <label for="text">{{ __('Popis') }}</label>
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="text"
+                                name="text"
+                                required
+                                value="{{ old('text') }}"
+                            >
+                            @if($errors->has('text'))
+                                <span class="help-block">{{ $errors->first('text') }}</span>
                             @endif
                         </div>
 

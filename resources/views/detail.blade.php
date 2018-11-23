@@ -28,7 +28,7 @@
                 @if ($training->type == 1)
                     WORKSHOP
                 @elseif ($training->type == 2)
-                    KEMP
+                    PŘÍMĚSTSKÝ TÁBOR
                 @else
                     PARKOUR KROUŽEK
                 @endif
@@ -43,7 +43,11 @@
             @if ($training->type == 1)
                 <div class="blok">
                     <div class="blok-text" id="cas">
-                        <p><b>DATUM</b><br><span>{{ $training->date()->format('j.n. Y') }}</span></p>
+                        <p>
+                            <b>DATUM</b>
+                            <br>
+                            <span>{{ $training->date() }}</span>
+                        </p>
                     </div>
                 </div>
 
@@ -66,13 +70,13 @@
             @elseif ($training->type == 2)
                 <div class="blok">
                     <div class="blok-text" id="cas">
-                        <p><b>DATUM</b><br><span>{{ $training->date()->format('j.n. Y') }}</span></p>
+                        <p><b>DATUM</b><br><span>{{ $training->date() }} - {{  $training->dateTo()  }}</span></p>
                     </div>
                 </div>
 
                 <div class="blok">
                     <div class="blok-text" id="den">
-                        <p><b></b><br><span></span></p>
+                        <p><b>POPIS</b><br><span>{{ $training->text }}</span></p>
                     </div>
                 </div>
 
@@ -115,18 +119,19 @@
                         <p><b>TRENÉR</b><br><span>{{ $training->trainer }}</span></p>
                     </div>
                 </div>
+
+                <div class="blok">
+                    <div class="blok-text" id="mesto">
+                        <p>
+                            <b>ADRESA</b>
+                            <br>
+                            <span>{{ $training->address }}</span>
+                            <br>
+                        </p>
+                    </div>
+                </div>
             @endif
 
-            <div class="blok">
-                <div class="blok-text" id="mesto">
-                    <p>
-                        <b>ADRESA</b>
-                        <br>
-                        <span>{{ $training->address }}</span>
-                        <br>
-                    </p>
-                </div>
-            </div>
             <div class="blok">
                 <div class="blok-text" id="mista">
                     <p><b>VOLNÁ MÍSTA</b><br><span>{{ $training->free_count() }} VOLNÝCH MÍST</span></p>
