@@ -51,6 +51,8 @@ class CitiesController extends Controller
         ]);
 
         if ($validator->fails()) {
+            return $validator->getMessageBag();
+
             return redirect()->route('admin.cities')->withErrors($validator)->withInput();
         }
 

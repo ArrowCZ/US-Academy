@@ -238,58 +238,21 @@
                             </div>
                         @endif
 
-                        <div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
-                            <label for="name">{{ __('Název') }}</label>
-                            <input
-                                type="text"
-                                class="form-control"
-                                id="name"
-                                name="name"
-                                value="{{ old('name', $city->name) }}"
-                            >
-                            @if($errors->has('name'))
-                                <span class="help-block">{{ $errors->first('name') }}</span>
-                            @endif
-                        </div>
+                        @component('admin.input', ['type' => 'text', 'name' => 'name', 'default' => $city->name])
+                            {{ __('Název') }}
+                        @endcomponent
 
                         <div class="row">
                             <div class="col">
-                                <div class="form-group{{ $errors->has('x') ? ' has-error' : '' }}">
-                                    <label for="x">{{ __('X') }}</label>
-                                    <input
-                                        type="number"
-                                        class="form-control"
-                                        id="x"
-                                        name="x"
-                                        min="0"
-                                        max="100"
-                                        placeholder="0 - 100"
-                                        value="{{ old('x', $city->x) }}"
-                                    >
-                                    @if($errors->has('x'))
-                                        <span class="help-block">{{ $errors->first('x') }}</span>
-                                    @endif
-                                </div>
+                                @component('admin.input', ['type' => 'number', 'name' => 'x', 'default' => $city->x, 'min' => 0, 'max' => 100])
+                                    {{ __('X') }}
+                                @endcomponent
                             </div>
 
                             <div class="col">
-                                <div class="form-group{{ $errors->has('y') ? ' has-error' : '' }}">
-                                    <label for="y">{{ __('Y') }}</label>
-                                    <input
-                                        type="number"
-                                        class="form-control"
-                                        id="y"
-                                        name="y"
-                                        min="0"
-                                        max="100"
-                                        required
-                                        placeholder="0 - 100"
-                                        value="{{ old('y', $city->y) }}"
-                                    >
-                                    @if($errors->has('y'))
-                                        <span class="help-block">{{ $errors->first('y') }}</span>
-                                    @endif
-                                </div>
+                                @component('admin.input', ['type' => 'number', 'name' => 'y', 'default' => $city->y, 'min' => 0, 'max' => 100])
+                                    {{ __('Y') }}
+                                @endcomponent
                             </div>
                         </div>
                     </div>
