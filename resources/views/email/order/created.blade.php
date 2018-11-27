@@ -4,7 +4,7 @@
     @if ($training->type == 1)
         právě jste se přihlásili na náš parkourový workshop Urban Sense {{ $training->date() }} ve městě {{ $city->name }}.
     @elseif ($training->type == 2)
-        právě jste si rezervovali místo na příměstksém táboře Urban Sense
+        právě jste si rezervovali místo na příměstském táboře Urban Sense
         ve městě {{ $city->name }} v termínu {{ $training->date() }} - {{ $training->dateTo() }}.
     @else
         @if ($was_sub)
@@ -74,7 +74,7 @@
     </p>
 @else
     <p>
-        Vaše účast na příměstksém táboře je platná od zaslání platby {{ $order->price }},- .
+        Vaše účast na příměstském táboře je platná od zaslání platby {{ $order->price }},- .
         <br>
         Informace k platbě Vám zašleme společně se zbytkem informačních dokumentů.
     </p>

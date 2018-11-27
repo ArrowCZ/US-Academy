@@ -7,7 +7,7 @@
 
             <ul id="nav-take">
                  <li class=""><a href="/#page2"> O NÁS </a></li>
-                <li class=""><a href="/#page3"> VÝBĚR KROUŽKŮ </a></li>
+                <li class=""><a href="/#page3"> VÝBĚR MĚST </a></li>
                 <li class=""><a href="/#page4"> KONTAKT </a></li>
             </ul>
         </div>
