@@ -2,7 +2,7 @@
     Dobrý den!<br>
 
     @if ($training->type == 1)
-        Potvrzujeme přijetí platby za Urban Sense Workshop {{ $training->date()->format('j.n. Y') }} ve městě {{ $city->name }}.<br>
+        Potvrzujeme přijetí platby za Urban Sense Workshop {{ $training->date() }} ve městě {{ $city->name }}.<br>
         V příloze Vám zasíláme fakturu za objednané služby.
     @else
         Potvrzujeme přijetí platby za pololetní parkour kroužek ({{ $training->season }}) v Urban Sense Academy!<br>
@@ -13,7 +13,7 @@
 <br>
 Rekapitulace / Čas a místo: <br>
 @if ($training->type == 1)
-    {{ $training->date()->format('j.n. Y') }} {{ $training->time }}
+    {{ $training->date() }} {{ $training->time }}
 @else
     {{ $training->day }}, {{ $training->time }}<br>
 @endif
