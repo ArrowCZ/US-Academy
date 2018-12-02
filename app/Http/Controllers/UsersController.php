@@ -32,20 +32,27 @@ class UsersController extends Controller
 
         if ($validator->fails()) {
             return redirect()
-                ->route('admin.users.index')
+                ->route('admin.users')
                 ->withErrors($validator)
                 ->withInput();
         }
 
-        $data['email'] = "{$data['email']}@usacademy.cz";
         $data['password'] = Hash::make($data['password']);
 
         $user = new User($data);
 
         $user->save();
 
-        return redirect()->route('admin.users.index')->with([
+        return redirect()->route('admin.users')->with([
             'status' => 'Uživatel byl vytvořen',
+        ]);
+    }
+
+    public function show($user_id) {
+        $user = User::findOrFail($user_id);
+
+        return view('admin.user')->with([
+            'user' => $user,
         ]);
     }
 }

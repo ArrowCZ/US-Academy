@@ -164,6 +164,10 @@ Route::resource('/admin/users', 'UsersController')->names([
     'index' => 'admin.users'
 ]);
 
+Route::resource('/admin/worked', 'WorkedController')->names([
+    'index' => 'admin.worked'
+]);
+
 Route::post('/admin/trainings/{training}/mail', 'TrainingsController@mail');
 
 Route::get('/console/migrate', function () {

@@ -91,7 +91,7 @@
                         @else
                             <div class="row">
                                 <div class="col">
-                                    <a class="card" href="#">
+                                    <a class="card" href="{{ route('admin.worked') }}">
                                         <div class="card-body">
                                             <h5 class="card-title">{{ __('Zapsat hodiny') }}</h5>
                                             <p class="card-text">{{ __('...')  }}</p>

@@ -30,4 +30,17 @@ class User extends Authenticatable
     public function isAdmin(): bool {
         return $this->name === 'admin';
     }
+
+    public function worked() {
+        return $this->hasMany('App\Worked');
+    }
+
+    public function hours() {
+        $hours = 0;
+        foreach($this->worked as $work) {
+            $hours += $work->hours;
+        }
+
+        return $hours;
+    }
 }
