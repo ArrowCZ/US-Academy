@@ -49,9 +49,9 @@
                         {{--<li class="nav-item">
                             <a class="nav-link" href="{{ route('admin.orders') }}">{{ __('Objednávky') }}</a>
                         </li>--}}
-                        <li class="nav-item">
+                        {{--<li class="nav-item">
                             <a class="nav-link" href="{{ route('admin.cities') }}">{{ __('Města') }}</a>
-                        </li>
+                        </li>--}}
                         {{--<li class="nav-item">
                             <a class="nav-link" href="{{ route('admin.trainings') }}">{{ __('Kroužky') }}</a>
                         </li>--}}

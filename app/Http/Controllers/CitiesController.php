@@ -14,6 +14,7 @@ class CitiesController extends Controller
      */
     public function __construct() {
         $this->middleware('auth');
+        $this->middleware('isAdmin');
     }
 
     /**
@@ -51,8 +52,6 @@ class CitiesController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return $validator->getMessageBag();
-
             return redirect()->route('admin.cities')->withErrors($validator)->withInput();
         }
 

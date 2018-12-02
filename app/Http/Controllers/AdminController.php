@@ -8,7 +8,6 @@
 
 namespace App\Http\Controllers;
 
-
 use App\Order;
 
 class AdminController extends Controller
