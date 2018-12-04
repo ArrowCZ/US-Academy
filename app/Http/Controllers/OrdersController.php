@@ -313,8 +313,8 @@ class OrdersController extends Controller
             <div class='do-header'>Odběratel:</div>
             <div class='do-text'>
              {$order->name} <br>
-                &nbsp;<br>
-                &nbsp;
+                {$order->city}&nbsp;{$order->street}<br>
+                {$order->postal_code}&nbsp;
             </div>
             <br><br>
         </td>
