@@ -22,6 +22,7 @@ Route::get('/cities', function () {
 
     foreach (\App\City::All() as $city) {
         if (count($city->trainings)) {
+            unset($city->trainings);
             $cities[] = $city;
         }
     }
