@@ -34,6 +34,18 @@ class CityTableSeeder extends Seeder
                     factory(\App\Order::class, $m2)->create(['training_id' => $training->id]);
                 }
             }
+
+            $max = rand(0, 5);
+            if ($max) {
+                for ($i = 0; $i < $max; $i++) {
+                    $training = factory(\App\Training::class)->make();
+                    $training->type = 2;
+                    $city->trainings()->save($training);
+
+                    $m2 = rand(0, 5);
+                    factory(\App\Order::class, $m2)->create(['training_id' => $training->id]);
+                }
+            }
         });
     }
 }
