@@ -20,6 +20,36 @@
         <div class="card-body">
             @include('admin.layout.status')
 
+            <div class="row">
+                <div class="col">
+                    <dl class="row">
+                        <dt class="col-sm-6">{{ __('Jméno') }}</dt>
+                        <dd class="col-sm-6">{{ $user->name }}</dd>
+        
+                        <dt class="col-sm-6">{{ __('Funkce') }}</dt>
+                        <dd class="col-sm-6">{{ $user->function }}</dd>
+        
+                        <dt class="col-sm-6">{{ __('Plat (Kč/h)') }}</dt>
+                        <dd class="col-sm-6">{{ $user->payment }}</dd>
+                        
+                        <dt class="col-sm-6">{{ __('Email') }}</dt>
+                        <dd class="col-sm-6">{{ $user->email }}</dd>
+        
+                        <dt class="col-sm-6">{{ __('Telefon') }}</dt>
+                        <dd class="col-sm-6">{{ $user->phone }}</dd>
+                    </dl>
+                </div>
+
+                <div class="col text-right">
+                    <button
+                        type="button"
+                        class="btn btn-success"
+                        data-toggle="modal" data-target="#editUserModal"
+                    >{{ __('Upravit')  }}
+                    </button>
+                </div>
+            </div>
+
             <table class="table">
                 <thead class="thead-dark">
                 <tr>
@@ -43,5 +73,7 @@
         </div>
     </div>
 </div>
+
+@include('admin.users.edit')
 
 @endsection

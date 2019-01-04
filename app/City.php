@@ -18,7 +18,7 @@ class City extends Model
     protected $fillable = [ 'name', 'x', 'y' ];
 
     public function trainings() {
-        return $this->hasMany(Training::class);
+        return $this->hasMany(Training::class)->orderBy('created_at', 'desc');
     }
 
     public function getTrainings(int $type) {

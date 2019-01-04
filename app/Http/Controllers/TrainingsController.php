@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\City;
+use App\Image;
 use App\Mail\MassTraining;
 use App\Order;
 use App\Training;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Mail\Mailable;
 
@@ -27,7 +29,7 @@ class TrainingsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        return view('admin.trainings');
+        //return view('admin.trainings');
     }
 
     /**
@@ -53,30 +55,28 @@ class TrainingsController extends Controller
             default:
                 $validator = \Illuminate\Support\Facades\Validator::make($data, [
                     'city_id'  => 'required',
-                    'day'      => 'required',
+                    /*'day'      => 'required',
                     'time'     => 'required',
                     'season'   => 'required',
-                    'trainer'  => 'required',
                     'capacity' => 'required',
-                    'price'    => 'required',
+                    'price'    => 'required',*/
                 ]);
                 break;
 
             case 1:
                 $validator = \Illuminate\Support\Facades\Validator::make($data, [
                     'city_id'  => 'required',
-                    'date'     => 'required',
-                    'trainer'  => 'required',
+                    /*'date'     => 'required',
                     'capacity' => 'required',
-                    'price'    => 'required',
+                    'price'    => 'required',*/
                 ]);
                 break;
 
             case 2:
                 $validator = \Illuminate\Support\Facades\Validator::make($data, [
                     'city_id'  => 'required',
-                    'date'     => 'required',
-                    'price'    => 'required',
+                    /*'date'     => 'required',
+                    'price'    => 'required',*/
                 ]);
                 break;
         }
@@ -121,11 +121,14 @@ class TrainingsController extends Controller
 
         $new_orders = $training->state(1);
 
+        $users = User::where('name', '<>', 'admin')->get();
+
         return view('admin.training')
             ->with([
                 'training'   => $training,
                 'city'       => $city,
                 'new_orders' => $new_orders,
+                'users'      => $users,
             ]);
     }
 
@@ -152,6 +155,8 @@ class TrainingsController extends Controller
         $training = Training::findOrFail($id);
 
         $data = $request->all();
+        $data['hidden'] = !empty($data['hidden']);
+        $data['advanced'] = !empty($data['advanced']);
 
         if ($training->type == 1) {
             $validator = \Illuminate\Support\Facades\Validator::make($data, [
@@ -170,7 +175,7 @@ class TrainingsController extends Controller
                 'day'      => 'required',
                 'time'     => 'required',
                 'season'   => 'required',
-                'trainer'  => 'required',
+                //'trainer'  => 'required',
                 'capacity' => 'required',
                 'price'    => 'required',
             ]);
@@ -256,5 +261,33 @@ class TrainingsController extends Controller
         return redirect()
             ->route('trainings.show', [ 'training' => $id ])
             ->with('status', "Hromadný mail byl poslán {$count} lidem.");
+    }
+
+    public function image(Request $request, $id) {
+        $training = Training::findOrFail($id);
+
+        if ($request->hasFile('image')) {
+            
+            foreach ($training->images as $image) {
+                $image->delete();
+            }
+
+            $image = new Image();
+            $image->training_id = $training->id;
+            $image->path = '';
+            $image->width = 0;
+            $image->height = 0;
+            $image->save();
+
+            $path = $image->id . '.' . $request->image->extension();
+            $request->image->storeAs('img', $path, 'public');
+
+            $image->path =  'img/' . $path;
+            $image->save();
+        }
+        
+        return redirect()
+        ->route('trainings.show', [ 'training' => $id ])
+        ->with('status', 'Obrázek byl nahrán.');
     }
 }

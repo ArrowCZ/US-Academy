@@ -33,6 +33,11 @@ class Training extends Model
         'date',
         'date_to',
         'text',
+        'difficulty',
+        'age',
+        'hidden',
+        'leader_id',
+        'advanced',
     ];
 
     /**
@@ -42,6 +47,18 @@ class Training extends Model
         return $this->hasMany(Order::class);
     }
 
+    public function leader() {
+        return $this->belongsTo(User::class);
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany|Image[]
+     */
+    public function images() {
+        return $this->hasMany(Image::class);
+    }
+
+    
     public function new_count() {
         $count = 0;
         foreach ($this->orders as $order) {

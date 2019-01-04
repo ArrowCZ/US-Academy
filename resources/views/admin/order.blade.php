@@ -6,7 +6,7 @@
             <div class="col">
                 <div class="breadcrumb">
                     <div class="breadcrumb-item"><a href="{{ route('admin') }}">{{ __('Nástěnka') }}</a></div>
-                    <div class="breadcrumb-item"><a href="{{ route('admin.cities') }}">{{ __('Města')  }}</a></div>
+                    <div class="breadcrumb-item"><a href="{{ route('admin.cities') }}">{{ __('Města') }}</a></div>
                     <div class="breadcrumb-item"><a href="/admin/cities/{{ $city->id }}">{{ $city->name }}</a></div>
                     <div class="breadcrumb-item"><a href="/admin/trainings/{{ $training->id }}">
                         {{ $training->day }}
@@ -22,7 +22,8 @@
                 <div class="card">
                     <div class="card-header">
                         <h1 class="h2">
-                            <small>{{ __('Objednávka')  }}</small> {{ $order->name }}
+                            <small>{{ __('Objednávka')  }}</small>
+                            {{ $order->name }}
                         </h1>
                     </div>
 
@@ -30,7 +31,7 @@
                         @include('admin.layout.status')
 
                         <div class="h4">
-                            Stav: <strong> {{ $order->_state() }} </strong>
+                            Stav: <strong>{{ $order->_state() }}</strong>
                         </div>
 
                         <div class="row">

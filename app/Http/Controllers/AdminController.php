@@ -30,7 +30,7 @@ class AdminController extends Controller
         $orders = Order::all()->whereIn('state', [0, 3]);
 
         return view('admin.dashboard')->with([
-            'orders' => $orders
+            'orders' => $orders->reverse(),
         ]);
     }
 }

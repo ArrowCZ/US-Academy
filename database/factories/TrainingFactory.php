@@ -12,5 +12,7 @@ $factory->define(\App\Training::class, function (Faker $faker) {
         'price'    => $faker->numberBetween(1000, 5000),
         'time'     => $faker->time() . ' - ' . $faker->time(),
         'date'     => $faker->date(),
+        'hidden'   => $faker->numberBetween(1, 10) > 8,
+        'advanced' => $faker->numberBetween(0, 1),
     ];
 });

@@ -19,6 +19,12 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Validator;
 
 Route::get('/', function () {
+    
+    if (file_exists(public_path('index.html'))) {
+        return include public_path('index.html');
+    }
+
+
     $cities = [];
 
     foreach (\App\City::All() as $city) {
@@ -29,6 +35,30 @@ Route::get('/', function () {
 
     return view('home')->with('cities', $cities);
 })->name('home');
+
+Route::get('/{city}/{training}', function () {
+   // if (file_exists(public_path('index.html'))) {
+    return include __DIR__ . '/../www/index.html';
+    // }
+})->where('city', '[0-9]+');
+
+Route::get('/gdpr', function () {
+   // if (file_exists(public_path('index.html'))) {
+        return include __DIR__ . '/../www/index.html';
+   // }
+});
+
+Route::get('/podminky', function () {
+    // if (file_exists(public_path('index.html'))) {
+        return include __DIR__ . '/../www/index.html';
+   // }
+});
+
+Route::get('/rezervace', function () {
+    // if (file_exists(public_path('index.html'))) {
+        return include __DIR__ . '/../www/index.html';
+   // }
+});
 
 Route::view('/legal', 'legal')->name('legal');
 Route::view('/terms', 'terms')->name('terms');
@@ -139,7 +169,6 @@ Route::post('/form/{training}', function (Request $request, $training) {
     return redirect()->route('success');//->with('status', 'Byl jste zapsan. Ocekavejte instrukce emailem.');
 });
 
-
 Auth::routes();
 
 Route::get('/admin', 'AdminController@index')->name('admin');
@@ -169,6 +198,7 @@ Route::resource('/admin/worked', 'WorkedController')->names([
 ]);
 
 Route::post('/admin/trainings/{training}/mail', 'TrainingsController@mail');
+Route::post('/admin/trainings/{training}/image', 'TrainingsController@image');
 
 Route::get('/console/migrate', function () {
     return Artisan::call('migrate');

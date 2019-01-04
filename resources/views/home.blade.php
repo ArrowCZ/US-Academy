@@ -137,21 +137,23 @@
                                 <th></th>
                             </tr>
                             @foreach ($city->getTrainings(0) as $training)
-                                <tr>
-                                    <td><b>{{ $training->price }} Kč</b></td>
-                                    <td><b>{{ $city->name }}</b></td>
-                                    <td class="move"><b>{{ min($training->paid_count(), $training->capacity) }}/{{ $training->capacity }}</b></td>
-                                    <td>{{ $training->day }}</td>
-                                    <td>{{ $training->time }}</td>
-                                    <td>
-                                        <a href="#page3" class="no-decor">
-                                            <a href="{{ route('detail', ['training' => $training->id]) }}"
-                                                class="button_prihlasit" style="text-decoration: none;">
-                                                <p>{{ __('DETAIL') }}</p>
+                                @if (empty($training->hidden))) 
+                                    <tr>
+                                        <td><b>{{ $training->price }} Kč</b></td>
+                                        <td><b>{{ $city->name }}</b></td>
+                                        <td class="move"><b>{{ min($training->paid_count(), $training->capacity) }}/{{ $training->capacity }}</b></td>
+                                        <td>{{ $training->day }}</td>
+                                        <td>{{ $training->time }}</td>
+                                        <td>
+                                            <a href="#page3" class="no-decor">
+                                                <a href="{{ route('detail', ['training' => $training->id]) }}"
+                                                    class="button_prihlasit" style="text-decoration: none;">
+                                                    <p>{{ __('DETAIL') }}</p>
+                                                </a>
                                             </a>
-                                        </a>
-                                    </td>
-                                </tr>
+                                        </td>
+                                    </tr>
+                                @endif
                             @endforeach
                         </table>
                 </div>
@@ -170,21 +172,23 @@
                             </tr>
 
                             @foreach ($city->getTrainings(1) as $training)
-                                <tr>
-                                    <td><b>{{ $training->price }} Kč</b></td>
-                                    <td><b>{{ $city->name }}</b></td>
-                                    <td class="move"><b>{{ min($training->paid_count(), $training->capacity) }}/{{ $training->capacity }}</b></td>
-                                    <td>{{ $training->date() }}</td>
-                                    <td>{{ $training->time }}</td>
-                                    <td>
-                                        <a href="#page3" class="no-decor">
-                                            <a href="{{ route('detail', ['training' => $training->id]) }}"
-                                                class="button_prihlasit workshop_button" style="text-decoration: none;">
-                                                <p>{{ __('DETAIL') }}</p>
+                                @if (empty($training->hidden)))
+                                    <tr>
+                                        <td><b>{{ $training->price }} Kč</b></td>
+                                        <td><b>{{ $city->name }}</b></td>
+                                        <td class="move"><b>{{ min($training->paid_count(), $training->capacity) }}/{{ $training->capacity }}</b></td>
+                                        <td>{{ $training->date() }}</td>
+                                        <td>{{ $training->time }}</td>
+                                        <td>
+                                            <a href="#page3" class="no-decor">
+                                                <a href="{{ route('detail', ['training' => $training->id]) }}"
+                                                    class="button_prihlasit workshop_button" style="text-decoration: none;">
+                                                    <p>{{ __('DETAIL') }}</p>
+                                                </a>
                                             </a>
-                                        </a>
-                                    </td>
-                                </tr>
+                                        </td>
+                                    </tr>
+                                @endif
                             @endforeach
                         </table>
                 </div>
@@ -202,20 +206,22 @@
                                 <th></th>
                             </tr>
                             @foreach ($city->getTrainings(2) as $training)
-                                <tr>
-                                    <td><b>{{ $training->price }} Kč</b></td>
-                                    <td><b>{{ $city->name }}</b></td>
-                                    <td class="move"><b>{{ min($training->paid_count(), $training->capacity) }}/{{ $training->capacity }}</b></td>
-                                    <td>{{ $training->date() }} - {{ $training->dateTo() }}</td>
-                                    <td>
-                                        <a href="#page3" class="no-decor">
-                                            <a href="{{ route('detail', ['training' => $training->id]) }}"
-                                                class="button_prihlasit workshop_button" style="text-decoration: none;">
-                                                <p>{{ __('DETAIL') }}</p>
+                                @if (empty($training->hidden)))
+                                    <tr>
+                                        <td><b>{{ $training->price }} Kč</b></td>
+                                        <td><b>{{ $city->name }}</b></td>
+                                        <td class="move"><b>{{ min($training->paid_count(), $training->capacity) }}/{{ $training->capacity }}</b></td>
+                                        <td>{{ $training->date() }} - {{ $training->dateTo() }}</td>
+                                        <td>
+                                            <a href="#page3" class="no-decor">
+                                                <a href="{{ route('detail', ['training' => $training->id]) }}"
+                                                    class="button_prihlasit workshop_button" style="text-decoration: none;">
+                                                    <p>{{ __('DETAIL') }}</p>
+                                                </a>
                                             </a>
-                                        </a>
-                                    </td>
-                                </tr>
+                                        </td>
+                                    </tr>
+                                @endif
                             @endforeach
                         </table>
 

@@ -24,6 +24,38 @@
         <div id="cara4"></div>
         <div class="nadpis1" id="legal-nadpis"><h1>OCHRANA OSOBNÍCH ÚDAJŮ</h1></div>
         <div id="legal-text">
+
+            <p>
+                Ochrana osobních údajů přihlášeného, který je fyzickou osobou, je poskytována zákonem č. 101/2000 Sb., 
+                o ochraně osobních údajů, ve znění pozdějších předpisů.
+            </p>
+            <br>
+            <p>
+                Přihlášený souhlasí se zpracováním těchto svých osobních údajů: 
+                jméno a příjmení, adresa bydliště, identifikační číslo, daňové identifikační číslo, 
+                adresa elektronické pošty, telefonní číslo a (dále společně vše jen jako „osobní údaje“).
+            </p>
+            <br>
+            <p>
+                Přihlášený souhlasí se zpracováním osobních údajů prodávajícím, 
+                a to pro účely realizace práv a povinností z přihlášky. 
+                Nezvolí-li přihlášený jinou možnost, souhlasí se zpracováním osobních údajů poskytovatele, 
+                také pro účely zasílání informací a obchodních sdělení přihlášenému. 
+                Souhlas se zpracováním osobních údajů v celém rozsahu dle tohoto článku není podmínkou, 
+                která by sama o sobě znemožňovala vypsání přihlášky.
+            </p>
+            <br>
+            <p>
+                Přihlášený bere na vědomí, 
+                že je povinen své osobní údaje (při přihlášení provedené z webového rozhraní obchodu) uvádět správně 
+                a pravdivě a že je povinen bez zbytečného odkladu informovat poskytovatele o změně ve svých osobních údajích.
+            </p>
+            <br>
+            <p>
+                Přihlášený potvrzuje, že poskytnuté osobní údaje jsou přesné a že byl poučen o tom, že se jedná o dobrovolné poskytnutí osobních údajů.
+            </p>
+
+            {{--}}
             <p>
                 Stisknutím tlačítka "Objednat", souhlasíte s tím, že vás můžeme telefonicky a emailem kontaktovat za účelem řešení ochrany pojistných rizik Vás a Vaší rodiny.<br><br>
                 Zároveň se můžete těšit na zajímavé informace z oboru financí,
@@ -40,6 +72,7 @@
                 která provozuje webové stránky skakejvpoho.cz, boneo.cz. Vaše osobní údaje zpracováváme jako správce, tj. určujeme, jak budou osobní údaje zpracovávány a za jakým účelem,
                 po jak dlouhou dobu a vybíráme případné další zpracovatele, kteří nám se zpracováním budou pomáhat.
             </p>
+            {{--}}
         </div>
     </div>
 

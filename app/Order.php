@@ -19,6 +19,7 @@ class Order extends Model
         'postal_code',
         'company',
         'tin',
+        'vat',
         'insurance',
         'pid_number',
         'condition',

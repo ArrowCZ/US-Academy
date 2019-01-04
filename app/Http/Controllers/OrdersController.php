@@ -217,6 +217,8 @@ class OrdersController extends Controller
             $thing = "Půlroční poplatek za kroužek parkouru ve městě {$city->name} ({$training->season})";
         }
         
+        $name = $order->company ?: $order->name;
+
         $mpdf = new Mpdf([
             'margin_left'   => 21,
             'margin_right'  => 21,
@@ -312,9 +314,10 @@ class OrdersController extends Controller
         <td>
             <div class='do-header'>Odběratel:</div>
             <div class='do-text'>
-             {$order->name} <br>
+                {$name}<br>
                 {$order->city}&nbsp;{$order->street}<br>
-                {$order->postal_code}&nbsp;
+                {$order->postal_code}&nbsp;<br>
+                {$order->tin} {$order->vat} &nbsp;
             </div>
             <br><br>
         </td>

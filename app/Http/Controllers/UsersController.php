@@ -55,4 +55,14 @@ class UsersController extends Controller
             'user' => $user,
         ]);
     }
+
+    public function update(Request $request, $id) {
+        $data = $request->all();
+
+        $user = User::findOrFail($id);
+        $user->fill($data);
+        $user->save();
+
+        return redirect()->route('users.show', ['user' => $id])->with(['status' => 'Uživatel byl upraven.']);
+    }
 }

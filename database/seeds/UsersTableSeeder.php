@@ -18,5 +18,9 @@ class UsersTableSeeder extends Seeder
         ]);
 
         $user->save();
+
+        for ($i = 0; $i < 3; $i++) {
+            $user = factory(\App\User::class)->create();
+        }
     }
 }

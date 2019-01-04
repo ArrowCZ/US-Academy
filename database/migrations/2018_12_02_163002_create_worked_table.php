@@ -18,6 +18,7 @@ class CreateWorkedTable extends Migration
 
             $table->date('date');
             $table->integer('hours');
+            
             $table->unsignedInteger('city_id');
             $table->foreign('city_id')->references('id')->on('cities');
 

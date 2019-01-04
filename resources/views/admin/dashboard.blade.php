@@ -20,7 +20,7 @@
                                     <a class="card" href="{{ route('admin.cities') }}">
                                         <div class="card-body">
                                             <h5 class="card-title">{{ __('Města') }}</h5>
-                                            <p class="card-text">{{ __('přehled')  }}</p>
+                                            <p class="card-text">{{ __('přehled') }}</p>
                                         </div>
                                     </a>
                                 </div>
@@ -33,7 +33,7 @@
                                     <a class="card" href="{{ route('admin.users') }}">
                                         <div class="card-body">
                                             <h5 class="card-title">{{ __('Uživatelé') }}</h5>
-                                            <p class="card-text">{{ __('přehled')  }}</p>
+                                            <p class="card-text">{{ __('přehled') }}</p>
                                         </div>
                                     </a>
                                 </div>
@@ -74,7 +74,7 @@
                                                         <a
                                                             href="/admin/orders/{{ $order->id }}"
                                                             class="btn btn-primary"
-                                                        >{{ __('Detail')  }}</a>
+                                                        >{{ __('Detail') }}</a>
                                                     </td>
                                                 </tr>
                                             @endforeach
@@ -94,12 +94,11 @@
                                     <a class="card" href="{{ route('admin.worked') }}">
                                         <div class="card-body">
                                             <h5 class="card-title">{{ __('Zapsat hodiny') }}</h5>
-                                            <p class="card-text">{{ __('...')  }}</p>
+                                            <p class="card-text">{{ __('...') }}</p>
                                         </div>
                                     </a>
                                 </div>
                             </div>
-                                
                         @endif
                     </div>
                 </div>
