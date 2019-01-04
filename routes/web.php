@@ -54,7 +54,7 @@ Route::get('/podminky', function () {
    // }
 });
 
-Route::get('/rezervace', function () {
+Route::get('/rezervace/{training?}', function () {
     // if (file_exists(public_path('index.html'))) {
         return include __DIR__ . '/../www/index.html';
    // }
