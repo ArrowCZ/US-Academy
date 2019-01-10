@@ -60,13 +60,26 @@ Route::get('/rezervace/{training?}', function () {
    // }
 });
 
-Route::view('/legal', 'legal')->name('legal');
-Route::view('/terms', 'terms')->name('terms');
-Route::view('/success', 'success')->name('success');
+Route::get('/legal', function(){
+    Redirect::away('https://usacademy.cz');
+    header('Location: https://www.usacademy.cz', true, 301);
+})->name('legal');
+Route::get('/terms', function(){
+    Redirect::away('https://usacademy.cz');
+    header('Location: https://www.usacademy.cz', true, 301);
+})->name('terms');
+Route::get('/success', function(){
+    Redirect::away('https://usacademy.cz');
+    header('Location: https://www.usacademy.cz', true, 301);
+})->name('success');
 
 //Route::view('/form', 'form')->name('form');
 
 Route::get('/detail/{training}', function ($training_id) {
+    Redirect::away('https://usacademy.cz');
+    header('Location: https://www.usacademy.cz', true, 301);
+    return;
+
     $training = Training::findOrFail($training_id);
     $city = \App\City::findOrFail($training->city_id);
 
@@ -74,6 +87,10 @@ Route::get('/detail/{training}', function ($training_id) {
 })->name('detail');
 
 Route::get('/form/{training}', function ($training) {
+    Redirect::away('https://usacademy.cz');
+    header('Location: https://www.usacademy.cz', true, 301);
+    return;
+
     $training = Training::findOrFail($training);
     $city = \App\City::findOrFail($training->city_id);
 
@@ -81,6 +98,10 @@ Route::get('/form/{training}', function ($training) {
 });
 
 Route::post('/form/{training}', function (Request $request, $training) {
+    Redirect::away('https://usacademy.cz');
+    header('Location: https://www.usacademy.cz', true, 301);
+    return;
+
     /** @var Training $training */
     $training = Training::findOrFail($training);
     /** @var \App\City $city */
