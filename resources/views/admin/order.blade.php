@@ -139,14 +139,11 @@
                                     {{ __('Změnit stav')  }}
                                 </button>
 
-                                @if ($training->type == 1)
-                                @else
-                                    <br><br>
-                                    <button type="button" class="btn btn-success" data-toggle="modal"
-                                        data-target="#editTrainingModal">
-                                        {{ __('Změnit kroužek')  }}
-                                    </button>
-                                @endif
+                                <br><br>
+                                <button type="button" class="btn btn-success" data-toggle="modal"
+                                    data-target="#editTrainingModal">
+                                    {{ __('Změnit kroužek / workshop / kemp')  }}
+                                </button>
 
                                 <br><br>
                                 <a href="{{ route('inovice', $order->id) }}" class="btn btn-success">
@@ -337,7 +334,7 @@
                     @csrf
 
                     <div class="modal-header">
-                        <h5 class="modal-title" id="editTrainingModalLabel">{{ __('Změnit kroužek objednávky')  }}</h5>
+                        <h5 class="modal-title" id="editTrainingModalLabel">{{ __('Změnit kroužek / workshop / kemp objednávky')  }}</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -356,9 +353,11 @@
                                     @if ($_training->type === $training->type)
                                         <option value="{{ $_training->id }}">
                                             @if ($training->type == 1)
+                                                {{ $_city->name }} -
                                                 {{ $_training->date }} -
                                                 {{ $_training->time }}
                                             @elseif ($training->type == 2)
+                                                {{ $_city->name }} -
                                                 {{ $_training->date }}
                                                 {{ $_training->date_to }}
                                             @else
