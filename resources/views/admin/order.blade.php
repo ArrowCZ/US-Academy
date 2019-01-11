@@ -353,15 +353,25 @@
                         <select class="custom-select" name="training_id">
                             @foreach ($cities as $_city)
                                 @foreach ($_city->trainings as $_training)
-                                    <option value="{{ $_training->id }}">
-                                        {{ $_city->name }} -
-                                        {{ $_training->day }} -
-                                        {{ $_training->trainer }} -
+                                    @if ($_training->type === $training->type)
+                                        <option value="{{ $_training->id }}">
+                                            @if ($training->type == 1)
+                                                {{ $_training->date }} -
+                                                {{ $_training->time }}
+                                            @elseif ($training->type == 2)
+                                                {{ $_training->date }}
+                                                {{ $_training->date_to }}
+                                            @else
+                                                {{ $_city->name }} -
+                                                {{ $_training->day }} -
+                                                {{ $_training->season }} -
+                                            @endif
 
-                                        {{ $_training->paid_count() }}
-                                        <small>({{$_training->new_count()}})</small>
-                                        / {{ $_training->capacity }}
-                                    </option>
+                                            {{ $_training->paid_count() }}
+                                            <small>({{$_training->new_count()}})</small>
+                                            / {{ $_training->capacity }}
+                                        </option>
+                                    @endif
                                 @endforeach
                             @endforeach
                         </select>
