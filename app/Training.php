@@ -101,10 +101,10 @@ class Training extends Model
     }
 
     public function date(): ?string {
-        return $this->date ? (new DateTime($this->date))->format('j.n. Y') : null;
+        return $this->date ? (new DateTime($this->date))->format('j.n.Y') : null;
     }
 
     public function dateTo(): ?string {
-        return $this->date_to ? (new DateTime($this->date_to))->format('j.n. Y') : null;
+        return $this->date_to ? (new DateTime($this->date_to))->format('j.n.Y') : null;
     }
 }
