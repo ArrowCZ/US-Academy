@@ -19,21 +19,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Validator;
 
 Route::get('/', function () {
-    
-    if (file_exists(public_path('index.html'))) {
-        return include public_path('index.html');
-    }
-
-
-    $cities = [];
-
-    foreach (\App\City::All() as $city) {
-        if (count($city->trainings)) {
-            $cities[] = $city;
-        }
-    }
-
-    return view('home')->with('cities', $cities);
+    return include __DIR__ . '/../www/index.html';
 })->name('home');
 
 Route::get('/{city}/{training}', function () {

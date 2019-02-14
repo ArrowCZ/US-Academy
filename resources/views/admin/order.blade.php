@@ -363,6 +363,7 @@
                                             @else
                                                 {{ $_city->name }} -
                                                 {{ $_training->day }} -
+                                                {{ $_training->time }} -
                                                 {{ $_training->season }} -
                                             @endif
 
